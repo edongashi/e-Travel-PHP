@@ -39,7 +39,7 @@ echo "\r\n";
 <body>
 <header>
   <nav>
-    <ul><?php
+    <ul class="menu"><?php
 foreach ($config["menu_links"] as $emri => $linku)
 {
   if (is_string($linku))
@@ -49,7 +49,7 @@ foreach ($config["menu_links"] as $emri => $linku)
   else 
   {
     echo indent(6) . "<li>";
-    echo indent(8) . "$emri <span class=\"shigjeta\">&#9660;</span>";
+    echo indent(8) . "<a>$emri <span class=\"shigjeta\">&#9660;</span></a>";
     echo indent(8) . "<ul class=\"nen-menu\">";
     foreach ($linku as $nen_emri => $nen_linku)
     {

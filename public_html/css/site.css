@@ -1,0 +1,119 @@
+body	{
+  padding: 100px 0 0 0;
+  margin: 0 auto;
+  font-family: Calibri, sans-serif;
+}
+
+section {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  padding: 20px;
+}
+
+p {
+  font-size: 17px;
+}
+
+section.permbajtje {
+  padding: 12px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.permbajtje {
+  margin: 0 auto;
+  padding: 0 12px;
+  max-width: 960px;
+}
+
+.menu {
+			border: 1px solid #ccc;
+			border-width: 1px 0;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+}
+
+.menu li {
+	position: relative;
+	display: inline;
+}
+
+.menu a {
+	display: inline-block;
+	padding: 10px;
+}
+
+.menu .shigjeta {
+    font-size: 12px;
+    line-height: 0%;
+}
+
+.menu ul {
+	position: absolute;
+  left: 0;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity linear 0.15s;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+}
+
+.menu ul li {
+	display: block;
+}
+
+.menu li:hover ul {    
+  z-index:1;
+  opacity:1;
+}
+
+.menu li:hover a {
+	text-decoration: underline;
+	background: #f1f1f1;
+}
+
+.menu li:hover ul a {
+	text-decoration: none;
+	background: none;
+}
+
+.menu li:hover ul a:hover {
+	text-decoration: underline;
+	background: #f1f1f1;
+}
+
+.menu ul a {
+	white-space: nowrap;
+	display: block;
+	border-bottom: 1px solid ccc;
+}
+
+a {
+	color: #c00;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+a:hover {
+	text-decoration: underline;
+	background: #f1f1f1;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 35px;
+  color: #fff;
+  background: #333;;
+}
+
+footer .permbajtje {
+  font-size: 15px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
