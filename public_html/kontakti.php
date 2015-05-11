@@ -1,4 +1,4 @@
-<form name="kontaktforma" method="post" action="EmailDergimi.php">
+<form name="kontaktforma" method="post" action="dergo_mail.php">
  
 <table width="450px">
  
