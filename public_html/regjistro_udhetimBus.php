@@ -4,7 +4,7 @@
         <form method="Post" action="<?php echo $_SERVER['PHP_SELF'];?>">
         <table>
             <th>
-                Regjistro Udhetim
+                Regjistro Udhetim Autobus
             </th>
             <tr>
                 <td>Prej:</td>
@@ -37,6 +37,9 @@
                 <td>Data e nisjes</td><td><input type="date" name="data"></td>
             </tr>
             <tr>
+                <td>Cmimi i biletes</td><td><input type="number" name="cmimi" value="0" style="width:50px;"> &#8364;</td>
+            </tr>
+            <tr>
                 <td></td><td><input type="submit" value="Regjistro"> <input type="reset" value="Anulo"></td>
             </tr>
         </table>
@@ -48,7 +51,7 @@
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
         
-    if($_POST['prej'] == ""  || $_POST['deri'] == "" || $_POST['nrulse'] == "0" || $_POST['data'] == ""){
+    if($_POST['prej'] == ""  || $_POST['deri'] == "" || $_POST['nrulse'] == "0" || $_POST['data'] == "" || $_POST['cmimi'] == "0"){
         echo "Ploteso te gjitha fushat!";
         die();
     }
@@ -59,10 +62,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $deri = $_POST['deri'];
     $nrulse = $_POST['nrulse'];
     $data = $_POST['data'];
+    $cmimi = $_POST['cmimi'];
 
     $db = new DB();
 
-    $sql = "Insert into udhetimet(Prej, Deri, Ulese, Data) Values ('$prej', '$deri', $nrulse, '$data')";
+    $sql = "Insert into udhetimetbus(Prej, Deri, Ulese, Data, Cmimi) Values ('$prej', '$deri', $nrulse, '$data', $cmimi)";
     $db->Insert($sql);
 }
 

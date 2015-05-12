@@ -48,14 +48,27 @@ class DB{
         mysqli_close($this->connect);
     }
     
-    public function createTblUdhetimet(){
+    public function createTblUdhetimetBus(){
         $this->konektimi();
         // Create database
-        $sql = "CREATE TABLE udhetimet(Id integer PRIMARY KEY AUTO_INCREMENT, Prej varchar(50), Deri varchar(50), Ulese integer, Data date)";
+        $sql = "CREATE TABLE udhetimetBus(Id integer PRIMARY KEY AUTO_INCREMENT, Prej varchar(50), Deri varchar(50), Ulese integer, Data date, Cmimi integer)";
         if (mysqli_query($this->connect, $sql)) {
-            echo "U krijuar tabela Udhetimet";
+            echo "U krijuar tabela UdhetimetBus";
         } else {
-            echo "Ka ndodhur gabim ne krijimin e tabeles Udhetimet!";
+            echo "Ka ndodhur gabim ne krijimin e tabeles UdhetimetBus!";
+        }
+        
+        mysqli_close($this->connect);
+    }
+
+    public function createTblUdhetimetAeroplan(){
+        $this->konektimi();
+        // Create database
+        $sql = "CREATE TABLE udhetimetAeroplan(Id integer PRIMARY KEY AUTO_INCREMENT, Prej varchar(50), Deri varchar(50), Ulese integer, Data date, Cmimi integer)";
+        if (mysqli_query($this->connect, $sql)) {
+            echo "U krijuar tabela UdhetimetAeroplan";
+        } else {
+            echo "Ka ndodhur gabim ne krijimin e tabeles UdhetimetAeroplan!";
         }
         
         mysqli_close($this->connect);
