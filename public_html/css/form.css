@@ -2,7 +2,7 @@ form > table {
   width: 100%;
 }
 
-input, textarea {
+input, textarea, select {
   outline: none;
   line-height: normal;
   color: inherit;
@@ -14,21 +14,22 @@ input, textarea {
 .button {
   -webkit-border-radius: 11;
   -moz-border-radius: 11;
-  border: none;
   border-radius: 11px;
+  border: none;
   color: #ffffff;
   font-size: 18px;
   background: #d93434;
   padding: 8px 16px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .button:hover {
   background: #e83131;
 }
 
-.button:focus {
-  background: #a32626;
+.button:active {
+  background: #e00;
 }
 
 .button_vogel {
@@ -38,7 +39,8 @@ input, textarea {
 
 input[type=text],
 input[type=password],
-textarea {
+textarea,
+select {
   width: 100%;
   padding: 8px;
   border: solid 1px #ccc;
@@ -49,6 +51,10 @@ textarea {
   vertical-align: middle;
 }
 
+select {
+  padding: 6px 8px 4px 3px;
+}
+
 textarea {
   font-family: 'Open Sans', sans-serif;
   resize: vertical;
@@ -56,13 +62,15 @@ textarea {
 
 input[type=text]:hover,
 input[type=password]:hover,
-textarea:hover {
+textarea:hover,
+select:hover {
     border-color: #eb7171;
 }
 
 input[type=text]:focus,
 input[type=password]:focus,
-textarea:focus {
+textarea:focus,
+select:hover {
   border-color: #b90000;
 }
 
@@ -85,5 +93,5 @@ textarea:focus {
 }
 
 .tabela tbody tr:nth-child(odd) {
-  background: #fcf4f4
+  background: #fafafa
 }

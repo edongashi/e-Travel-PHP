@@ -30,6 +30,16 @@ p {
   font-size: 16px;
 }
 
+a {
+	color: #c00;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
 section.permbajtje {
   padding: 48px 12px;
 }
@@ -49,27 +59,6 @@ section.permbajtje {
 	text-align: center;
 }
 
-.menu li {
-	position: relative;
-	display: inline;
-}
-
-.menu a {
-	font-weight: normal;
-  font-size: 18px;
-	display: inline-block;
-  -webkit-border-radius: 5;
-  -moz-border-radius: 5;
-  border-radius: 5px;
-  transition: background linear 0.15s;
-	padding: 15px;
-}
-
-.menu .shigjeta {
-  font-size: 12px;
-  line-height: 0%;
-}
-
 .menu ul {
 	position: absolute;
   left: 0;
@@ -81,8 +70,35 @@ section.permbajtje {
 	text-align: left;
 }
 
+.menu li {
+	position: relative;
+	display: inline;
+}
+
 .menu ul li {
 	display: block;
+}
+
+.menu a {
+	font-weight: normal;
+  font-size: 18px;
+	display: inline-block;
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  transition: background linear 0.15s;
+	padding: 15px;
+  background: white;
+}
+
+.menu a:hover {
+  background: #f1f1f1;
+  text-decoration: none;
+}
+
+.menu .shigjeta {
+  font-size: 12px;
+  line-height: 0%;
 }
 
 .menu li:hover ul {    
@@ -90,36 +106,10 @@ section.permbajtje {
   opacity:1;
 }
 
-.menu li:hover a {
-	text-decoration: underline;
-	background: #f1f1f1;
-}
-
-.menu li:hover ul a {
-	text-decoration: none;
-	background: rgba(255, 255, 255, 0.5);;
-}
-
-.menu li:hover ul a:hover {
-	text-decoration: underline;
-	background: #f1f1f1;
-}
-
 .menu ul a {
 	white-space: nowrap;
 	display: block;
 	border-bottom: 1px solid ccc;
-}
-
-a {
-	color: #c00;
-	text-decoration: none;
-	font-weight: bold;
-}
-
-a:hover {
-	text-decoration: underline;
-	background: #f1f1f1;
 }
 
 footer {
