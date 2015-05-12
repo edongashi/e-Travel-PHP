@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+if(!isset($_SESSION['Username']) || !isset($_SESSION['Emri']) || !isset($_SESSION['Mbiemri']))
+{
+    header("Location: http://localhost/login.php");
+}
+
+?>
 <link rel="stylesheet" type="text/css" href="../css/Menaxhimi.css">
 <div>
   <div class="majtas">

@@ -78,9 +78,9 @@ require(templates_header);
  
 <tr>
  
- <td colspan="2" style="text-align: center; height: 60px;">
+ <td colspan="2" style="text-align: right; height: 60px;">
  
-  <input class="button" type="submit" value="Submit">
+  <input class="button" type="submit" value="Dergo">
  
  </td>
  
