@@ -50,7 +50,7 @@
 </html>
 
 <?php
-
+require_once("../resources/config.php");
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
         
     if($_POST['prej'] == ""  || $_POST['deri'] == "" || $_POST['nrulse'] == "0" || $_POST['data'] == "" || $_POST['cmimi'] == "0"){

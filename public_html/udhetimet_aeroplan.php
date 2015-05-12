@@ -27,7 +27,7 @@ $result = mysqli_query($connect, $sql); ?>
 <h2 style="margin-bottom:10px;">Udhetimet me aeroplan</h2>
 <?php
 if(mysqli_num_rows($result) >= 0){
-	echo "<form method='Post' action='regjistro.php'><input type='hidden' name='udhetimiId'>";
+	echo "<form method='Post' action='regjistro.php'><input type='hidden' id='udhetimiId' name='udhetimiId'>";
     echo "<table class='tabela' cellspacing='0'> <thead><th align='left'>Prej</th><th align='left'>Deri</th><th align='left'>Nr Ulseve</th><th align='left'>Data</th><th align='left'>Cmimi</th><th style='width: auto;'></th></thead>";
     while($row = mysqli_fetch_assoc($result)){
         echo "<tr><td>".$row['Prej']."</td><td>".$row['Deri']."</td><td>".$row['Ulese']."</td><td>".$row['Data']."</td><td>".$row['Cmimi']." &#8364;</td><td style='text-align: center'>"
