@@ -1,4 +1,13 @@
 <?php
+require_once("../resources/config.php");
+
+$header_titulli = "Ballina";
+$css_includes = "css/site.css";
+require(templates_header);
+
+?>
+<section class="permbajtje">
+<?php
 
     $servername = "localhost";
     $username = "root";
@@ -28,4 +37,8 @@
     mysqli_close($connect);
 
 ?>
+</section>
 
+<?php
+require(templates_footer);
+?>

@@ -20,7 +20,7 @@ $config = array(
     "menu_links" => array(
         "Ballina" => "index.php",
         "Udhetimet" => array(
-            "Autobus" => "autobus.php",
+            "Autobus" => "udhetimet.php",
             "Aeroplan" => "aeroplan.php",
         ),
         "Lokacionet" => "lokacionet.php",
