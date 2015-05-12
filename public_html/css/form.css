@@ -26,6 +26,11 @@ input, textarea {
   background: #e83131;
 }
 
+.button_vogel {
+  font-size: 16px;
+  padding: 6px 12px;
+}
+
 input[type=text],
 textarea {
   width: 100%;
@@ -51,4 +56,26 @@ textarea:hover {
 input[type=text]:focus,
 textarea:focus {
   border-color: #b90000;
+}
+
+.tabela {
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+}
+
+.tabela th {
+  padding: 10px 6px 6px 6px;
+  border-bottom: 2px solid #ddd;
+}
+
+.tabela td {
+  padding: 6px;
+}
+
+.tabela tr {
+  border-top: 1px solid #ddd;
+}
+
+.tabela tr:nth-child(even) {
+  background: #fcf4f4
 }
