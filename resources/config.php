@@ -4,9 +4,9 @@ $_DIR = str_replace('\\', '/', __DIR__);
 
 $config = array(
     "db" => array(
-        "dbname" => "database1",
-        "username" => "dbUser",
-        "password" => "pass",
+        "dbname" => "edb",
+        "username" => "root",
+        "password" => "",
         "host" => "localhost"
     ),
     "paths" => array(

@@ -5,12 +5,7 @@ $header_titulli = "Ballina";
 $css_includes = Array("css/form.css", "css/site.css");
 require(templates_header);
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "edb";
-
-$connect = mysqli_connect($servername, $username, $password, $database);
+$connect = mysqli_connect($config["db"]["host"], $config["db"]["username"], $config["db"]["password"], $config["db"]["dbname"]);
 // Check connection
 if (!$connect) {
     die("Connection failed!");
@@ -23,7 +18,7 @@ $result = mysqli_query($connect, $sql); ?>
 <section class="permbajtje">
 <h2 style="margin-bottom:10px;">Udhetimet me aeroplan</h2>
 <?php
-if(mysqli_num_rows($result) > 0){
+if(mysqli_num_rows($result) >= 0){
 	echo "<form method='Post' action='regjistro.php'><input type='hidden' name='udhetimiId'>";
     echo "<table class='tabela' cellspacing='0'> <thead><th align='left'>Prej</th><th align='left'>Deri</th><th align='left'>Nr Ulseve</th><th align='left'>Data</th><th align='left'>Cmimi</th><th style='width: auto;'></th></thead>";
     while($row = mysqli_fetch_assoc($result)){
@@ -31,8 +26,6 @@ if(mysqli_num_rows($result) > 0){
                 . "<input type='submit' value='Rezervo' class='button button_vogel' id='".$row['Id']."'></td></tr>";
     }
     echo "</form></table>";
-} else {
-    echo "0 results";
 }
 ?>
 

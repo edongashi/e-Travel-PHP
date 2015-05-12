@@ -8,14 +8,8 @@ require(templates_header);
 ?>
 <section class="permbajtje">
 <?php
-
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "edb";
-
-    
-    $connect = mysqli_connect($servername, $username, $password, $database);
+   
+    $connect = mysqli_connect($config["db"]["host"], $config["db"]["username"], $config["db"]["password"], $config["db"]["dbname"]);
     // Check connection
     if (!$connect) {
         die("Connection failed!");
