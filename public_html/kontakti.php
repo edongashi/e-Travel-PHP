@@ -1,16 +1,25 @@
-<form name="kontaktforma" method="post" action="dergo_mail.php">
+<?php
+require_once("../resources/config.php");
+
+$header_titulli = "Ballina";
+$css_includes = Array("css/form.css", "css/site.css");
+require(templates_header);
+?>
+
+<section class="permbajtje">
+<form style="width: 640px; margin: 30px auto;" name="kontaktforma" method="post" action="dergo_mail.php">
  
-<table width="450px">
+<table>
  
 <tr>
  
- <td valign="top">
+ <td valign="center">
  
   <label for="emri">Emri</label>
  
  </td>
  
- <td valign="top">
+ <td valign="center">
  
   <input  type="text" name="emri" maxlength="50" size="30">
  
@@ -20,13 +29,13 @@
  
 <tr>
  
- <td valign="top"">
+ <td valign="center"">
  
   <label for="mbiemri	">Mbiemri</label>
  
  </td>
  
- <td valign="top">
+ <td valign="center">
  
   <input  type="text" name="mbiemri" maxlength="50" size="30">
  
@@ -36,13 +45,13 @@
  
 <tr>
  
- <td valign="top">
+ <td valign="center">
  
   <label for="email">Email Address</label>
  
  </td>
  
- <td valign="top">
+ <td valign="center">
  
   <input  type="text" name="email" maxlength="80" size="30">
  
@@ -53,15 +62,15 @@
  
 <tr>
  
- <td valign="top">
+ <td valign="center">
  
   <label for="komenti">Permbajtja</label>
  
  </td>
  
- <td valign="top">
+ <td valign="center">
  
-  <textarea  name="komenti" maxlength="1000" cols="32" rows="5"></textarea>
+  <textarea name="komenti" maxlength="1000" cols="32" rows="5"></textarea>
  
  </td>
  
@@ -69,9 +78,9 @@
  
 <tr>
  
- <td colspan="2" style="text-align:center">
+ <td colspan="2" style="text-align: center; height: 60px;">
  
-  <input type="submit" value="Submit">
+  <input class="button" type="submit" value="Submit">
  
  </td>
  
@@ -80,3 +89,7 @@
 </table>
  
 </form>
+</section>
+<?php
+require(templates_footer);
+?>

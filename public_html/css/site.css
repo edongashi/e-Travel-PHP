@@ -2,6 +2,7 @@ body	{
   padding: 100px 0 0 0;
   margin: 0 auto;
   font-family: Calibri, sans-serif;
+  color: #333;
 }
 
 section {
@@ -27,12 +28,12 @@ section.permbajtje {
 }
 
 .menu {
-			border: 1px solid #ccc;
-			border-width: 1px 0;
-			list-style: none;
-			margin: 0;
-			padding: 0;
-			text-align: center;
+	border: 1px solid #ccc;
+	border-width: 1px 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
 }
 
 .menu li {
@@ -42,6 +43,10 @@ section.permbajtje {
 
 .menu a {
 	display: inline-block;
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  transition: background linear 0.15s;
 	padding: 10px;
 }
 
@@ -77,7 +82,7 @@ section.permbajtje {
 
 .menu li:hover ul a {
 	text-decoration: none;
-	background: none;
+	background: rgba(255, 255, 255, 0.5);;
 }
 
 .menu li:hover ul a:hover {

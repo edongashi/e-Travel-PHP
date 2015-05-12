@@ -1,0 +1,58 @@
+form > table {
+  width: 100%;
+}
+
+label {
+  font-size: 18px;
+}
+
+input, textarea {
+  outline: none;
+  line-height: normal;
+  color: inherit;
+  font-size: 16px;
+}
+
+.button {
+  -webkit-border-radius: 11;
+  -moz-border-radius: 11;
+  border: none;
+  border-radius: 11px;
+  color: #ffffff;
+  font-size: 20px;
+  background: #d93434;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: #e83131;
+}
+
+input[type=text],
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: solid 1px #ccc;
+  transition: border-color 0.15s;
+  -webkit-border-radius: 4;
+  -moz-border-radius: 4;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+
+textarea {
+  font-family: Calibri, sans-serif;
+  font-size: 19px;
+  resize: vertical;
+}
+
+input[type=text]:hover,
+textarea:hover {
+    border-color: #eb7171;
+}
+
+input[type=text]:focus,
+textarea:focus {
+  border-color: #b90000;
+}
