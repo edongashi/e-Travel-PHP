@@ -59,6 +59,11 @@ section.permbajtje {
 	text-align: center;
 }
 
+.menu li {
+	position: relative;
+	display: inline;
+}
+
 .menu ul {
 	position: absolute;
   left: 0;
@@ -68,15 +73,13 @@ section.permbajtje {
 	margin: 0;
 	padding: 0;
 	text-align: left;
-}
-
-.menu li {
-	position: relative;
-	display: inline;
+  border: 1px solid #ccc;
+  border-top: none;
 }
 
 .menu ul li {
 	display: block;
+  border-top: 1px solid #ccc;
 }
 
 .menu a {
@@ -109,7 +112,11 @@ section.permbajtje {
 .menu ul a {
 	white-space: nowrap;
 	display: block;
-	border-bottom: 1px solid ccc;
+}
+
+.error-msg {
+  color: #c00;
+  text-align: center;
 }
 
 footer {

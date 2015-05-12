@@ -11,7 +11,17 @@ function indent($level)
 <title>
 <?php if (isset($header_titulli)) echo "  " . $header_titulli . "\r\n"; ?>
 </title>
-<?php // Merr includes nga array ose string $css_includes
+<?php
+if (isset($include_jquery) && $include_jquery)
+{
+  echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">\r\n</script>';
+}
+
+if (isset($header_script))
+{
+  echo "<script>\r\n".$header_script."\r\n</script>";
+}
+// Merr includes nga array ose string $css_includes
 if (isset($css_includes))
 {
   if (is_array($css_includes))
