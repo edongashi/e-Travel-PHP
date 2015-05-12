@@ -56,7 +56,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         die();
     }
     
-    require "createDB.php";
+    require library."/createDB.php";
     
     $prej = $_POST['prej'];
     $deri = $_POST['deri'];

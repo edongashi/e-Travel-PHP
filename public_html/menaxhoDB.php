@@ -1,5 +1,5 @@
 <?php
-require 'createDB.php';
+require library."/createDB.php";
 if(isset($_POST['createDB']) && ($_SERVER['REQUEST_METHOD'] == "POST"))
 {
     $db = new DB;

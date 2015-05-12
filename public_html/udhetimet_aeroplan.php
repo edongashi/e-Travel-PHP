@@ -1,8 +1,16 @@
 <?php
 require_once("../resources/config.php");
 
-$header_titulli = "Ballina";
+$header_titulli = "Udhetimet Aeroplan";
 $css_includes = Array("css/form.css", "css/site.css");
+$include_jquery = true;
+$header_script = <<<END
+  $( document ).ready( function () {
+    $( ".id-submit" ).click ( function () {
+      $( "input[id=udhetimiId]" ).val( this.id );
+    });
+  });
+END;
 require(templates_header);
 
 $connect = mysqli_connect($config["db"]["host"], $config["db"]["username"], $config["db"]["password"], $config["db"]["dbname"]);
@@ -23,7 +31,7 @@ if(mysqli_num_rows($result) >= 0){
     echo "<table class='tabela' cellspacing='0'> <thead><th align='left'>Prej</th><th align='left'>Deri</th><th align='left'>Nr Ulseve</th><th align='left'>Data</th><th align='left'>Cmimi</th><th style='width: auto;'></th></thead>";
     while($row = mysqli_fetch_assoc($result)){
         echo "<tr><td>".$row['Prej']."</td><td>".$row['Deri']."</td><td>".$row['Ulese']."</td><td>".$row['Data']."</td><td>".$row['Cmimi']." &#8364;</td><td style='text-align: center'>"
-                . "<input type='submit' value='Rezervo' class='button button_vogel' id='".$row['Id']."'></td></tr>";
+                . "<input type='submit' value='Rezervo' class='button button_vogel id-submit' id='id_".$row['Id']."'></td></tr>";
     }
     echo "</form></table>";
 }

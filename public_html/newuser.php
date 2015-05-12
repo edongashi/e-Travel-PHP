@@ -3,7 +3,7 @@ require_once("../resources/config.php");
 
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
-    require 'createDB.php';
+    require library."/createDB.php";
     
     $db = new DB();
     

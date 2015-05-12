@@ -21,7 +21,7 @@
 </html>
 
 <?php
-require 'createDB.php';
+require library."/createDB.php";
 
 $db = new DB();
 

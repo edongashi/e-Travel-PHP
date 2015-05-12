@@ -12,6 +12,7 @@ $config = array(
     "paths" => array(
         "resources" => $_DIR,
         "templates" => $_DIR . "/templates",
+        "library" => $_DIR . "/library",
         "images" => array(
             "content" => $_DIR . "/images/content",
             "layout" => $_DIR . "/images/layout"
@@ -29,6 +30,7 @@ $config = array(
 );
 
 defined("templates") or define("templates", $_DIR . "/templates");
+defined("library") or define("library", $_DIR . "/library");
 defined("templates_header") or define("templates_header", $_DIR . "/templates/header.php");
 defined("templates_footer") or define("templates_footer", $_DIR . "/templates/footer.php");
 
