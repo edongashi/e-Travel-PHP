@@ -2,15 +2,12 @@ form > table {
   width: 100%;
 }
 
-label {
-  font-size: 18px;
-}
-
 input, textarea {
   outline: none;
   line-height: normal;
   color: inherit;
   font-size: 16px;
+  letter-spacing: 1px;
 }
 
 .button {
@@ -19,9 +16,9 @@ input, textarea {
   border: none;
   border-radius: 11px;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 18px;
   background: #d93434;
-  padding: 10px 20px 10px 20px;
+  padding: 8px 16px;
   text-decoration: none;
 }
 
@@ -42,8 +39,7 @@ textarea {
 }
 
 textarea {
-  font-family: Calibri, sans-serif;
-  font-size: 19px;
+  font-family: 'Open Sans', sans-serif;
   resize: vertical;
 }
 

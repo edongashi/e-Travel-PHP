@@ -50,7 +50,7 @@ foreach ($config["menu_links"] as $emri => $linku)
   {
     echo indent(6) . "<li>";
     echo indent(8) . "<a>$emri <span class=\"shigjeta\">&#9660;</span></a>";
-    echo indent(8) . "<ul class=\"nen-menu\">";
+    echo indent(8) . "<ul>";
     foreach ($linku as $nen_emri => $nen_linku)
     {
       echo indent(10) . "<li><a href=\"$nen_linku\">$nen_emri</a>";
