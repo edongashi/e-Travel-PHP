@@ -7,41 +7,6 @@ if(isset($_SESSION['Username']) && isset($_SESSION['Emri']) && isset($_SESSION['
     header("Location: http://localhost/Menaxhimi.html");
 }
 
-?>
-
-<html>
-    <head><title>Login</title></head>
-    <body>
-        <div style="width:100%;">
-        <div style="float:left; width:30%;">.</div>
-        <div style="float:left; width: 40%;" align="center">
-        <form method="Post" action="<?php echo $_SERVER['PHP_SELF'];?>">
-            <fieldset>
-                <legend>LOGIN</legend>
-                <table>
-                    <tr>
-                        <td>Username: </td><td><input type="text" name="username"></td>
-                    </tr>
-                    <tr>
-                        <td>Password: </td><td><input type="password" name="password"></td>
-                    </tr>
-                    <tr>
-                        <td></td><td align="right"><input type="submit" value="Login"> <input type="reset" value="Cancel"></td>
-                    </tr>
-                    <tr>
-                        <td><a href="newuser.php">Nuk keni user?</a></td>
-                    </tr>
-                </table>
-            </fieldset>
-        </form>
-        </div>
-        <div style="float:left; width:30%;"></div>
-        </div>
-    </body>
-</html>
-
-<?php
-
 if($_SERVER['REQUEST_METHOD'] == "POST"){
     
     $host = "localhost";
@@ -89,5 +54,34 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     mysqli_close($connect);
 }
 
+require_once("../resources/config.php");
 
+$header_titulli = "Ballina";
+$css_includes = Array("css/form.css", "css/site.css");
+require(templates_header);
+?>
+
+<section class="permbajtje">
+  <h1 style="text-align: center">Identifikohuni</h1>
+  <form method="Post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+    <table style="width: 400px; margin: 40px auto;">
+      <tr>
+        <td>Username: </td><td><input type="text" name="username"></td>
+      </tr>
+      <tr>
+        <td>Password: </td><td><input type="password" name="password"></td>
+      </tr>
+      <tr>
+        <td style="height: 40px; padding-top: 7px"><a href="newuser.php">Nuk keni user?</a></td>
+        <td align="right">
+          <input class="button button_vogel" type="submit" value="Login">
+          <input class="button button_vogel" type="reset" value="Cancel">
+        </td>
+      </tr>
+    </table>
+  </form>
+</section>
+
+<?php
+require(templates_footer);
 ?>

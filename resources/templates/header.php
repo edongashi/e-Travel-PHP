@@ -37,7 +37,8 @@ echo "\r\n";
 </head>
 
 <body>
-<header>
+<div class="page-wrap">
+<header style="padding-top: 100px;">
   <nav>
     <ul class="menu"><?php
 foreach ($config["menu_links"] as $emri => $linku)

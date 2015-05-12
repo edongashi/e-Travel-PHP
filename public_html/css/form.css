@@ -8,6 +8,7 @@ input, textarea {
   color: inherit;
   font-size: 16px;
   letter-spacing: 1px;
+  box-sizing: border-box;
 }
 
 .button {
@@ -26,12 +27,17 @@ input, textarea {
   background: #e83131;
 }
 
+.button:focus {
+  background: #a32626;
+}
+
 .button_vogel {
   font-size: 16px;
   padding: 6px 12px;
 }
 
 input[type=text],
+input[type=password],
 textarea {
   width: 100%;
   padding: 8px;
@@ -49,11 +55,13 @@ textarea {
 }
 
 input[type=text]:hover,
+input[type=password]:hover,
 textarea:hover {
     border-color: #eb7171;
 }
 
 input[type=text]:focus,
+input[type=password]:focus,
 textarea:focus {
   border-color: #b90000;
 }
@@ -76,6 +84,6 @@ textarea:focus {
   border-top: 1px solid #ddd;
 }
 
-.tabela tr:nth-child(even) {
+.tabela tbody tr:nth-child(odd) {
   background: #fcf4f4
 }
