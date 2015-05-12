@@ -14,11 +14,18 @@ if(isset($_POST['createUser']) && ($_SERVER['REQUEST_METHOD'] == "POST"))
     $db->createTblUser();
 }
 
-if(isset($_POST['createUdhetimet']) && ($_SERVER['REQUEST_METHOD'] == "POST"))
+if(isset($_POST['createUdhetimetBus']) && ($_SERVER['REQUEST_METHOD'] == "POST"))
 {
     $db = new DB;
     
-    $db->createTblUdhetimet();
+    $db->createTblUdhetimetBus();
+}
+
+if(isset($_POST['createUdhetimetAeroplan']) && ($_SERVER['REQUEST_METHOD'] == "POST"))
+{
+    $db = new DB;
+    
+    $db->createTblUdhetimetAeroplan();
 }
 
 if(isset($_POST['createLokacionet']) && ($_SERVER['REQUEST_METHOD'] == "POST"))
@@ -38,7 +45,9 @@ if(isset($_POST['createLokacionet']) && ($_SERVER['REQUEST_METHOD'] == "POST"))
         <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
             <input type="submit" value="Krijo tabelen User" name="createUser"></form>
         <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-            <input type="submit" value="Krijo tabelen Udhetimet" name="createUdhetimet"></form>
+            <input type="submit" value="Krijo tabelen UdhetimetBus" name="createUdhetimetBus"></form>
+        <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+            <input type="submit" value="Krijo tabelen UdhetimetAeroplan" name="createUdhetimetAeroplan"></form>
         <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
             <input type="submit" value="Krijo tabelen Lokacionet" name="createLokacionet"></form>
     </body>
