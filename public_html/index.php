@@ -3,10 +3,9 @@ require_once("../resources/config.php");
 
 $header_titulli = "Ballina";
 $css_includes = "css/site.css";
-require(templates_header);
-?>
+$script_includes = jquery;
 
-<script>
+$header_script = <<< SCRIPT
 $(document).ready(function(){
 	$(".item1").hide();
 	$(".item2").hide();
@@ -40,8 +39,9 @@ $(document).ready(function(){
 }
 	window.setInterval(Ndrrimi, 5000);
 });
-
-</script>
+SCRIPT;
+require(templates_header);
+?>
 
 <section class="permbajtje">
 <div id="slideshow" class="owl-carousel owl-theme">

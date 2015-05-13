@@ -55,9 +55,12 @@ $config = array(
     )
 );
 
-defined("templates") or define("templates", $_DIR . "/templates");
 defined("library") or define("library", $_DIR . "/library");
 defined("databaza") or define("databaza", $_DIR . "/library/databaza.php");
+
+defined("jquery") or define("jquery", "/js/jquery-2.1.4.min.js");
+
+defined("templates") or define("templates", $_DIR . "/templates");
 defined("templates_header") or define("templates_header", $_DIR . "/templates/header.php");
 defined("templates_footer") or define("templates_footer", $_DIR . "/templates/footer.php");
 defined("dashboard_header") or define("dashboard_header", $_DIR . "/templates/dashboard_header.php");
