@@ -119,6 +119,7 @@ section.permbajtje {
 .error-msg {
   color: #c00;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 footer {

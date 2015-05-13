@@ -1,60 +1,35 @@
 <?php
-
 session_start();
-
-if(isset($_SESSION['Username']) && isset($_SESSION['Emri']) && isset($_SESSION['Mbiemri']))
-{
+if (isset($_SESSION['Username']) && isset($_SESSION['Emri']) && isset($_SESSION['Mbiemri'])) {
     header("Location: http://localhost/menaxhimi/index.php");
 }
 
-if($_SERVER['REQUEST_METHOD'] == "POST"){
-    
-    $host = "localhost";
-    $dbuser = "root";
-    $dbpassword = "";
-    $database = "edb";
-    
-    if($_POST['username'] == "" || $_POST['password'] == ""){
-        echo "Ploteso fushat!";
-        die();
-    }
-
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $salt1 = "2%a@*/";
-    $salt2 = "&9o?>";
-
-    $connect = mysqli_connect($host, $dbuser, $dbpassword, $database);
-
-    if (!$connect) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
-
-    $password = sha1("$salt1$password$salt2");
-
-    $query = "Select * From user Where Username='$username' and Password='$password'";
-
-    $result = mysqli_query($connect, $query);
-
-    if(mysqli_num_rows($result) > 0)
-    {
-        $row = mysqli_fetch_assoc($result);
-
-        $_SESSION['Emri'] = $row["Emri"];
-        $_SESSION['Mbiemri'] = $row['Mbiemri'];
-        $_SESSION['Username'] = $row['Username'];
-
-        header("Location: http://localhost/menaxhimi/index.php");
-    }
-    else
-    {
-        echo "Nuk mund te qaseni";
-    }
-
-    mysqli_close($connect);
-}
-
 require_once("../resources/config.php");
+
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    if($_POST['username'] == "" || $_POST['password'] == "") {
+        $error_msg = htmlentities("Plotëso fushat!");
+    }
+    else {
+        require(databaza);
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $salt1 = "2%a@*/";
+        $salt2 = "&9o?>";
+        $password = sha1("$salt1$password$salt2");
+        $db = new repository;
+        $query = "Select * From user Where Username='$username' and Password='$password'";
+        $rows = $db->get_data($query);
+        if (count($rows) > 0) {
+            $_SESSION['Emri'] = $rows[0]["Emri"];
+            $_SESSION['Mbiemri'] = $rows[0]['Mbiemri'];
+            $_SESSION['Username'] = $rows[0]['Username'];
+            header("Location: http://localhost/menaxhimi/index.php");
+        } else {
+            $error_msg = htmlentities("Shfrytëzuesi ose fjalëkalimi i gabuar!");
+        }
+    }
+}
 
 $header_titulli = "Ballina";
 $css_includes = Array("css/form.css", "css/site.css");
@@ -64,7 +39,8 @@ require(templates_header);
 <section class="permbajtje">
   <h1 style="text-align: center">Identifikohuni</h1>
   <form method="Post" action="<?php echo $_SERVER['PHP_SELF'];?>">
-    <table style="width: 400px; margin: 40px auto;">
+    <table style="width: 400px; margin: 20px auto;">
+      <?php if (isset($error_msg)) echo "<tr><td colspan='2'><h4 class='error-msg'>$error_msg</h3></td></tr>"; ?>
       <tr>
         <td>Username: </td><td><input type="text" name="username"></td>
       </tr>
