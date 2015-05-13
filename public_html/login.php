@@ -4,7 +4,7 @@ session_start();
 
 if(isset($_SESSION['Username']) && isset($_SESSION['Emri']) && isset($_SESSION['Mbiemri']))
 {
-    header("Location: http://localhost/menaxhimi.php");
+    header("Location: http://localhost/menaxhimi/index.php");
 }
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
@@ -44,7 +44,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $_SESSION['Mbiemri'] = $row['Mbiemri'];
         $_SESSION['Username'] = $row['Username'];
 
-        header("Location: http://localhost/menaxhimi.php");
+        header("Location: http://localhost/menaxhimi/index.php");
     }
     else
     {

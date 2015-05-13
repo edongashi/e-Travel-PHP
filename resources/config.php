@@ -39,7 +39,8 @@ $config = array(
             "Aeroplan" => "regjistro_aeroplan.php",
         ),
         "Shto lokacion" => "regjistro_lokacione.php",
-        "Menaxho databazen" => "menaxhoDB.php"
+        "Menaxho databazen" => "menaxhoDB.php",
+		"Logout" => "../logout.php"
     ),
     "dashboard_links_user" => array(
         "Ballina" => "index.php",
@@ -48,7 +49,8 @@ $config = array(
             "Aeroplan" => "udhetimet_aeroplan.php",
         ),
         "Lokacionet" => "lokacionet.php",
-        "Kontakti" => "kontakti.php"
+        "Kontakti" => "kontakti.php",
+		"Logout" => "../logout.php"
     )
 );
 
