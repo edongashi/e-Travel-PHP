@@ -26,6 +26,7 @@ $config = array(
         ),
         "Lokacionet" => "lokacionet.php",
         "Kontakti" => "kontakti.php",
+		"Galeria" => "galeria.php",
 		"Login" => "login.php"
     ),
     "dashboard_links_admin" => array(
