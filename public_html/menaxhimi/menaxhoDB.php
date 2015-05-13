@@ -58,6 +58,13 @@ if(isset($_POST['regjistroAeroplan']) && ($_SERVER['REQUEST_METHOD'] == "POST"))
     $db->createTblRezervoAeroplan();
 }
 
+if(isset($_POST['createForumi']) && ($_SERVER['REQUEST_METHOD'] == "POST"))
+{
+    $db = new DB;
+    
+    $db->createTblForumi();
+}
+
 ?>
 
 <html>
@@ -79,5 +86,7 @@ if(isset($_POST['regjistroAeroplan']) && ($_SERVER['REQUEST_METHOD'] == "POST"))
             <input type="submit" value="Krijo tabelen Regjistro Bus" name="regjistroBus"></form>
         <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
             <input type="submit" value="Krijo tabelen Regjistro Aeroplan" name="regjistroAeroplan"></form>
+			<form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+            <input type="submit" value="Krijo tabelen Forumi" name="createForumi"></form>
     </body>
 </html>

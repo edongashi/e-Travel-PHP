@@ -130,6 +130,18 @@ class DB{
         
         mysqli_close($this->connect);
     }
+	public function createTblForumi(){
+        $this->konektimi();
+        // Create database
+        $sql = "CREATE TABLE forumi(tblID integer PRIMARY KEY AUTO_INCREMENT, ChatID integer, Komentuesi varchar(50), Komenti varchar(300))";
+        if (mysqli_query($this->connect, $sql)) {
+            echo "U krijuar tabela Forumi";
+        } else {
+            echo "Ka ndodhur gabim ne krijimin e tabeles Forumi!";
+        }
+        
+        mysqli_close($this->connect);
+    }
     
     public function Insert($sql){
         $this->konektimi();
