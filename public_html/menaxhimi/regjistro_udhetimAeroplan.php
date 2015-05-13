@@ -58,7 +58,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         die();
     }
     
-    require library."/createDB.php";
+    require (databaza);
     
     $prej = $_POST['prej'];
     $deri = $_POST['deri'];
@@ -66,10 +66,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $data = $_POST['data'];
     $cmimi = $_POST['cmimi'];
 
-    $db = new DB();
+    $db = new repository();
 
     $sql = "Insert into udhetimetaeroplan(Prej, Deri, Ulese, Data, Cmimi) Values ('$prej', '$deri', $nrulse, '$data', $cmimi)";
-    $db->Insert($sql);
+    $db->execute_query($sql);
 }
 
 ?>

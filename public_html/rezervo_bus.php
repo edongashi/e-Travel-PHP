@@ -1,6 +1,6 @@
 <?php
 require_once("../resources/config.php");
-require library."/createDB.php";
+require (databaza);
 
 session_start();
 
@@ -17,7 +17,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['Konfirmo'])){
     $Rid = $_POST['Rid'];
     $Uid = $_POST['Uid'];
     
-    $rezervo = new RezervoUdhetim($Rid,$Uid,$emriRezervuar,$mbiemriRezervuar,$ulese);
+    $db = new repository();
+    
+    $rezervo = new RezervoUdhetim($db,$Rid,$Uid,$emriRezervuar,$mbiemriRezervuar,$ulese);
     
     $rezervo->rezervo();
 }else{
@@ -28,14 +30,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['Konfirmo'])){
     $Rid = $_POST['udhetimiId'];
     $Rid = substr($Rid, 3);
 
-    $db = new DB();
+    $db = new repository();
 
     $sql = "Select * From user Where Username = '$username'";
-    $rez = $db->Get($sql);
-    $Uid = $rez[0]['Uid'];
+    $rez = $db->get_data($sql);
+    $Uid = $rez[0]['Uid'];  
 
-    $sql1 = "Select * From udhetimetbus Where Rid = '$Rid'";
-    $rez = $db->Get($sql1);
+    $sql = "Select * From udhetimetbus Where Rid = '$Rid'";
+    $rez = $db->get_data($sql);
     $Prej = $rez[0]['Prej'];
     $Deri = $rez[0]['Deri'];
     $Cmimi = $rez[0]['Cmimi'];
@@ -94,72 +96,48 @@ class RezervoUdhetim{
     private $emri;
     private $mbiemri;
     private $ulese;
-    private $connect;
-    private $servername = "localhost";
-    private $username = "root";
-    private $password = "";
-    private $database = "edb";
+    private $db;
     
-    public function __construct($rid,$uid,$emri,$mbiemri,$ulese) {
+    public function __construct(repository $db,$rid,$uid,$emri,$mbiemri,$ulese) {
+        $this->db = $db;
         $this->rid = $rid;
         $this->uid = $uid;
         $this->emri = $emri;
         $this->mbiemri = $mbiemri;
         $this->ulese = $ulese;
-    }
-    
-    private function konektimi(){
-        // Create connection
-        $this->connect = mysqli_connect($this->servername, $this->username, $this->password, $this->database);
-        // Check connection
-        if (!$this->connect) {
-            die("Connection failed!");
-        }   
-    }
+    }   
     
     private function kontrollo(){
-        $this->konektimi();
         
         $sql = "Select * from udhetimetbus where Rid=$this->rid";
         
-        $result = mysqli_query($this->connect, $sql);
-        
-        $row = mysqli_fetch_assoc($result);
+        $row = $this->db->get_data($sql);
                
-        if ($row['Ulese'] < $this->ulese) {
-            mysqli_close($this->connect);
+        if ($row[0]['Ulese'] < $this->ulese) {
             return false;
         } else {
-            mysqli_close($this->connect);
             return true;
-        }      
-        
+        }       
     }
     
     private function update(){
-        $this->konektimi();
-        
+       
         $sql = "Update udhetimetbus set Ulese = Ulese - $this->ulese Where Rid = $this->rid";
         
-        if (mysqli_query($this->connect, $sql)) {
-            mysqli_close($this->connect);
+        if ($this->db->execute_query($sql)) {
             return true;
         } else {
-            mysqli_close($this->connect);
             return false;
         }   
     }
     
     private function inserto(){
-        $this->konektimi();
         
         $sql = "Insert into rezervobus(Rid,Uid,Emri,Mbiemri,Ulese) values ($this->rid,$this->uid,'$this->emri','$this->mbiemri',$this->ulese)";
         
-        if (mysqli_query($this->connect, $sql)) {
-            mysqli_close($this->connect);
+        if ($this->db->execute_query($sql)) {
             return true;
         } else {
-            mysqli_close($this->connect);
             return false;
         }  
     }

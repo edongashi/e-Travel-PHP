@@ -56,18 +56,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         die();
     }
     
-    require library."/createDB.php";
+    require (databaza);
     
     $prej = $_POST['prej'];
     $deri = $_POST['deri'];
     $nrulse = $_POST['nrulse'];
     $data = $_POST['data'];
     $cmimi = $_POST['cmimi'];
-
-    $db = new DB();
+    
+    $db = new repository();
 
     $sql = "Insert into udhetimetbus(Prej, Deri, Ulese, Data, Cmimi) Values ('$prej', '$deri', $nrulse, '$data', $cmimi)";
-    $db->Insert($sql);
+    $db->execute_query($sql);
 }
 
 ?>
