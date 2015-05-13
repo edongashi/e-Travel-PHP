@@ -31,7 +31,7 @@ if(mysqli_num_rows($result) >= 0){
     echo "<table class='tabela' cellspacing='0'> <thead><th align='left'>Prej</th><th align='left'>Deri</th><th align='left'>Nr Ulseve</th><th align='left'>Data</th><th align='left'>Cmimi</th><th style='width: auto;'></th></thead>";
     while($row = mysqli_fetch_assoc($result)){
         echo "<tr><td>".$row['Prej']."</td><td>".$row['Deri']."</td><td>".$row['Ulese']."</td><td>".$row['Data']."</td><td>".$row['Cmimi']." &#8364;</td><td style='text-align: center'>"
-                . "<input type='submit' value='Rezervo' class='button button_vogel id-submit' id='id_".$row['Id']."'></td></tr>";
+                . "<input type='submit' value='Rezervo' class='button button_vogel id-submit' id='id_".$row['Rid']."'></td></tr>";
     }
     echo "</form></table>";
 }

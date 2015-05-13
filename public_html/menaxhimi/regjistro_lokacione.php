@@ -21,7 +21,7 @@
 </html>
 
 <?php
-require_once("../resources/config.php");
+require_once("../../resources/config.php");
 require library."/createDB.php";
 
 $db = new DB();

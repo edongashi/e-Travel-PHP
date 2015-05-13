@@ -34,7 +34,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['Konfirmo'])){
     $rez = $db->Get($sql);
     $Uid = $rez[0]['Uid'];
 
-    $sql1 = "Select * From udhetimetbus Where Rid = '$Rid'";
+    $sql1 = "Select * From udhetimetaeroplan Where Rid = '$Rid'";
     $rez = $db->Get($sql1);
     $Prej = $rez[0]['Prej'];
     $Deri = $rez[0]['Deri'];
@@ -120,7 +120,7 @@ class RezervoUdhetim{
     private function kontrollo(){
         $this->konektimi();
         
-        $sql = "Select * from udhetimetbus where Rid=$this->rid";
+        $sql = "Select * from udhetimetaeroplan where Rid=$this->rid";
         
         $result = mysqli_query($this->connect, $sql);
         
@@ -139,7 +139,7 @@ class RezervoUdhetim{
     private function update(){
         $this->konektimi();
         
-        $sql = "Update udhetimetbus set Ulese = Ulese - $this->ulese Where Rid = $this->rid";
+        $sql = "Update udhetimetaeroplan set Ulese = Ulese - $this->ulese Where Rid = $this->rid";
         
         if (mysqli_query($this->connect, $sql)) {
             mysqli_close($this->connect);
@@ -153,7 +153,7 @@ class RezervoUdhetim{
     private function inserto(){
         $this->konektimi();
         
-        $sql = "Insert into rezervobus(Rid,Uid,Emri,Mbiemri,Ulese) values ($this->rid,$this->uid,'$this->emri','$this->mbiemri',$this->ulese)";
+        $sql = "Insert into rezervoaeroplan(Rid,Uid,Emri,Mbiemri,Ulese) values ($this->rid,$this->uid,'$this->emri','$this->mbiemri',$this->ulese)";
         
         if (mysqli_query($this->connect, $sql)) {
             mysqli_close($this->connect);

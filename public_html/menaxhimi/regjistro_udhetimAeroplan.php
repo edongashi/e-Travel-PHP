@@ -33,13 +33,13 @@
                 </td>
             </tr>
             <tr>
-                <td>Numri i uleseve</td><td><input type="number" name="nrulse" value="0" style="width:50px;"></td>
+                <td>Numri i uleseve</td><td><input type="number" min="1" name="nrulse" value="0" style="width:50px;"></td>
             </tr>
             <tr>
                 <td>Data e nisjes</td><td><input type="date" name="data"></td>
             </tr>
             <tr>
-                <td>Cmimi i biletes</td><td><input type="number" name="cmimi" value="0" style="width:50px;"> &#8364;</td>
+                <td>Cmimi i biletes</td><td><input type="number" min="1" name="cmimi" value="0" style="width:50px;"> &#8364;</td>
             </tr>
             <tr>
                 <td></td><td><input type="submit" value="Regjistro"> <input type="reset" value="Anulo"></td>
@@ -50,7 +50,7 @@
 </html>
 
 <?php
-require_once("../resources/config.php");
+require_once("../../resources/config.php");
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
         
     if($_POST['prej'] == ""  || $_POST['deri'] == "" || $_POST['nrulse'] == "0" || $_POST['data'] == "" || $_POST['cmimi'] == "0"){

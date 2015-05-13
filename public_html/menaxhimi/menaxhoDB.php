@@ -1,5 +1,5 @@
 <?php
-require_once("../resources/config.php");
+require_once("../../resources/config.php");
 require library."/createDB.php";
 
 if(isset($_POST['createDB']) && ($_SERVER['REQUEST_METHOD'] == "POST"))
