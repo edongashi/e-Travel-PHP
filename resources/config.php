@@ -25,7 +25,8 @@ $config = array(
             "Aeroplan" => "udhetimet_aeroplan.php",
         ),
         "Lokacionet" => "lokacionet.php",
-        "Kontakti" => "kontakti.php"
+        "Kontakti" => "kontakti.php",
+		"Login" => "login.php"
     ),
     "dashboard_links_admin" => array(
         "Ballina" => "index.php",
