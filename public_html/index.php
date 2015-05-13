@@ -5,14 +5,7 @@ $header_titulli = "Ballina";
 $css_includes = "css/site.css";
 require(templates_header);
 ?>
-<script>
-#slideshow div img{
-    display: block;
-    width: 100%;
-    height: auto;
-}
-</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 <script>
 $(document).ready(function(){
 	$(".item1").hide();

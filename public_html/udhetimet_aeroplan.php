@@ -12,35 +12,27 @@ $header_script = <<<END
   });
 END;
 require(templates_header);
+require(databaza);
 
-$connect = mysqli_connect($config["db"]["host"], $config["db"]["username"], $config["db"]["password"], $config["db"]["dbname"]);
-// Check connection
-if (!$connect) {
-    die("Connection failed!");
-}   
-
-$sql = "Select * From udhetimetAeroplan Where Data >= Now()";
-
-$result = mysqli_query($connect, $sql); ?>
+$repo = new repository();
+$rez = $repo->get_data("Select * From udhetimetAeroplan Where Data >= Now()");
+?>
 
 <section class="permbajtje">
 <h2 style="margin-bottom:10px;">Udhetimet me aeroplan</h2>
 <?php
-if(mysqli_num_rows($result) >= 0){
+
 	echo "<form method='Post' action='rezervo_aeroplan.php'><input type='hidden' id='udhetimiId' name='udhetimiId'>";
     echo "<table class='tabela' cellspacing='0'> <thead><th align='left'>Prej</th><th align='left'>Deri</th><th align='left'>Nr Ulseve</th><th align='left'>Data</th><th align='left'>Cmimi</th><th style='width: auto;'></th></thead>";
-    while($row = mysqli_fetch_assoc($result)){
-        echo "<tr><td>".$row['Prej']."</td><td>".$row['Deri']."</td><td>".$row['Ulese']."</td><td>".$row['Data']."</td><td>".$row['Cmimi']." &#8364;</td><td style='text-align: center'>"
-                . "<input type='submit' value='Rezervo' class='button button_vogel id-submit' id='id_".$row['Rid']."'></td></tr>";
+    foreach ($rez as $rreshti){
+        echo "<tr><td>".$rreshti['Prej']."</td><td>".$rreshti['Deri']."</td><td>".$rreshti['Ulese']."</td><td>".$rreshti['Data']."</td><td>".$rreshti['Cmimi']." &#8364;</td><td style='text-align: center'>"
+                . "<input type='submit' value='Rezervo' class='button button_vogel id-submit' id='id_".$rreshti['Rid']."'></td></tr>";
     }
     echo "</form></table>";
-}
 ?>
 
 </section>
 
 <?php
-mysqli_close($connect);
-
 require(templates_footer);
 ?>

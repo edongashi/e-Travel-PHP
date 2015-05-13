@@ -1,11 +1,10 @@
 <?php
 require_once("../resources/config.php");
+require(databaza);
+$repo = new repository();
 
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
-    require library."/createDB.php";
-    
-    $db = new DB();
     
     function ShfaqError($error) {
 
@@ -54,9 +53,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     
     $pass = sha1("$salt1$password$salt2");
 
-    $sql = "Insert into user(Username,Password,Emri,Mbiemri,Prioriteti) Values ('$username','$pass','$emri','$mbiemri','$prioriteti')";
-
-    $db->Insert($sql);
+	$repo->execute_query("Insert into user(Username,Password,Emri,Mbiemri,Prioriteti) Values ('$username','$pass','$emri','$mbiemri','$prioriteti')");
 }
 
 $header_titulli = "Ballina";

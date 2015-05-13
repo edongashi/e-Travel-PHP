@@ -14,7 +14,7 @@ function indent($level)
 <?php
 if (isset($include_jquery) && $include_jquery)
 {
-  echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">\r\n</script>';
+  echo '<script src="' . $_SERVER["DOCUMENT_ROOT"] . '/js/jquery-2.1.4.min.js"></script>';
 }
 
 if (isset($header_script))

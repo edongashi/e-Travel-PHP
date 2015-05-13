@@ -22,9 +22,9 @@
 
 <?php
 require_once("../../resources/config.php");
-require library."/createDB.php";
+require(databaza);
 
-$db = new DB();
+$repo = new repository();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
@@ -38,8 +38,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $pershkrimi_lokacionit = $_POST['pershkrimi_lokacionit'];
     $emri_foto = $_POST['emri_foto'];
 
-    $sql = "Insert Into lokacione(Vendi, Pershkrimi, Foto) values ('$emri_lokacionit','$pershkrimi_lokacionit','$emri_foto')";
+    $repo->execute_query("Insert Into lokacione(Vendi, Pershkrimi, Foto) values ('$emri_lokacionit','$pershkrimi_lokacionit','$emri_foto')");
     
-    $db->Insert($sql);
 }
 ?>
