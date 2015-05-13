@@ -10,8 +10,9 @@
 require_once("../resources/config.php");
 require_once(databaza);
 
-session_start();
-
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 
 $repo = new repository();
