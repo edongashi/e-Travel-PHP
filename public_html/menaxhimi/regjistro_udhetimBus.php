@@ -1,6 +1,37 @@
-<html>
-    <head></head>
-    <body>
+<?php
+require_once("../../resources/config.php");
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        
+    if($_POST['prej'] == ""  || $_POST['deri'] == "" || $_POST['nrulse'] == "0" || $_POST['data'] == "" || $_POST['cmimi'] == "0"){
+        echo "Ploteso te gjitha fushat!";
+        die();
+    }
+    
+    require (databaza);
+    
+    $prej = $_POST['prej'];
+    $deri = $_POST['deri'];
+    $nrulse = $_POST['nrulse'];
+    $data = $_POST['data'];
+    $cmimi = $_POST['cmimi'];
+    
+    $db = new repository();
+
+    $sql = "Insert into udhetimetbus(Prej, Deri, Ulese, Data, Cmimi) Values ('$prej', '$deri', $nrulse, '$data', $cmimi)";
+    $db->execute_query($sql);
+}
+
+?>
+
+<?php
+require_once("../../resources/config.php");
+
+$header_titulli = "Ballina";
+$css_includes = "../css/dashboard.css";
+require(dashboard_header);
+?>
+
+<section class="permbajtje">
         <form method="Post" action="<?php echo $_SERVER['PHP_SELF'];?>">
         <table>
             <th>
@@ -44,31 +75,9 @@
             </tr>
         </table>
         </form>
-    </body>
-</html>
+</section>
 
 <?php
-require_once("../../resources/config.php");
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        
-    if($_POST['prej'] == ""  || $_POST['deri'] == "" || $_POST['nrulse'] == "0" || $_POST['data'] == "" || $_POST['cmimi'] == "0"){
-        echo "Ploteso te gjitha fushat!";
-        die();
-    }
-    
-    require (databaza);
-    
-    $prej = $_POST['prej'];
-    $deri = $_POST['deri'];
-    $nrulse = $_POST['nrulse'];
-    $data = $_POST['data'];
-    $cmimi = $_POST['cmimi'];
-    
-    $db = new repository();
-
-    $sql = "Insert into udhetimetbus(Prej, Deri, Ulese, Data, Cmimi) Values ('$prej', '$deri', $nrulse, '$data', $cmimi)";
-    $db->execute_query($sql);
-}
-
+require(dashboard_footer);
 ?>
 

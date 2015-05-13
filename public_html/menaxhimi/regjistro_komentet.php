@@ -6,18 +6,26 @@
 	</form>
 	</div>
 	
-	<?php
+<?php
 require_once("../resources/config.php");
 require_once(databaza);
 
+session_start();
+
+
+
 $repo = new repository();
-if($_SERVER['REQUEST_METHOD'] == 'POST')
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['KomentSubmit']))
 {
-
+    if(!isset($_SESSION['Username']) || !isset($_SESSION['Emri']) || !isset($_SESSION['Mbiemri']))
+    {
+        header("Location: http://localhost/login.php");
+    }
+    
     $komenti = $_POST['komenti'];
-    $komentuesi = "Blend Halilaj";
+    $komentuesi = $_SESSION['Username'];
 
-    $repo->execute_query("Insert Into forumi(ChatID, Komentuesi, Komenti) values ('1','$komenti','$komentuesi')");
+    $repo->execute_query("Insert Into forumi(ChatID, Komentuesi, Komenti) values ('1','$komentuesi','$komenti')");
     
 	header('Location: /lokacionet.php');
 	exit;
