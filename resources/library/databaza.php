@@ -1,5 +1,4 @@
 <?php
-
 require_once("../config.php");
 
 class repository extends db_connector {   
@@ -130,7 +129,7 @@ class db_connector {
             $rezultati = false;
         }
         
-        mysqli_close($this->connect);
+        $this->mbyll_lidhjen();
         return $rezultati;
     }
     
