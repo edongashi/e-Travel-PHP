@@ -2,7 +2,6 @@
 require_once("../resources/config.php");
 
 $header_titulli = "Ballina";
-$include_jquery = true;
 $css_includes = "css/site.css";
 require(templates_header);
 require(databaza);
@@ -13,12 +12,12 @@ require(databaza);
     
 	$repo = new repository();
 	$rows = $repo->lokacionet;
-    foreach ( $rows as $rreshti)
+    foreach ($rows as $rreshti)
 		{
             echo "<p><img src='img/content/".$rreshti['Foto']."' height='150px' width='150px'><b> ".$rreshti['Vendi']."</b><br />".$rreshti['Pershkrimi']."</p>";
         
 		include("menaxhimi/regjistro_komentet.php");
-		$row = $repo->forumi;
+		$rows = $repo->forumi;
 
         foreach ( $rows as $rreshti)
 		{
