@@ -1,5 +1,11 @@
 <?php
 require_once(__DIR__ . "/../config.php");
+
+session_start();
+if (!isset($_SESSION['Username']) || !isset($_SESSION['Emri']) || !isset($_SESSION['Mbiemri'])) {
+    header("Location: http://localhost/login.php");
+}
+
 function indent($level)
 {
   return "\r\n" . str_repeat(" ", "$level");
