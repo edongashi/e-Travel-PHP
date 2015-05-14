@@ -36,8 +36,8 @@ $config = array(
           "Shfaq rezervimet" => "shfaq_rezervimet.php"
         ),
         "Regjistro udhetime" => array(
-            "Autobus" => "regjistro_bus.php",
-            "Aeroplan" => "regjistro_aeroplan.php",
+            "Autobus" => "regjistro_udhetim_bus.php",
+            "Aeroplan" => "regjistro_udhetim_aeroplan.php",
         ),
         "Shto lokacion" => "regjistro_lokacione.php",
         "Menaxho databazen" => "menaxhoDB.php",
