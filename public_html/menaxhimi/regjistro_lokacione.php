@@ -7,17 +7,20 @@ $repo = new repository();
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     if($_POST['emri_lokacionit'] == "" || $_POST['emri_foto'] == "" || $_POST['pershkrimi_lokacionit'] == ""){
-        echo "Ploteso te gjitha fushat";
-        die();
-    }
-
-
-    $emri_lokacionit = $_POST['emri_lokacionit'];
-    $pershkrimi_lokacionit = $_POST['pershkrimi_lokacionit'];
-    $emri_foto = $_POST['emri_foto'];
-
-    $repo->execute_query("Insert Into lokacione(Vendi, Pershkrimi, Foto) values ('$emri_lokacionit','$pershkrimi_lokacionit','$emri_foto')");
-    
+        $error_msg = htmlentities("Ploteso te gjitha fushat!");
+    } else {
+        $emri_lokacionit = $_POST['emri_lokacionit'];
+        $pershkrimi_lokacionit = $_POST['pershkrimi_lokacionit'];
+        $emri_foto = $_POST['emri_foto'];
+        
+        $sql = "Insert Into lokacione(Vendi, Pershkrimi, Foto) values ('$emri_lokacionit','$pershkrimi_lokacionit','$emri_foto')";
+        
+        if($repo->execute_query($sql)){
+            $error_msg = htmlentities("Regjistrimi u krye me sukses");
+        } else {
+            $error_msg = htmlentities("Regjistrimi nuk u krye me sukses");
+        }
+    }  
 }
 ?>
 
@@ -33,6 +36,7 @@ require(dashboard_header);
   <h1 class="center">Shto lokacion</h1>
   <form class="form" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
             <table>
+                <?php if (isset($error_msg)) echo "<tr><td colspan='2'><h4 class='error-msg'>$error_msg</h3></td></tr>"; ?>
                 <tr>
                     <td>Emri i Lokacionit:</td><td><input type="text" name="emri_lokacionit"></td>
                 </tr>

@@ -18,17 +18,18 @@ if (session_status() == PHP_SESSION_NONE) {
 $repo = new repository();
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['KomentSubmit']))
 {
-    if(!isset($_SESSION['Username']) || !isset($_SESSION['Emri']) || !isset($_SESSION['Mbiemri']))
-    {
+    if(!isset($_SESSION['Username']) || !isset($_SESSION['Emri']) || !isset($_SESSION['Mbiemri'])){    
         header("Location: http://localhost/login.php");
     }
-    
-    $komenti = $_POST['komenti'];
-    $komentuesi = $_SESSION['Username'];
+    else {
+        
+        $komenti = $_POST['komenti'];
+        $komentuesi = $_SESSION['Username'];
 
-    $repo->execute_query("Insert Into forumi(ChatID, Komentuesi, Komenti) values ('1','$komentuesi','$komenti')");
+        $repo->execute_query("Insert Into forumi(ChatID, Komentuesi, Komenti) values ('1','$komentuesi','$komenti')");
     
 	header('Location: /lokacionet.php');
 	exit;
+    }   
 }
 ?>
