@@ -2,7 +2,7 @@
 require_once("../../resources/config.php");
 
 $header_titulli = "Ballina";
-$css_includes = "../css/dashboard.css";
+$css_includes = Array("../css/form.css", "../css/dashboard.css");
 require(dashboard_header);
 ?>
 

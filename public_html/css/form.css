@@ -95,6 +95,7 @@ select:hover {
 }
 
 .tabela {
+  width: 100%;
   border-collapse: collapse;
   border: 1px solid #ddd;
 }

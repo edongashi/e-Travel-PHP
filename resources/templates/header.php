@@ -28,7 +28,7 @@ if (isset($script_includes))
 }
 if (isset($header_script))
 {
-  echo "\r\n<script>\r\n".$header_script."\r\n</script>";
+  echo "\r\n<script>\r\n".$header_script."\r\n</script>\r\n";
 }
 // Merr includes nga array ose string $css_includes
 if (isset($css_includes))

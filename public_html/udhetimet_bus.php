@@ -3,7 +3,7 @@ require_once("../resources/config.php");
 
 $header_titulli = "Udhetimet Autobus";
 $css_includes = Array("css/site.css", "css/form.css");
-$include_jquery = true;
+$script_includes = jquery;
 $header_script = <<< SCRIPT
 $( document ).ready( function () {
   $( ".id-submit" ).click ( function () {

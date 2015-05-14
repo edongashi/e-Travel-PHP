@@ -3,14 +3,15 @@ require_once("../resources/config.php");
 
 $header_titulli = "Udhetimet Aeroplan";
 $css_includes = Array("css/form.css", "css/site.css");
-$include_jquery = true;
-$header_script = <<<END
+$script_includes = jquery;
+$header_script = <<< SCRIPT
   $( document ).ready( function () {
     $( ".id-submit" ).click ( function () {
       $( "input[id=udhetimiId]" ).val( this.id );
     });
   });
-END;
+SCRIPT;
+
 require(templates_header);
 require(databaza);
 
