@@ -1,7 +1,9 @@
 <?php
 require_once("../../resources/config.php");
 require library."/createDB.php";
-
+$header_titulli = "Ballina";
+$css_includes = Array("../css/dashboard.css", "../css/form.css");
+require(dashboard_header);
 if(isset($_POST['createDB']) && ($_SERVER['REQUEST_METHOD'] == "POST"))
 {
     $db = new DB;
@@ -67,26 +69,26 @@ if(isset($_POST['createForumi']) && ($_SERVER['REQUEST_METHOD'] == "POST"))
 
 ?>
 
-<html>
-    <head></head>
-    <body>
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-            <input type="submit" value="Krijo databazen" name="createDB"></form>
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-            <input type="submit" value="Fshije databazen" name="dropDB"></form>
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-            <input type="submit" value="Krijo tabelen User" name="createUser"></form>
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-            <input type="submit" value="Krijo tabelen UdhetimetBus" name="createUdhetimetBus"></form>
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-            <input type="submit" value="Krijo tabelen UdhetimetAeroplan" name="createUdhetimetAeroplan"></form>
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-            <input type="submit" value="Krijo tabelen Lokacionet" name="createLokacionet"></form>
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-            <input type="submit" value="Krijo tabelen Regjistro Bus" name="regjistroBus"></form>
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-            <input type="submit" value="Krijo tabelen Regjistro Aeroplan" name="regjistroAeroplan"></form>
-			<form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-            <input type="submit" value="Krijo tabelen Forumi" name="createForumi"></form>
-    </body>
-</html>
+<section class="permbajtje">
+    <h1 class="center">Menaxho Databazen</h1>
+    <form class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+        <input class="button button-small"  type="submit" value="Krijo databazen" name="createDB"></form>
+    <form class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+        <input class="button button-small"  type="submit" value="Fshije databazen" name="dropDB"></form>
+    <form class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+        <input class="button button-small"  type="submit" value="Krijo tabelen User" name="createUser"></form>
+    <form class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+        <input class="button button-small"  type="submit" value="Krijo tabelen UdhetimetBus" name="createUdhetimetBus"></form>
+    <form class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+        <input class="button button-small"  type="submit" value="Krijo tabelen UdhetimetAeroplan" name="createUdhetimetAeroplan"></form>
+    <form class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+        <input class="button button-small"  type="submit" value="Krijo tabelen Lokacionet" name="createLokacionet"></form>
+    <form class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+        <input class="button button-small"  type="submit" value="Krijo tabelen Regjistro Bus" name="regjistroBus"></form>
+    <form class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+        <input class="button button-small"  type="submit" value="Krijo tabelen Regjistro Aeroplan" name="regjistroAeroplan"></form>
+    <form class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+        <input class="button button-small"  type="submit" value="Krijo tabelen Forumi" name="createForumi"></form>
+</section>
+            
+<?php require(dashboard_footer) ?>

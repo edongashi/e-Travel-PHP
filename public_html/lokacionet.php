@@ -17,12 +17,12 @@ require(databaza);
             echo "<p><img src='img/content/".$rreshti['Foto']."' height='150px' width='150px'><b> ".$rreshti['Vendi']."</b><br />".$rreshti['Pershkrimi']."</p>";
         
 		include("menaxhimi/regjistro_komentet.php");
-		$rows = $repo->forumi;
+		$rows_forum = $repo->forumi;
 
-        foreach ( $rows as $rreshti)
+        foreach ( $rows_forum as $rreshti_forum)
 		{
-			echo '<br>' . '<ul>' .$rreshti["Komenti"];
-            echo '<div class="koment_head">' .$rreshti['Komentuesi'] . '</div> </ul><br>';
+			echo '<br>' . '<ul>' .$rreshti_forum["Komenti"];
+            echo '<div class="koment_head">' .$rreshti_forum['Komentuesi'] . '</div> </ul><br>';
         }
 
 		}

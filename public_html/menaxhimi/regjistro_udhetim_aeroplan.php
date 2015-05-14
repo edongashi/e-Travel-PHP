@@ -7,7 +7,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         die();
     }
     
-    require (databaza);
+    require(databaza);
     
     $prej = $_POST['prej'];
     $deri = $_POST['deri'];
@@ -27,16 +27,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 require_once("../../resources/config.php");
 
 $header_titulli = "Ballina";
-$css_includes = "../css/dashboard.css";
+$css_includes = Array("../css/form.css", "../css/dashboard.css");
 require(dashboard_header);
 ?>
 
 <section class="permbajtje">
-        <form method="Post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+        <h1 class="center">Regjistro Udhetim Aeroplan</h1>
+        <form class="form" method="Post" action="<?php echo $_SERVER['PHP_SELF'];?>">
         <table>
-            <th>
-                Regjistro Udhetim Aeroplan
-            </th>
+                
             <tr>
                 <td>Prej:</td>
                 <td><select name="prej">
@@ -73,13 +72,15 @@ require(dashboard_header);
                 <td>Cmimi i biletes</td><td><input type="number" min="1" name="cmimi" value="0" style="width:50px;"> &#8364;</td>
             </tr>
             <tr>
-                <td></td><td><input type="submit" value="Regjistro"> <input type="reset" value="Anulo"></td>
+                <td></td>
+                <td class="button-cell-small">
+                    <input class="button button-small" type="submit" value="Regjistro">
+                    <input class="button button-small" type="reset" value="Anulo">
+                </td>
             </tr>
         </table>
         </form>
 </section>
 
-<?php
-require(dashboard_footer);
-?>
+<?php require(dashboard_footer); ?>
 

@@ -2,6 +2,26 @@ form > table {
   width: 100%;
 }
 
+.form {
+  width: 100%;
+  max-width: 640px;
+  margin: 20px auto;
+}
+
+.form-small {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+.button-cell {
+  padding-top: 15px;
+}
+
+.button-cell-small {
+  padding-top: 7px;
+}
+
 input, textarea, select {
   outline: none;
   line-height: normal;
@@ -32,7 +52,7 @@ input, textarea, select {
   background: #e00;
 }
 
-.button_vogel {
+.button-small {
   font-size: 16px;
   padding: 6px 12px;
 }

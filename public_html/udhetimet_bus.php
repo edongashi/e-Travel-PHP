@@ -2,15 +2,16 @@
 require_once("../resources/config.php");
 
 $header_titulli = "Udhetimet Autobus";
-$css_includes = Array("css/form.css", "css/site.css");
+$css_includes = Array("css/site.css", "css/form.css");
 $include_jquery = true;
-$header_script = <<<END
-  $( document ).ready( function () {
-    $( ".id-submit" ).click ( function () {
-      $( "input[id=udhetimiId]" ).val( this.id );
-    });
+$header_script = <<< SCRIPT
+$( document ).ready( function () {
+  $( ".id-submit" ).click ( function () {
+    $( "input[id=udhetimiId]" ).val( this.id );
   });
-END;
+});
+SCRIPT;
+
 require(templates_header);
 require(databaza);
 
@@ -25,7 +26,7 @@ $rez = $repo->get_data("Select * From udhetimetBus Where Data >= Now()");
     echo "<table class='tabela' cellspacing='0'> <thead><th align='left'>Prej</th><th align='left'>Deri</th><th align='left'>Nr Ulseve</th><th align='left'>Data</th><th align='left'>Cmimi</th><th style='width: auto;'></th></thead>";
     foreach ($rez as $rreshti){
         echo "<tr><td>".$rreshti['Prej']."</td><td>".$rreshti['Deri']."</td><td>".$rreshti['Ulese']."</td><td>".$rreshti['Data']."</td><td>".$rreshti['Cmimi']." &#8364;</td><td style='text-align: center'>"
-                . "<input type='submit' value='Rezervo' class='button button_vogel id-submit' id='id_".$rreshti['Rid']."'></td></tr>";
+                . "<input type='submit' value='Rezervo' class='button button-small id-submit' id='id_".$rreshti['Rid']."'></td></tr>";
     }
     echo "</form></table>";
 

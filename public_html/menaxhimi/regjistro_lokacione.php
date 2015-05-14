@@ -25,12 +25,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 require_once("../../resources/config.php");
 
 $header_titulli = "Ballina";
-$css_includes = "../css/dashboard.css";
+$css_includes = Array("../css/form.css", "../css/dashboard.css");
 require(dashboard_header);
 ?>
 
 <section class="permbajtje">
-  <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+  <h1 class="center">Shto lokacion</h1>
+  <form class="form" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
             <table>
                 <tr>
                     <td>Emri i Lokacionit:</td><td><input type="text" name="emri_lokacionit"></td>
@@ -39,10 +40,14 @@ require(dashboard_header);
                     <td>Foto e Lokacionit:</td><td><input type="text" name="emri_foto"></td>
                 </tr>
                 <tr>
-                    <td valign="top">Pershkrimi i Lokacionit:</td><td><textarea cols="30" rows="8" name="pershkrimi_lokacionit"></textarea></td>
+                    <td>Pershkrimi i Lokacionit:</td><td><textarea cols="30" rows="8" name="pershkrimi_lokacionit"></textarea></td>
                 </tr>
                 <tr>
-                    <td></td><td><input type="submit" value="Regjistro"> <input type="reset" value="Anulo"></td>
+                    <td></td>
+                    <td class="button-cell-small">
+                        <input class="button button-small" type="submit" value="Regjistro">
+                        <input class="button button-small" type="reset" value="Anulo">
+                    </td>
                 </tr>
             </table>
     </form>

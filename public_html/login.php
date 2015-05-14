@@ -37,9 +37,9 @@ require(templates_header);
 ?>
 
 <section class="permbajtje">
-  <h1 style="text-align: center">Identifikohuni</h1>
-  <form method="Post" action="<?php echo $_SERVER['PHP_SELF'];?>">
-    <table style="width: 400px; margin: 20px auto;">
+  <h1 class="center">Identifikohuni</h1>
+  <form class="form form-small" method="Post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+    <table>
       <?php if (isset($error_msg)) echo "<tr><td colspan='2'><h4 class='error-msg'>$error_msg</h3></td></tr>"; ?>
       <tr>
         <td>Username: </td><td><input type="text" name="username"></td>
@@ -50,8 +50,8 @@ require(templates_header);
       <tr>
         <td style="height: 40px; padding-top: 7px"><a href="newuser.php">Nuk keni user?</a></td>
         <td align="right">
-          <input class="button button_vogel" type="submit" value="Login">
-          <input class="button button_vogel" type="reset" value="Cancel">
+          <input class="button button-small" type="submit" value="Login">
+          <input class="button button-small" type="reset" value="Cancel">
         </td>
       </tr>
     </table>

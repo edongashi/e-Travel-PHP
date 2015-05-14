@@ -16,7 +16,12 @@ html, body {
   display: block;
 }
 
+.center {
+  text-align: center;
+}
+
 footer, .page-wrap:after {
+  margin-left: 20%;
   height: 60px; 
 }
 
@@ -52,7 +57,7 @@ a:hover {
   box-sizing: border-box;
   position: fixed;
   top: 51px;
-  bottom: 60px;
+  bottom: 0px;
   left: 0;
   width: 20%;
   padding: 10px;

@@ -18,6 +18,10 @@ textarea {
   display: block;
 }
 
+.center {
+  text-align: center;
+}
+
 footer, .page-wrap:after {
   height: 60px; 
 }

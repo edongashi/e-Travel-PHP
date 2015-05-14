@@ -88,7 +88,7 @@ require(templates_header);
                               </select></td>
     </tr>
     <tr>
-        <td colspan="2" style="height: 48px; text-align: center;"><input type="submit" class="button button_vogel" value="Regjistrohu"> <input type="reset" class="button button_vogel" value="Cancel"></td>
+        <td colspan="2" style="height: 48px; text-align: center;"><input type="submit" class="button button-small" value="Regjistrohu"> <input type="reset" class="button button-small" value="Cancel"></td>
     </tr>               
     </table>
   </form>

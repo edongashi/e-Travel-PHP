@@ -7,7 +7,8 @@ require(templates_header);
 ?>
 
 <section class="permbajtje">
-<form style="width: 640px; margin: 30px auto;" name="kontaktforma" method="post" action="dergo_mail.php">
+<h1 class="center">Na kontaktoni</h1>
+<form class="form" name="kontaktforma" method="post" action="dergo_mail.php">
  
 <table>
  
