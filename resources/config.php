@@ -32,7 +32,7 @@ $config = array(
     "dashboard_links_admin" => array(
         "Ballina" => "index.php",
         "Rezervimet" => array(
-          "Rezervim i ri" => "rezervimi.php",
+          "Rezervim i ri" => "rezervim_iri.php",
           "Shfaq rezervimet" => "shfaq_rezervimet.php"
         ),
         "Regjistro udhetime" => array(

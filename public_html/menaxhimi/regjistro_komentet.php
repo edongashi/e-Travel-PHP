@@ -1,10 +1,11 @@
 	<br>
 	<div class="komento">
-	<form name="KomentForma" method="post">
+	<form class="form" name="KomentForma" method="post">
 	<textarea name="komenti" cols="120" rows="5"></textarea>
-	<input type="submit" name="KomentSubmit" value="Dergo"></button>
+	<button style='float:right' class='button' type="submit" name="<?php $_GET['id'] ?>">Dergo</button>
 	</form>
 	</div>
+	<br>
 	
 <?php
 require_once("../resources/config.php");
@@ -16,19 +17,21 @@ if (session_status() == PHP_SESSION_NONE) {
 
 
 $repo = new repository();
-if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['KomentSubmit']))
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['komenti']))
 {
     if(!isset($_SESSION['Username']) || !isset($_SESSION['Emri']) || !isset($_SESSION['Mbiemri']))
-    {
+	{    
         header("Location: http://localhost/login.php");
     }
-    
-    $komenti = $_POST['komenti'];
-    $komentuesi = $_SESSION['Username'];
+    else 
+	{   
+        $komenti = $_POST['komenti'];
+        $komentuesi = $_SESSION['Username'];
 
-    $repo->execute_query("Insert Into forumi(ChatID, Komentuesi, Komenti) values ('1','$komentuesi','$komenti')");
+        $repo->execute_query("Insert Into forumi(ChatID, Komentuesi, Komenti) values (" . $_GET["id"] .",'$komentuesi','$komenti')");
     
-	header('Location: /lokacionet.php');
+	header('Location: /lokacionet.php?id='. $_GET['id']);
 	exit;
+    }   
 }
 ?>
