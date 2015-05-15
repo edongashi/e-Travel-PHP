@@ -2,9 +2,10 @@
 	<div class="komento">
 	<form class="form" name="KomentForma" method="post">
 	<textarea name="komenti" cols="120" rows="5"></textarea>
-	<button type="submit" name="<?php $_GET['id'] ?>">Dergo</button>
+	<button style='float:right' class='button' type="submit" name="<?php $_GET['id'] ?>">Dergo</button>
 	</form>
 	</div>
+	<br>
 	
 <?php
 require_once("../resources/config.php");
