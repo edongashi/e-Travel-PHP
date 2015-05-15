@@ -21,8 +21,8 @@ require(databaza);
 
         foreach ( $rows_forum as $rreshti_forum)
 		{
-			echo '<br>' . '<ul>' .$rreshti_forum["Komenti"];
-            echo '<div class="koment_head">' .$rreshti_forum['Komentuesi'] . '</div> </ul><br>';
+			echo '<br>' . '<ul>' .$rreshti_forum["Komentuesi"];
+            echo '<div class="koment_head">' .$rreshti_forum['Komenti'] . '</div> </ul><br>';
         }
 
 		}
