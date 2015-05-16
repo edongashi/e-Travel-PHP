@@ -1,8 +1,9 @@
 <br />
-<div class="komento">
-    <form class="form" name="KomentForma" method="post">
-        <textarea name="komenti" cols="120" rows="5"></textarea>
-        <button style='float:right' class='button' type="submit" name="<?php $_GET['id'] ?>">Dergo</button>
+<div class="lokacion-mbajtesi">
+    <p class="lokacion-titulli lokacion-foto" style="margin: 20px 40px">Komento: </p>
+    <form class="form lokacion-permbajtja" style="margin-left: 280px; margin-bottom: 50px;" name="KomentForma" method="post">
+        <textarea name="komenti" cols="120" rows="5" maxlength="300"></textarea>
+        <button style='float:right; margin-top:10px;' class='button' type="submit" name="<?php $_GET['id'] ?>">Dergo</button>
     </form>
 </div>
 <br />

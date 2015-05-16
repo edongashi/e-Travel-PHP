@@ -121,7 +121,7 @@ class DB{
     public function createTblLokacione() {
         $this->konektimi();
         // Create database
-        $sql = "CREATE TABLE lokacione(Lid integer PRIMARY KEY AUTO_INCREMENT, Vendi varchar(50), Pershkrimi varchar(300), Foto varchar(50))";
+        $sql = "CREATE TABLE lokacione(Lid integer PRIMARY KEY AUTO_INCREMENT, Vendi varchar(50), Pershkrimi varchar(300), Foto varchar(50), Reklam boolean not null)";
         if (mysqli_query($this->connect, $sql)) {
             echo "U krijuar tabela Lokacionet";
         } else {

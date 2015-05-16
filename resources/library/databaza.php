@@ -5,7 +5,7 @@ class repository extends db_connector {
     public function __get($name) {
         switch ($name) {
             case "lokacionet":
-                return $this->get_data("SELECT * FROM lokacione");
+                return $this->get_data("SELECT * FROM lokacione Where Reklam = 1");
             case "users":
                 return $this->get_data("SELECT * FROM user");
             case "udhetimet_bus":

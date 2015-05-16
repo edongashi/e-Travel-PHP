@@ -47,8 +47,8 @@ require(databaza);
             echo "<div class='lokacion-mbajtesi'>";
 			echo "<div class='lokacion-foto'><img src='img/content/	" .  $x['Foto'] .  "' width='200px;'></div>
 			<div class='lokacion-permbajtja' style='margin-left:220px;'>
-			<h1 class='lokacion-titulli' style='font-size:20px;'>" . $rreshti['Komentuesi'] . " tha:</h1> ";
-			echo "<div class='lokacion-mbajtesi' style='min-height:70px'>" .$rreshti['Komenti'];
+			<h1 class='lokacion-titulli' style='font-size:20px; margin-top: -15px;'>" . $rreshti['Komentuesi'] . " tha:</h1> ";
+			echo "<div class='lokacion-mbajtesi' style='min-height:80px; height:auto;margin-top: -10px'>" .$rreshti['Komenti'];
 			echo "</div></div></div><br />";
 		}
 	}

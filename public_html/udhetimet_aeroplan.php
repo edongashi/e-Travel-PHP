@@ -34,6 +34,7 @@ if (isset($_POST['prej']) && isset($_POST['deri'])) {
 }
 
 $rez = $db->get_data($sql);
+$lokacionet = $db->get_data("Select * From lokacione Where Reklam = 0");
 ?>
 
 <section class="permbajtje">
@@ -45,23 +46,19 @@ $rez = $db->get_data($sql);
                 <td>Prej:
                 <select name="prej">
                     <option></option>
-                    <option value="Prishtine">Prishtine</option>
-                    <option value="Paris">Paris</option>
-                    <option value="Berlin">Berlin</option>
-                    <option value="Madrid">Madrid</option>
-                    <option value="Londer">Londer</option>
-                    <option value="New York">New York</option>
+                    <?php
+                    foreach ($lokacionet as $value) {
+                        echo "<option>".$value['Vendi']."</option>";
+                    } ?>
                 </select>
                 </td>
                 <td>Deri:
                 <select name="deri">
                     <option></option>
-                    <option value="Prishtine">Prishtine</option>
-                    <option value="Paris">Paris</option>
-                    <option value="Berlin">Berlin</option>
-                    <option value="Madrid">Madrid</option>
-                    <option value="Londer">Londer</option>
-                    <option value="New York">New York</option>
+                    <?php
+                    foreach ($lokacionet as $value) {
+                        echo "<option>".$value['Vendi']."</option>";
+                    } ?>
                 </select>
                 </td>
                 <td>

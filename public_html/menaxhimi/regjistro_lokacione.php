@@ -6,17 +6,35 @@ $db = new repository;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    if ($_POST['emri_lokacionit'] == "" || $_POST['emri_foto'] == "" || $_POST['pershkrimi_lokacionit'] == "") {
-        $error_msg = htmlentities("Ploteso te gjitha fushat!");
-    } else {
-        $emri_lokacionit = $_POST['emri_lokacionit'];
-        $pershkrimi_lokacionit = $_POST['pershkrimi_lokacionit'];
-        $emri_foto = $_POST['emri_foto'];
-        $sql = "Insert Into lokacione(Vendi, Pershkrimi, Foto) values ('$emri_lokacionit','$pershkrimi_lokacionit','$emri_foto')";
-        if ($db->execute($sql)) {
-            $error_msg = htmlentities("Regjistrimi u krye me sukses");
+    if (isset($_POST['reklam'])) {
+
+        if ($_POST['emri_lokacionit'] == "" || $_POST['emri_foto'] == "" || $_POST['pershkrimi_lokacionit'] == "") {
+
+            $error_msg = htmlentities("Ploteso te gjitha fushat!");
+
         } else {
-            $error_msg = htmlentities("Regjistrimi nuk u krye me sukses");
+            $emri_lokacionit = $_POST['emri_lokacionit'];
+            $pershkrimi_lokacionit = $_POST['pershkrimi_lokacionit'];
+            $emri_foto = $_POST['emri_foto'];
+
+            $sql = "Insert Into lokacione(Vendi, Pershkrimi, Foto, Reklam) values ('$emri_lokacionit','$pershkrimi_lokacionit','$emri_foto',1)";
+            if ($db->execute_query($sql)) {
+                $error_msg = htmlentities("Regjistrimi u krye me sukses");
+            } else {
+                $error_msg = htmlentities("Regjistrimi nuk u krye me sukses");
+            }
+        }
+    } else {
+        if ($_POST['emri_lokacionit'] == "") {
+            $error_msg = htmlentities("Ploteso fushen Emri i Lokacionit!");
+        } else {
+            $emri_lokacionit = $_POST['emri_lokacionit'];
+            $sql = "Insert Into lokacione(Vendi, Pershkrimi, Foto, Reklam) values ('$emri_lokacionit','','',0)";
+            if ($db->execute_query($sql)) {
+                $error_msg = htmlentities("Regjistrimi u krye me sukses");
+            } else {
+                $error_msg = htmlentities("Regjistrimi nuk u krye me sukses");
+            }
         }
     }
 }
@@ -39,6 +57,11 @@ require(dashboard_header);
                 <td>Emri i Lokacionit:</td>
                 <td>
                     <input type="text" name="emri_lokacionit"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="checkbox" name="reklam" value="1">Reklam</td>
             </tr>
             <tr>
                 <td>Foto e Lokacionit:</td>

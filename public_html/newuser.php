@@ -47,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
 
 $header_titulli = "Ballina";
 $css_includes = Array("css/form.css", "css/site.css");
+$script_includes = "/js/login.js";
 require(templates_header);
 ?>
 
@@ -57,31 +58,33 @@ require(templates_header);
             <tr>
                 <td>Username:</td>
                 <td>
-                    <input type="text" name="Username"><br />
+                    <input type="text" name="Username" onchange="showUser(this.value)">
+                </td>
+                <td>
+                    <p id="user_search"></p>
                 </td>
             </tr>
             <tr>
                 <td>Password:</td>
                 <td>
-                    <input type="password" name="Password"><br />
+                    <input type="password" name="Password">
                 </td>
             </tr>
             <tr>
                 <td>Konfirmo Password:</td>
                 <td>
-                    <input type="password" name="PasswordK"><br />
+                    <input type="password" name="PasswordK">
                 </td>
             </tr>
             <tr>
                 <td>Emri:</td>
                 <td>
-                    <input type="text" name="Emri"><br />
-                </td>
+                    <input type="text" name="Emri"></td>
             </tr>
             <tr>
                 <td>Mbiemri:</td>
                 <td>
-                    <input type="text" name="Mbiemri"><br />
+                    <input type="text" name="Mbiemri">
                 </td>
             </tr>
             <tr>
@@ -91,12 +94,14 @@ require(templates_header);
                         <option value="User">User</option>
                         <option value="Agent">Agjent</option>
                         <option value="Admin">Admin</option>
-                    </select></td>
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td colspan="2" style="height: 48px; text-align: center;">
                     <input type="submit" class="button button-small" value="Regjistrohu">
-                    <input type="reset" class="button button-small" value="Cancel"></td>
+                    <input type="reset" class="button button-small" value="Cancel">
+                </td>
             </tr>
         </table>
     </form>
