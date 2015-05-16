@@ -58,6 +58,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
 $header_titulli = "Ballina";
 $css_includes = Array("css/form.css", "css/site.css");
+$script_includes = "/js/login.js";
 require(templates_header);
 ?>
 
@@ -66,19 +67,19 @@ require(templates_header);
   <form method="Post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
     <table style="width: 500px; margin: 40px auto;">
     <tr>
-      <td>Username:</td><td><input type="text" name="Username"><br /></td>
+        <td>Username:</td><td><input type="text" name="Username" onchange="showUser(this.value)"></td><td><p id="user_search"></p></td>
     </tr>
     <tr>
-      <td>Password:</td><td><input type="password" name="Password"><br /></td>
+      <td>Password:</td><td><input type="password" name="Password"></td>
     </tr>
     <tr>
-      <td>Konfirmo Password:</td><td><input type="password" name="PasswordK"><br /></td>
+      <td>Konfirmo Password:</td><td><input type="password" name="PasswordK"></td>
     </tr>
     <tr>
-      <td>Emri:</td><td><input type="text" name="Emri"><br /></td>
+      <td>Emri:</td><td><input type="text" name="Emri"></td>
     </tr>
     <tr>
-      <td>Mbiemri:</td><td><input type="text" name="Mbiemri"><br /></td>
+      <td>Mbiemri:</td><td><input type="text" name="Mbiemri"></td>
     </tr>
     <tr>
       <td>Prioriteti:</td><td><select name="Prioriteti">
