@@ -1,139 +1,143 @@
 form > table {
-  width: 100%;
+    width: 100%;
 }
 
 .form {
-  width: 100%;
-  max-width: 640px;
-  margin: 20px auto;
+    width: 100%;
+    max-width: 640px;
+    margin: 20px auto;
 }
 
 .form-small {
-  width: 100%;
-  max-width: 400px;
-  margin: 20px auto;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
 }
 
 .button-cell {
-  padding-top: 15px;
+    padding-top: 15px;
 }
 
 .button-cell-small {
-  padding-top: 7px;
+    padding-top: 7px;
 }
 
 input, textarea, select {
-  outline: none;
-  line-height: normal;
-  color: inherit;
-  font-size: 16px;
-  letter-spacing: 1px;
-  box-sizing: border-box;
+    outline: none;
+    line-height: normal;
+    color: inherit;
+    font-size: 16px;
+    letter-spacing: 1px;
+    box-sizing: border-box;
 }
 
 .button {
-  -webkit-border-radius: 11;
-  -moz-border-radius: 11;
-  border-radius: 11px;
-  border: none;
-  color: #ffffff;
-  font-size: 18px;
-  background: #d93434;
-  padding: 8px 16px;
-  text-decoration: none;
-  cursor: pointer;
+    -webkit-border-radius: 11;
+    -moz-border-radius: 11;
+    border-radius: 11px;
+    border: none;
+    color: #ffffff;
+    font-size: 18px;
+    background: #d93434;
+    padding: 8px 16px;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-.button:hover {
-  background: #e83131;
-}
+    .button:hover {
+        background: #e83131;
+    }
 
-.button:active {
-  background: #e00;
-}
+    .button:active {
+        background: #e00;
+    }
 
 .button-small {
-  font-size: 16px;
-  padding: 6px 12px;
+    font-size: 16px;
+    padding: 6px 12px;
 }
 
 input[type=text],
 input[type=password],
 textarea,
 select {
-  width: 100%;
-  padding: 8px;
-  border: solid 1px #ccc;
-  transition: border-color 0.15s;
-  -webkit-border-radius: 4;
-  -moz-border-radius: 4;
-  border-radius: 4px;
-  vertical-align: middle;
+    width: 100%;
+    padding: 8px;
+    border: solid 1px #ccc;
+    transition: border-color 0.15s;
+    -webkit-border-radius: 4;
+    -moz-border-radius: 4;
+    border-radius: 4px;
+    vertical-align: middle;
 }
 
 select {
-  padding: 6px 8px 4px 3px;
+    padding: 6px 8px 4px 3px;
 }
 
 textarea {
-  font-family: 'Open Sans', sans-serif;
-  resize: vertical;
+    font-family: 'Open Sans', sans-serif;
+    resize: none;
 }
 
-input[type=text]:hover,
-input[type=password]:hover,
-textarea:hover,
-select:hover {
-    border-color: #eb7171;
-}
+    input[type=text]:hover,
+    input[type=password]:hover,
+    textarea:hover,
+    select:hover {
+        border-color: #eb7171;
+    }
 
-input[type=text]:focus,
-input[type=password]:focus,
-textarea:focus,
-select:hover {
-  border-color: #b90000;
-}
+    input[type=text]:focus,
+    input[type=password]:focus,
+    textarea:focus,
+    select:hover {
+        border-color: #b90000;
+    }
 
 .tabela {
-  width: 100%;
-  border-collapse: collapse;
-  border: 1px solid #ddd;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
 }
 
-.tabela th {
-  padding: 10px 6px 6px 6px;
-  border-bottom: 2px solid #ddd;
-}
+    .tabela th {
+        padding: 10px 6px 6px 6px;
+        border-bottom: 2px solid #ddd;
+    }
 
-.tabela td {
-  padding: 6px;
-}
+    .tabela td {
+        padding: 6px;
+    }
 
-.tabela tr {
-  border-top: 1px solid #ddd;
-}
+    .tabela tr {
+        border-top: 1px solid #ddd;
+    }
 
-.tabela tbody tr:nth-child(odd) {
-  background: #fafafa
-}
+    .tabela tbody tr:nth-child(odd) {
+        background: #fafafa;
+    }
 
 .lokacion-mbajtesi {
     margin: 10px 20px -15px 0;
     border: 2px solid #e3e3e3;
     overflow: auto;
 }
+
 .lokacion-foto {
-    float: left
+    float: left;
 }
-.lokacion-foto img {
-    display: block
-}
+
+    .lokacion-foto img {
+        display: block;
+    }
+
 .lokacion-permbajtja {
-	margin-top: 25px;
-    margin-left: 320px
+    margin-top: 25px;
+    margin-left: 320px;
 }
+
 .lokacion-titulli {
     font-weight: bold;
     font-size: 250%;
-	margin-bottom: 15px;
+    margin-bottom: 15px;
 }
