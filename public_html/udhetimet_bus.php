@@ -35,6 +35,7 @@ if(isset($_POST['prej']) && isset($_POST['deri'])){
 }
     
 $rez = $repo->get_data($sql);
+$lokacionet = $repo->get_data("Select * From lokacione Where Reklam = 0");
 
 ?>
 
@@ -47,22 +48,22 @@ $rez = $repo->get_data($sql);
                 Prej:
                 <select name="prej">
                                     <option></option>
-                                    <option value="Prishtine">Prishtine</option>
-                                    <option value="Prizren">Prizren</option>
-                                    <option value="Peje">Peje</option>
-                                    <option value="Gjilan">Gjilan</option>
-                                    <option value="Mitrovice">Mitrovice</option>
+                                    <?php
+                                        foreach($lokacionet as $value){
+                                            echo "<option>".$value['Vendi']."</option>";
+                                        }
+                                    ?>
                 </select>
             </td>
             <td>
                 Deri:
                 <select name="deri">
                                     <option></option>
-                                    <option value="Prishtine">Prishtine</option>
-                                    <option value="Prizren">Prizren</option>
-                                    <option value="Peje">Peje</option>
-                                    <option value="Gjilan">Gjilan</option>
-                                    <option value="Mitrovice">Mitrovice</option>
+                                    <?php
+                                        foreach($lokacionet as $value){
+                                            echo "<option>".$value['Vendi']."</option>";
+                                        }
+                                    ?>
                 </select>
             </td>
             <td>

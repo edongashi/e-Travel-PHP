@@ -1,6 +1,7 @@
 <?php
 require_once("../../resources/config.php");
 require(databaza);
+$db = new repository();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if($_POST['prej'] == ""  || $_POST['deri'] == "" || $_POST['nrulse'] == "0" || $_POST['data'] == "" || $_POST['cmimi'] == "0"){
@@ -13,8 +14,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $data = $_POST['data'];
         $cmimi = $_POST['cmimi'];
 
-        $db = new repository();
-
         $sql = "Insert into udhetimetbus(Prej, Deri, Ulese, Data, Cmimi) Values ('$prej', '$deri', $nrulse, '$data', $cmimi)";
         if($db->execute_query($sql)){
             $error_msg = htmlentities("Regjistrimi u krye me sukses");
@@ -23,6 +22,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 }
+$lokacionet = $db->get_data("Select * From lokacione Where Reklam = 0");
 
 $header_titulli = "Ballina";
 $css_includes = Array("../css/form.css", "../css/dashboard.css");
@@ -38,11 +38,11 @@ require(dashboard_header);
                 <td>Prej:</td>
                 <td><select name="prej">
                         <option></option>
-                        <option value="Prishtine">Prishtine</option>
-                        <option value="Prizren">Prizren</option>
-                        <option value="Peje">Peje</option>
-                        <option value="Gjilan">Gjilan</option>
-                        <option value="Mitrovice">Mitrovice</option>
+                        <?php
+                            foreach($lokacionet as $value){
+                                echo "<option>".$value['Vendi']."</option>";
+                            }
+                        ?>
                     </select>
                 </td>
             </tr>
@@ -50,11 +50,11 @@ require(dashboard_header);
                 <td>Deri:</td>
                 <td><select name="deri">
                         <option></option>
-                        <option value="Prishtine">Prishtine</option>
-                        <option value="Prizren">Prizren</option>
-                        <option value="Peje">Peje</option>
-                        <option value="Gjilan">Gjilan</option>
-                        <option value="Mitrovice">Mitrovice</option>
+                        <?php
+                            foreach($lokacionet as $value){
+                                echo "<option>".$value['Vendi']."</option>";
+                            }
+                        ?>
                     </select>
                 </td>
             </tr>
