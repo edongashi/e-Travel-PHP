@@ -94,6 +94,7 @@ class db_connector {
     private $connection;
 
     protected function connector_create_db() {
+        global $config;
         $this->connection = mysqli_connect($config["db"]["host"], $config["db"]["username"], $config["db"]["password"]);
         if (!$this->connection) {
             die("Connection failed!");
@@ -122,6 +123,19 @@ class db_connector {
     public function execute($sql)
     {
         $this->konektohu();
+        
+        // Nese kemi safe_query ose me shume parametra provo merr safe string.
+        try {
+            if ($sql instanceof safe_query) {
+                $sql = $sql->merr_safe_string($this->connection);
+            } else if (func_num_args() > 1) {
+                $sql = (new safe_query(func_get_args()))->merr_safe_string($this->connection);
+            }
+        }
+        catch (Exception $e) {
+            return false;
+        }
+        
         if (mysqli_query($this->connection, $sql)) {
             $rezultati = true;
         } else {
@@ -135,6 +149,18 @@ class db_connector {
     public function get_data($sql)
     {
         $this->konektohu();
+        
+        try {
+            if ($sql instanceof safe_query) {
+                $sql = $sql->merr_safe_string($this->connection);
+            } else if (func_num_args() > 1) {
+                $sql = (new safe_query(func_get_args()))->merr_safe_string($this->connection);
+            }
+        }
+        catch (Exception $e) {
+            return array();
+        }
+        
         $array = array();
         $result = mysqli_query($this->connection, $sql);
         if (mysqli_num_rows($result) > 0) {
@@ -148,7 +174,7 @@ class db_connector {
     }
 
     private function konektohu() {
-		$config = $GLOBALS["config"];
+		global $config;
         $this->connection = mysqli_connect($config["db"]["host"], $config["db"]["username"], $config["db"]["password"], $config["db"]["dbname"]);
         if (!$this->connection) {
             die("Connection failed!");
@@ -157,6 +183,55 @@ class db_connector {
 
     private function mbyll_lidhjen() {
         mysqli_close($this->connection);
+    }
+}
+
+class safe_query {
+    private $sql;
+    private $parametrat;
+    
+    public function __construct($sql) {
+        if (is_array($sql)) {
+            if (empty($sql)) throw new Exception("Krijim jo valid i safe query.");
+            $this->sql = array_shift($sql);
+            $this-> parametrat = $sql;
+            return;
+        }
+        
+        $this->sql = $sql;
+        $argumentet = func_get_args();
+        array_shift($argumentet);
+        $this->parametrat = $argumentet;
+    }
+    
+    public function merr_safe_string($connection) {
+        $pattern = '/(?<!\\\)%(s|d)/';
+        $count = count($this->parametrat);
+        $i = 0;
+        $rez = preg_replace_callback(
+            $pattern,
+            function ($matches) use ($connection, $count, &$i) {
+                if ($i >= $count) {
+                    throw new Exception("Mosperputhje e parametrave tek $this->sql.");
+                }
+                
+                $parametri = $this->parametrat[$i++];
+                switch ($matches[1])
+                {
+                    case 's':
+                        return "'" . mysqli_real_escape_string($connection, $parametri) . "'";
+                    case 'd':
+                        $pattern_numer = '/^\s*[+\-]?(?:\d+(?:\.\d+)?|\.\d+)\s*$/';
+                        if (preg_match($pattern_numer, $parametri)) {
+                            return $parametri;
+                        } else throw new Exception("Vlere jo numerike $parametri.");
+                    default:
+                        return $matches[0];
+                }
+            },
+            $this->sql);
+
+        return str_replace("\%", "%", $rez);
     }
 }
 ?>
