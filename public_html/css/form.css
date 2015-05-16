@@ -120,7 +120,8 @@ select:hover {
 .lokacion-mbajtesi {
     margin: 10px 20px -15px 0;  
     border: 2px solid #e3e3e3;
-    overflow: auto
+    overflow: auto;
+
 }
 .lokacion-foto {
     float: left
@@ -129,7 +130,7 @@ select:hover {
     display: block
 }
 .lokacion-permbajtja {
-	margin-top: 15px;
+	margin-top: 25px;
     margin-left: 320px
 }
 .lokacion-titulli {
