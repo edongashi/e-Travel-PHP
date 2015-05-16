@@ -123,7 +123,7 @@ class db_connector {
     public function execute($sql)
     {
         $this->konektohu();
-        
+
         // Nese kemi safe_query ose me shume parametra provo merr safe string.
         try {
             if ($sql instanceof safe_query) {
@@ -133,9 +133,10 @@ class db_connector {
             }
         }
         catch (Exception $e) {
+            $this->mbyll_lidhjen();
             return false;
         }
-        
+
         if (mysqli_query($this->connection, $sql)) {
             $rezultati = true;
         } else {
@@ -149,7 +150,7 @@ class db_connector {
     public function get_data($sql)
     {
         $this->konektohu();
-        
+
         try {
             if ($sql instanceof safe_query) {
                 $sql = $sql->merr_safe_string($this->connection);
@@ -158,9 +159,10 @@ class db_connector {
             }
         }
         catch (Exception $e) {
+            $this->mbyll_lidhjen();
             return array();
         }
-        
+
         $array = array();
         $result = mysqli_query($this->connection, $sql);
         if (mysqli_num_rows($result) > 0) {
@@ -189,21 +191,21 @@ class db_connector {
 class safe_query {
     private $sql;
     private $parametrat;
-    
+
     public function __construct($sql) {
         if (is_array($sql)) {
             if (empty($sql)) throw new Exception("Krijim jo valid i safe query.");
             $this->sql = array_shift($sql);
-            $this-> parametrat = $sql;
+            $this->parametrat = $sql;
             return;
         }
-        
+
         $this->sql = $sql;
         $argumentet = func_get_args();
         array_shift($argumentet);
         $this->parametrat = $argumentet;
     }
-    
+
     public function merr_safe_string($connection) {
         $pattern = '/(?<!\\\)%(s|d)/';
         $count = count($this->parametrat);
@@ -214,7 +216,7 @@ class safe_query {
                 if ($i >= $count) {
                     throw new Exception("Mosperputhje e parametrave tek $this->sql.");
                 }
-                
+
                 $parametri = $this->parametrat[$i++];
                 switch ($matches[1])
                 {

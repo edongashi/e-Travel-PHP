@@ -60,7 +60,7 @@ require(templates_header);
                 <td>
                     <input type="text" name="Username" onchange="showUser(this.value)">
                 </td>
-                <td>
+                <td style="width: 20px">
                     <p id="user_search"></p>
                 </td>
             </tr>
