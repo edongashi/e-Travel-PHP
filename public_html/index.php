@@ -6,7 +6,7 @@ $css_includes = "css/site.css";
 $script_includes = jquery;
 
 $header_script = <<< SCRIPT
-$(document).ready(function(){
+$(document).ready(function() {
 	$(".item1").hide();
 	$(".item2").hide();
 	$(".item3").hide();
@@ -14,7 +14,7 @@ $(document).ready(function(){
 	var ni = true;
 	var dy = false;
 	var tre = false;
-	function Ndrrimi(){
+	function Ndrrimi() {
 		if ( ni == true)
 		{
 			$(".item1").fadeOut(1000);
@@ -36,25 +36,27 @@ $(document).ready(function(){
 			tre = false;
 			ni = true;
 		}
-}
+    }
+
 	window.setInterval(Ndrrimi, 5000);
 });
 SCRIPT;
+
 require(templates_header);
 ?>
 
 <section class="permbajtje">
-<div id="slideshow" class="owl-carousel owl-theme">
- 
-  <div class="item1"><img src="http://owlgraphic.com/owlcarousel/demos/assets/fullimage1.jpg" alt="The Last of us"></div>
-  <div class="item2"><img src="http://owlgraphic.com/owlcarousel/demos/assets/fullimage2.jpg" alt="GTA V"></div>
-  <div class="item3"><img src="http://owlgraphic.com/owlcarousel/demos/assets/fullimage3.jpg" alt="Mirror Edge"></div>
- 
-</div>
-  
-
+    <div id="slideshow" class="owl-carousel owl-theme">
+        <div class="item1">
+            <img src="http://owlgraphic.com/owlcarousel/demos/assets/fullimage1.jpg" alt="The Last of us">
+        </div>
+        <div class="item2">
+            <img src="http://owlgraphic.com/owlcarousel/demos/assets/fullimage2.jpg" alt="GTA V">
+        </div>
+        <div class="item3">
+            <img src="http://owlgraphic.com/owlcarousel/demos/assets/fullimage3.jpg" alt="Mirror Edge">
+        </div>
+    </div>
 </section>
 
-<?php
-require(templates_footer);
-?>
+<?php require(templates_footer); ?>

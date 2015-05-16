@@ -10,7 +10,7 @@ textarea {
 }
 .page-wrap {
   min-height: 100%;
-  margin-bottom: -60px; 
+  margin-bottom: -60px;
 }
 
 .page-wrap:after {
@@ -23,7 +23,7 @@ textarea {
 }
 
 footer, .page-wrap:after {
-  height: 60px; 
+  height: 60px;
 }
 
 body	{
@@ -110,7 +110,7 @@ section.permbajtje {
   line-height: 0%;
 }
 
-.menu li:hover ul {    
+.menu li:hover ul {
   z-index:1;
   opacity:1;
 }

@@ -2,25 +2,23 @@
 require_once("../../resources/config.php");
 require(databaza);
 
-$repo = new repository();
+$db = new repository;
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    if($_POST['emri_lokacionit'] == "" || $_POST['emri_foto'] == "" || $_POST['pershkrimi_lokacionit'] == ""){
+    if ($_POST['emri_lokacionit'] == "" || $_POST['emri_foto'] == "" || $_POST['pershkrimi_lokacionit'] == "") {
         $error_msg = htmlentities("Ploteso te gjitha fushat!");
     } else {
         $emri_lokacionit = $_POST['emri_lokacionit'];
         $pershkrimi_lokacionit = $_POST['pershkrimi_lokacionit'];
         $emri_foto = $_POST['emri_foto'];
-        
         $sql = "Insert Into lokacione(Vendi, Pershkrimi, Foto) values ('$emri_lokacionit','$pershkrimi_lokacionit','$emri_foto')";
-        
-        if($repo->execute_query($sql)){
+        if ($db->execute($sql)) {
             $error_msg = htmlentities("Regjistrimi u krye me sukses");
         } else {
             $error_msg = htmlentities("Regjistrimi nuk u krye me sukses");
         }
-    }  
+    }
 }
 ?>
 
@@ -33,30 +31,34 @@ require(dashboard_header);
 ?>
 
 <section class="permbajtje">
-  <h1 class="center">Shto lokacion</h1>
-  <form class="form" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
-            <table>
-                <?php if (isset($error_msg)) echo "<tr><td colspan='2'><h4 class='error-msg'>$error_msg</h3></td></tr>"; ?>
-                <tr>
-                    <td>Emri i Lokacionit:</td><td><input type="text" name="emri_lokacionit"></td>
-                </tr>
-                <tr>
-                    <td>Foto e Lokacionit:</td><td><input type="text" name="emri_foto"></td>
-                </tr>
-                <tr>
-                    <td>Pershkrimi i Lokacionit:</td><td><textarea cols="30" rows="8" name="pershkrimi_lokacionit"></textarea></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td class="button-cell-small">
-                        <input class="button button-small" type="submit" value="Regjistro">
-                        <input class="button button-small" type="reset" value="Anulo">
-                    </td>
-                </tr>
-            </table>
+    <h1 class="center">Shto lokacion</h1>
+    <form class="form" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+        <table>
+            <?php if (isset($error_msg)) echo "<tr><td colspan='2'><h4 class='error-msg'>$error_msg</h3></td></tr>"; ?>
+            <tr>
+                <td>Emri i Lokacionit:</td>
+                <td>
+                    <input type="text" name="emri_lokacionit"></td>
+            </tr>
+            <tr>
+                <td>Foto e Lokacionit:</td>
+                <td>
+                    <input type="text" name="emri_foto"></td>
+            </tr>
+            <tr>
+                <td>Pershkrimi i Lokacionit:</td>
+                <td>
+                    <textarea cols="30" rows="8" name="pershkrimi_lokacionit"></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="button-cell-small">
+                    <input class="button button-small" type="submit" value="Regjistro">
+                    <input class="button button-small" type="reset" value="Anulo">
+                </td>
+            </tr>
+        </table>
     </form>
 </section>
 
-<?php
-require(dashboard_footer);
-?>
+<?php require(dashboard_footer); ?>

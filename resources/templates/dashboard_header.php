@@ -14,10 +14,10 @@ function indent($level)
 <!DOCTYPE html>
 <head>
 
-<title>
-<?php if (isset($header_titulli)) echo "  " . $header_titulli . "\r\n"; ?>
-</title>
-<?php
+    <title>
+        <?php if (isset($header_titulli)) echo "  " . $header_titulli . "\r\n"; ?>
+    </title>
+    <?php
 if (isset($script_includes))
 {
   if (is_array($script_includes))
@@ -55,27 +55,25 @@ if (isset($css_includes))
 echo "\r\n";
 ?>
 
-<style>
-<?php if (isset($header_style)) echo $header_style; ?>
-</style>
-
+    <style>
+        <?php if (isset($header_style)) echo $header_style; ?>
+    </style>
 </head>
 
 <body>
-<div class="page-wrap">
-<div class="dashboard-header">
-
-</div>
-<div class="dashboard-sidebar">
-  <nav>
-    <ul class="menu"><?php
+    <div class="page-wrap">
+        <div class="dashboard-header">
+        </div>
+        <div class="dashboard-sidebar">
+            <nav>
+                <ul class="menu"><?php
 foreach ($config["dashboard_links_admin"] as $emri => $linku)
 {
   if (is_string($linku))
   {
     echo indent(6) . "<li><a href=\"$linku\">$emri</a></li>";
   }
-  else 
+  else
   {
     echo indent(6) . "<li>";
     echo indent(8) . "<a>$emri <span class=\"shigjeta\">&#9660;</span></a>";
@@ -91,8 +89,8 @@ foreach ($config["dashboard_links_admin"] as $emri => $linku)
 
 echo "\r\n";
 ?>
-    </ul>
-  </nav>
-</div>
+                </ul>
+            </nav>
+        </div>
 
-<div class="dashboard-permbajtja">
+        <div class="dashboard-permbajtja">

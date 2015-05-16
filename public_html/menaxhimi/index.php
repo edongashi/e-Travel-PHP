@@ -7,12 +7,10 @@ require(dashboard_header);
 ?>
 
 <section class="permbajtje">
-  <h1>Agjensioni i udhetimeve</h1>
-  <p>
-    Permbajtja e faqes
-  </p>
+    <h1>Agjensioni i udhetimeve</h1>
+    <p>
+        Permbajtja e faqes
+    </p>
 </section>
 
-<?php
-require(dashboard_footer);
-?>
+<?php require(dashboard_footer); ?>
