@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $cmimi = $_POST['cmimi'];
 
         $sql = "Insert into udhetimetaeroplan(Prej, Deri, Ulese, Data, Cmimi) Values ('$prej', '$deri', $nrulse, '$data', $cmimi)";
-        if ($db->execute_query($sql)) {
+        if ($db->execute($sql)) {
             $error_msg = htmlentities("Regjistrimi u krye me sukses");
         } else {
             $error_msg = htmlentities("Regjistrimi nuk u krye me sukses");

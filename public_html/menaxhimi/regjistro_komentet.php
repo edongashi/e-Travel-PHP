@@ -10,7 +10,7 @@
 
 <?php
 require_once("../resources/config.php");
-require(databaza);
+require_once(databaza);
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();

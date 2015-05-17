@@ -22,7 +22,7 @@ require(databaza);
 				echo substr($rreshti['Pershkrimi'], 0, 260);
 				echo "...";
 			} else {
-                echo $rreshti['Pershkrimi']
+                echo $rreshti['Pershkrimi'];
             }
 
 			echo "</div></div>";

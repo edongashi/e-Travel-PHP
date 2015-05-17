@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $emri_foto = $_POST['emri_foto'];
 
             $sql = "Insert Into lokacione(Vendi, Pershkrimi, Foto, Reklam) values ('$emri_lokacionit','$pershkrimi_lokacionit','$emri_foto',1)";
-            if ($db->execute_query($sql)) {
+            if ($db->execute($sql)) {
                 $error_msg = htmlentities("Regjistrimi u krye me sukses");
             } else {
                 $error_msg = htmlentities("Regjistrimi nuk u krye me sukses");
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             $emri_lokacionit = $_POST['emri_lokacionit'];
             $sql = "Insert Into lokacione(Vendi, Pershkrimi, Foto, Reklam) values ('$emri_lokacionit','','',0)";
-            if ($db->execute_query($sql)) {
+            if ($db->execute($sql)) {
                 $error_msg = htmlentities("Regjistrimi u krye me sukses");
             } else {
                 $error_msg = htmlentities("Regjistrimi nuk u krye me sukses");
