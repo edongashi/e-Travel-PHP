@@ -17,9 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $salt1 = "2%a@*/";
         $salt2 = "&9o?>";
         $password = sha1("$salt1$password$salt2");
-        $db = new repository;
-        $query = "Select * From user Where Username='$username' and Password='$password'";
-        $rows = $db->get_data($query);
+        $db = new repository;     
+        $rows = $db->get_data("Select * From user Where Username=%s and Password=%s",$username,$password);
         if (count($rows) > 0) {
             $_SESSION['Emri'] = $rows[0]["Emri"];
             $_SESSION['Mbiemri'] = $rows[0]['Mbiemri'];
@@ -40,7 +39,7 @@ require(templates_header);
     <h1 class="center">Identifikohuni</h1>
     <form class="form form-small" method="Post" action="<?php echo $_SERVER['PHP_SELF'];?>">
         <table>
-            <?php if (isset($error_msg)) echo "<tr><td colspan='2'><h4 class='error-msg'>$error_msg</h3></td></tr>"; ?>
+            <?php if (isset($error_msg)) echo "<tr><td colspan='2'><h4 class='error-msg'>$error_msg</h4></td></tr>"; ?>
             <tr>
                 <td>Username:</td>
                 <td>

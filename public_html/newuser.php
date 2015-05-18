@@ -15,8 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
             || $_POST['Password'] == ""
             || $_POST['PasswordK'] == ""
             || $_POST['Emri'] == ""
-            || $_POST['Mbiemri'] == ""
-            || $_POST['Prioriteti'] == "") {
+            || $_POST['Mbiemri'] == "") {
         echo "Ploteso te gjitha fushat!";
         die();
     }
@@ -25,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
     $password = trim($_POST['Password']);
     $emri = trim($_POST['Emri']);
     $mbiemri = trim($_POST['Mbiemri']);
-    $prioriteti = trim($_POST['Prioriteti']);
+    $prioriteti = "User";
     if ($_POST['Password'] != $_POST['PasswordK']) {
         ShfaqError("Keni dhene password te ndryshem!");
     }
@@ -42,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
     $salt1 = "2%a@*/";
     $salt2 = "&9o?>";
     $pass = sha1("$salt1$password$salt2");
-	$db->execute("Insert into user(Username,Password,Emri,Mbiemri,Prioriteti) Values ('$username','$pass','$emri','$mbiemri','$prioriteti')");
+	$db->execute("Insert into user(Username,Password,Emri,Mbiemri,Prioriteti) Values (%s,%s,%s,%s,%s)",$username,$pass,$emri,$mbiemri,$prioriteti);
 }
 
 $header_titulli = "Ballina";
@@ -85,16 +84,6 @@ require(templates_header);
                 <td>Mbiemri:</td>
                 <td>
                     <input type="text" name="Mbiemri">
-                </td>
-            </tr>
-            <tr>
-                <td>Prioriteti:</td>
-                <td>
-                    <select name="Prioriteti">
-                        <option value="User">User</option>
-                        <option value="Agent">Agjent</option>
-                        <option value="Admin">Admin</option>
-                    </select>
                 </td>
             </tr>
             <tr>

@@ -40,7 +40,7 @@ require(dashboard_header);
     <h1 class="center">Regjistro Udhetim Aeroplan</h1>
     <form class="form" method="Post" action="<?php echo $_SERVER['PHP_SELF'];?>">
         <table>
-            <?php if (isset($error_msg)) echo "<tr><td colspan='2'><h4 class='error-msg'>$error_msg</h3></td></tr>"; ?>
+            <?php if (isset($error_msg)) echo "<tr><td colspan='2'><h4 class='error-msg'>$error_msg</h4></td></tr>"; ?>
             <tr>
                 <td>Prej:</td>
                 <td>

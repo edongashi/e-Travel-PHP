@@ -52,11 +52,14 @@ require(dashboard_header);
     <h1 class="center">Shto lokacion</h1>
     <form class="form" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
         <table>
-            <?php if (isset($error_msg)) echo "<tr><td colspan='2'><h4 class='error-msg'>$error_msg</h3></td></tr>"; ?>
+            <?php if (isset($error_msg)) echo "<tr><td colspan='2'><h4 class='error-msg'>$error_msg</h4></td></tr>"; ?>
             <tr>
                 <td>Emri i Lokacionit:</td>
                 <td>
                     <input type="text" name="emri_lokacionit"></td>
+            </tr>
+            <tr>
+                <td></td><td><input type="radio" name="mjeti" value="Bus">Autobus   <input type="radio" name="mjeti" value="Aeroplan">Aeroplan</td>
             </tr>
             <tr>
                 <td></td>

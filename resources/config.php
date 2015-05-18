@@ -40,6 +40,7 @@ $config = array(
             "Aeroplan" => "regjistro_udhetim_aeroplan.php",
         ),
         "Shto lokacion" => "regjistro_lokacione.php",
+        "Menaxho User" => "menaxho_user.php",
         "Menaxho databazen" => "menaxhoDB.php",
 		"Logout" => "../logout.php"
     ),
