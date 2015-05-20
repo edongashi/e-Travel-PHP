@@ -69,7 +69,7 @@ class DB{
     public function createTblUdhetimetBus() {
         $this->konektimi();
         // Create database
-        $sql = "CREATE TABLE udhetimetBus(Rid integer PRIMARY KEY AUTO_INCREMENT, Prej varchar(50), Deri varchar(50), Ulese integer, Data date, Cmimi integer)";
+        $sql = "CREATE TABLE udhetimetBus(Rid integer PRIMARY KEY AUTO_INCREMENT, Prej varchar(50), Deri varchar(50), Ulese integer, Data datetime, Cmimi integer)";
         if (mysqli_query($this->connect, $sql)) {
             echo "U krijuar tabela UdhetimetBus";
         } else {
@@ -82,7 +82,7 @@ class DB{
     public function createTblRezervoBus() {
         $this->konektimi();
         // Create database
-        $sql = "CREATE TABLE rezervoBus(Id integer PRIMARY KEY AUTO_INCREMENT, Rid integer, Uid integer, Emri varchar(30), Mbiemri varchar(30), Ulese integer)";
+        $sql = "CREATE TABLE rezervoBus(Id integer PRIMARY KEY AUTO_INCREMENT, Rid integer, Uid integer, Emri varchar(30), Mbiemri varchar(30), Ulese integer, Data_Rezervimit datetime)";
         if (mysqli_query($this->connect, $sql)) {
             echo "U krijuar tabela Rezervo Bus";
         } else {
@@ -95,7 +95,7 @@ class DB{
     public function createTblUdhetimetAeroplan() {
         $this->konektimi();
         // Create database
-        $sql = "CREATE TABLE udhetimetAeroplan(Rid integer PRIMARY KEY AUTO_INCREMENT, Prej varchar(50), Deri varchar(50), Ulese integer, Data date, Cmimi integer)";
+        $sql = "CREATE TABLE udhetimetAeroplan(Rid integer PRIMARY KEY AUTO_INCREMENT, Prej varchar(50), Deri varchar(50), Ulese integer, Data datetime, Cmimi integer)";
         if (mysqli_query($this->connect, $sql)) {
             echo "U krijuar tabela UdhetimetAeroplan";
         } else {
@@ -108,7 +108,7 @@ class DB{
     public function createTblRezervoAeroplan() {
         $this->konektimi();
         // Create database
-        $sql = "CREATE TABLE rezervoAeroplan(Id integer PRIMARY KEY AUTO_INCREMENT, Rid integer, Uid integer, Emri varchar(30), Mbiemri varchar(30), Ulese integer)";
+        $sql = "CREATE TABLE rezervoAeroplan(Id integer PRIMARY KEY AUTO_INCREMENT, Rid integer, Uid integer, Emri varchar(30), Mbiemri varchar(30), Ulese integer, Data_Rezervimit datetime)";
         if (mysqli_query($this->connect, $sql)) {
             echo "U krijuar tabela Rezervo Aeroplan";
         } else {
@@ -121,7 +121,7 @@ class DB{
     public function createTblLokacione() {
         $this->konektimi();
         // Create database
-        $sql = "CREATE TABLE lokacione(Lid integer PRIMARY KEY AUTO_INCREMENT, Vendi varchar(50), Pershkrimi varchar(300), Foto varchar(50), Reklam boolean not null)";
+        $sql = "CREATE TABLE lokacione(Lid integer PRIMARY KEY AUTO_INCREMENT, Vendi varchar(50), Pershkrimi varchar(300), Foto varchar(50), Reklam boolean not null, Mjeti varchar(10))";
         if (mysqli_query($this->connect, $sql)) {
             echo "U krijuar tabela Lokacionet";
         } else {

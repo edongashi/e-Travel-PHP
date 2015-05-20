@@ -16,7 +16,7 @@ $db = new repository;
 			<div class="tile">
 				<h1>Lokacionet bus:</h1>
 				<?php
-					$rows = $db->get_data("Select * From lokacione");
+					$rows = $db->get_data("Select * From lokacione Where Reklam = 0 and Mjeti = 'Bus'");
 					foreach ($rows as $rreshti)
 					{
 						echo "<p>" . $rreshti['Vendi'] . "</p>";
@@ -26,7 +26,7 @@ $db = new repository;
 			<div class="tile">
 				<h1>Lokacionet aeroplan:</h1>
 				<?php
-					$rows = $db->get_data("Select * From lokacione");
+					$rows = $db->get_data("Select * From lokacione Where Reklam = 0 and Mjeti = 'Aeroplan'");
 					foreach ($rows as $rreshti)
 					{
 						echo "<p>" . $rreshti['Vendi'] . "</p>";

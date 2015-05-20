@@ -129,9 +129,7 @@ class RezervoUdhetim{
 
     private function kontrollo() {
 
-        $sql = "Select * from udhetimetbus where Rid=$this->rid";
-
-        $row = $this->db->get_data($sql);
+        $row = $this->db->get_data("Select * from udhetimetbus where Rid=%d",$this->rid);
 
         if ($row[0]['Ulese'] < $this->ulese) {
             return false;
@@ -142,9 +140,7 @@ class RezervoUdhetim{
 
     private function update() {
 
-        $sql = "Update udhetimetbus set Ulese = Ulese - $this->ulese Where Rid = $this->rid";
-
-        if ($this->db->execute($sql)) {
+        if ($this->db->execute("Update udhetimetbus set Ulese = Ulese - %d Where Rid = %d", $this->ulese, $this->rid)) {
             return true;
         } else {
             return false;
@@ -153,9 +149,7 @@ class RezervoUdhetim{
 
     private function inserto() {
 
-        $sql = "Insert into rezervobus(Rid,Uid,Emri,Mbiemri,Ulese) values ($this->rid, $this->uid,'$this->emri','$this->mbiemri', $this->ulese)";
-
-        if ($this->db->execute($sql)) {
+        if ($this->db->execute("Insert into rezervobus(Rid,Uid,Emri,Mbiemri,Ulese,Data_Rezervimit) values (%d,%d,%s,%s,%d,Now())", $this->rid, $this->uid, $this->emri, $this->mbiemri, $this->ulese)) {
             return true;
         } else {
             return false;

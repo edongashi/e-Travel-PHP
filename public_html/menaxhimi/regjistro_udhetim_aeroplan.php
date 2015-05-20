@@ -14,10 +14,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $deri = $_POST['deri'];
         $nrulse = $_POST['nrulse'];
         $data = $_POST['data'];
+        $ora = $_POST['ora'];
         $cmimi = $_POST['cmimi'];
+        $datetime = $data." ".$ora;
 
-        $sql = "Insert into udhetimetaeroplan(Prej, Deri, Ulese, Data, Cmimi) Values ('$prej', '$deri', $nrulse, '$data', $cmimi)";
-        if ($db->execute($sql)) {
+        if ($db->execute("Insert into udhetimetaeroplan(Prej, Deri, Ulese, Data, Cmimi) Values (%s,%s,%d,%s,%d)", $prej, $deri, $nrulse, $datetime, $cmimi)) {
             $error_msg = htmlentities("Regjistrimi u krye me sukses");
         } else {
             $error_msg = htmlentities("Regjistrimi nuk u krye me sukses");
@@ -73,9 +74,9 @@ require(dashboard_header);
                     <input type="number" min="1" name="nrulse" value="0" style="width: 50px;"></td>
             </tr>
             <tr>
-                <td>Data e nisjes</td>
+                <td>Data dhe ora e nisjes</td>
                 <td>
-                    <input type="date" name="data"></td>
+                    <input type="date" name="data"> <input type="time" name="ora"> </td>
             </tr>
             <tr>
                 <td>Cmimi i biletes</td>

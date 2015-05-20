@@ -48,35 +48,35 @@ class db_manager extends db_connector {
     }
 
     public function create_table_UdhetimetBus() {
-        $sql = "CREATE TABLE udhetimetBus(Rid integer PRIMARY KEY AUTO_INCREMENT, Prej varchar(50), Deri varchar(50), Ulese integer, Data date, Cmimi integer)";
+        $sql = "CREATE TABLE udhetimetBus(Rid integer PRIMARY KEY AUTO_INCREMENT, Prej varchar(50), Deri varchar(50), Ulese integer, Data datetime, Cmimi integer)";
         return $this->execute_msg($sql,
             "U krijuar tabela UdhetimetBus",
             "Ka ndodhur gabim ne krijimin e tabeles UdhetimetBus!");
     }
 
     public function create_table_RezervoBus() {
-        $sql = "CREATE TABLE rezervoBus(Id integer PRIMARY KEY AUTO_INCREMENT, Rid integer, Uid integer, Emri varchar(30), Mbiemri varchar(30), Ulese integer)";
+        $sql = "CREATE TABLE rezervoBus(Id integer PRIMARY KEY AUTO_INCREMENT, Rid integer, Uid integer, Emri varchar(30), Mbiemri varchar(30), Ulese integer, Data_Rezervimit datetime)";
         return $this->execute_msg($sql,
             "U krijuar tabela Rezervo Bus",
             "Ka ndodhur gabim ne krijimin e tabeles Rezervo Bus!");
     }
 
     public function create_table_UdhetimetAeroplan() {
-        $sql = "CREATE TABLE udhetimetAeroplan(Rid integer PRIMARY KEY AUTO_INCREMENT, Prej varchar(50), Deri varchar(50), Ulese integer, Data date, Cmimi integer)";
+        $sql = "CREATE TABLE udhetimetAeroplan(Rid integer PRIMARY KEY AUTO_INCREMENT, Prej varchar(50), Deri varchar(50), Ulese integer, Data datetime, Cmimi integer)";
         return $this->execute_msg($sql,
             "U krijuar tabela UdhetimetAeroplan",
             "Ka ndodhur gabim ne krijimin e tabeles UdhetimetAeroplan!");
     }
 
     public function create_table_RezervoAeroplan() {
-        $sql = "CREATE TABLE rezervoAeroplan(Id integer PRIMARY KEY AUTO_INCREMENT, Rid integer, Uid integer, Emri varchar(30), Mbiemri varchar(30), Ulese integer)";
+        $sql = "CREATE TABLE rezervoAeroplan(Id integer PRIMARY KEY AUTO_INCREMENT, Rid integer, Uid integer, Emri varchar(30), Mbiemri varchar(30), Ulese integer, Data_Rezervimit datetime)";
         return $this->execute_msg($sql,
             "U krijuar tabela Rezervo Aeroplan",
             "Ka ndodhur gabim ne krijimin e tabeles Rezervo Aeroplan!");
     }
 
     public function create_table_Lokacione() {
-        $sql = "CREATE TABLE lokacione(Lid integer PRIMARY KEY AUTO_INCREMENT, Vendi varchar(50), Pershkrimi varchar(300), Foto varchar(50))";
+        $sql = "CREATE TABLE lokacione(Lid integer PRIMARY KEY AUTO_INCREMENT, Vendi varchar(50), Pershkrimi varchar(300), Foto varchar(50), Reklam boolean not null, Mjeti varchar(10))";
         return $this->execute_msg($sql,
             "U krijuar tabela Lokacionet",
             "Ka ndodhur gabim ne krijimin e tabeles Lokacionet!");

@@ -16,9 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $emri_lokacionit = $_POST['emri_lokacionit'];
             $pershkrimi_lokacionit = $_POST['pershkrimi_lokacionit'];
             $emri_foto = $_POST['emri_foto'];
+            $mjeti = $_POST['mjeti'];
 
-            $sql = "Insert Into lokacione(Vendi, Pershkrimi, Foto, Reklam) values ('$emri_lokacionit','$pershkrimi_lokacionit','$emri_foto',1)";
-            if ($db->execute($sql)) {
+            if ($db->execute("Insert Into lokacione(Vendi, Pershkrimi, Foto, Reklam, Mjeti) values (%s, %s, %s, 1, %s)", $emri_lokacionit, $pershkrimi_lokacionit, $emri_foto, $mjeti)) {
                 $error_msg = htmlentities("Regjistrimi u krye me sukses");
             } else {
                 $error_msg = htmlentities("Regjistrimi nuk u krye me sukses");
@@ -29,8 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $error_msg = htmlentities("Ploteso fushen Emri i Lokacionit!");
         } else {
             $emri_lokacionit = $_POST['emri_lokacionit'];
-            $sql = "Insert Into lokacione(Vendi, Pershkrimi, Foto, Reklam) values ('$emri_lokacionit','','',0)";
-            if ($db->execute($sql)) {
+            $mjeti = $_POST['mjeti'];
+            
+            if ($db->execute("Insert Into lokacione(Vendi, Pershkrimi, Foto, Reklam, Mjeti) values (%s, '', '', 0, %s)", $emri_lokacionit, $mjeti)) {
                 $error_msg = htmlentities("Regjistrimi u krye me sukses");
             } else {
                 $error_msg = htmlentities("Regjistrimi nuk u krye me sukses");
@@ -59,7 +60,7 @@ require(dashboard_header);
                     <input type="text" name="emri_lokacionit"></td>
             </tr>
             <tr>
-                <td></td><td><input type="radio" name="mjeti" value="Bus">Autobus   <input type="radio" name="mjeti" value="Aeroplan">Aeroplan</td>
+                <td></td><td><input type="radio" name="mjeti" value="Bus" checked>Autobus   <input type="radio" name="mjeti" value="Aeroplan">Aeroplan</td>
             </tr>
             <tr>
                 <td></td>

@@ -34,7 +34,7 @@ if (isset($_POST['prej']) && isset($_POST['deri'])) {
 }
 
 $rez = $db->get_data($sql);
-$lokacionet = $db->get_data("Select * From lokacione Where Reklam = 0");
+$lokacionet = $db->get_data("Select * From lokacione Where Reklam = 0 and Mjeti = 'Aeroplan'");
 ?>
 
 <section class="permbajtje">
