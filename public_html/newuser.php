@@ -6,47 +6,54 @@ $db = new repository;
 
 if ($_SERVER['REQUEST_METHOD'] == "POST")
 {
-    function ShfaqError($error) {
-        echo $error."<br /><br />";
-        die();
-    }
-
     if ($_POST['Username'] == ""
             || $_POST['Password'] == ""
             || $_POST['PasswordK'] == ""
             || $_POST['Emri'] == ""
             || $_POST['Mbiemri'] == "") {
-        echo "Ploteso te gjitha fushat!";
-        die();
-    }
-
-    $username = trim($_POST['Username']);
-    $password = trim($_POST['Password']);
-    $emri = trim($_POST['Emri']);
-    $mbiemri = trim($_POST['Mbiemri']);
-    $prioriteti = "User";
-    if ($_POST['Password'] != $_POST['PasswordK']) {
-        ShfaqError("Keni dhene password te ndryshem!");
-    }
-
-    $string_exp = "/^[A-Za-z .'-]+$/";
-    if (!preg_match($string_exp, $emri)) {
-        ShfaqError('Emri jo valid!');
-    }
-
-    if (!preg_match($string_exp, $mbiemri)) {
-        ShfaqError('Mbiemri jo valid!');
-    }
-
-    $salt1 = "2%a@*/";
-    $salt2 = "&9o?>";
-    $pass = sha1("$salt1$password$salt2");
-	$db->execute("Insert into user(Username,Password,Emri,Mbiemri,Prioriteti) Values (%s,%s,%s,%s,%s)",$username,$pass,$emri,$mbiemri,$prioriteti);
+        
+        $error_msg = htmlentities("Ploteso te gjitha fushat!");
+    
+    } else {
+        
+        $username = trim($_POST['Username']);
+        $password = trim($_POST['Password']);
+        $emri = trim($_POST['Emri']);
+        $mbiemri = trim($_POST['Mbiemri']);
+        $prioriteti = "User";
+        
+        if ($db->get_data("SELECT * FROM user WHERE Username = %s",$username)) {
+            
+            $error_msg = htmlentities("Ky username ekziston!");
+            
+        } else {
+            
+            if(($_POST['Password'] != $_POST['PasswordK']) || !preg_match("/^.*(?=.{3,}).*$/",$password)) {
+            
+                $error_msg = htmlentities("Keni dhene password te ndryshem ose gabim!");
+            
+            } else {
+                
+                $string_exp = "/^[A-Za-z .'-]+$/";
+                
+                if (!preg_match($string_exp, $emri) || !preg_match($string_exp, $mbiemri)) {
+                    $error_msg = htmlentities("Emri ose Mbiemri jo valid!");
+                } else {
+                    
+                    $salt1 = "2%a@*/";
+                    $salt2 = "&9o?>";
+                    $pass = sha1("$salt1$password$salt2");
+                    $db->execute("Insert into user(Username,Password,Emri,Mbiemri,Prioriteti) Values (%s,%s,%s,%s,%s)",$username,$pass,$emri,$mbiemri,$prioriteti);
+                    $error_msg = htmlentities("Keni krijuar llogari me sukses!");
+                }              
+            }
+        }   
+    } 
 }
 
 $header_titulli = "Ballina";
 $css_includes = Array("css/form.css", "css/site.css");
-$script_includes = "/js/login.js";
+$script_includes = "/js/krijo_llogari.js";
 require(templates_header);
 ?>
 
@@ -54,6 +61,7 @@ require(templates_header);
     <h1 style="text-align: center">Krijo llogari</h1>
     <form method="Post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <table style="width: 500px; margin: 40px auto;">
+            <?php if (isset($error_msg)) echo "<tr><td colspan='2'><h4 class='error-msg'>$error_msg</h4></td></tr>"; ?>
             <tr>
                 <td>Username:</td>
                 <td>
@@ -66,7 +74,10 @@ require(templates_header);
             <tr>
                 <td>Password:</td>
                 <td>
-                    <input type="password" name="Password">
+                    <input type="password" name="Password" onchange="showPassword(this.value)">
+                </td>
+                <td style="width: 20px">
+                    <p id="password_check"></p>
                 </td>
             </tr>
             <tr>

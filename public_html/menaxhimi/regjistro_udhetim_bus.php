@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 }
-$lokacionet = $db->get_data("Select * From lokacione Where Reklam = 0");
+$lokacionet = $db->get_data("Select * From lokacione Where Reklam = 0 and Mjeti = 'Bus'");
 
 $header_titulli = "Ballina";
 $css_includes = Array("../css/form.css", "../css/dashboard.css");

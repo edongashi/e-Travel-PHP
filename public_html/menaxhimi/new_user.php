@@ -3,6 +3,7 @@ require_once("../../resources/config.php");
 
 $header_titulli = "Menaxho User";
 $css_includes = Array("../css/form.css", "../css/dashboard.css");
+$script_includes = "/js/krijo_llogari.js";
 
 require(dashboard_header);
 require(databaza);
@@ -68,7 +69,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
             <tr>
                 <td>Password:</td>
                 <td>
-                    <input type="password" name="Password">
+                    <input type="password" name="Password" onchange="showPassword(this.value)">
+                </td>
+                <td style="width: 20px">
+                    <p id="password_check"></p>
                 </td>
             </tr>
             <tr>
