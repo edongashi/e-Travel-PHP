@@ -1,9 +1,9 @@
 <?php
-require_once("../resources/config.php");
+require_once("../../resources/config.php");
 require (databaza);
-
-$css_includes = Array("css/form.css", "css/site.css");
-require(templates_header);
+$css_includes = Array("../css/form.css", "../css/dashboard.css");
+$header_titulli = "Rezervim i ri";
+require(dashboard_header);
 
 if (!isset($_SESSION['Username']) || !isset($_SESSION['Emri']) || !isset($_SESSION['Mbiemri'])) {
     header("Location: http://localhost/login.php");
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['Konfirmo'])) {
     $Prej = $rez[0]['Prej'];
     $Deri = $rez[0]['Deri'];
     $Cmimi = $rez[0]['Cmimi'];
-    
+
 ?>
     <form class="form" method="Post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <table>
@@ -151,4 +151,6 @@ class RezervoUdhetim{
 
 ?>
 
-<?php require(templates_footer); ?>
+<?php
+require(dashboard_footer);
+?>

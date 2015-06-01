@@ -23,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $_SESSION['Emri'] = $rows[0]["Emri"];
             $_SESSION['Mbiemri'] = $rows[0]['Mbiemri'];
             $_SESSION['Username'] = $rows[0]['Username'];
+            $_SESSION['Prioriteti'] = $rows[0]['Prioriteti'];
             header("Location: http://localhost/menaxhimi/index.php");
         } else {
             $error_msg = htmlentities("Shfrytëzuesi ose fjalëkalimi i gabuar!");

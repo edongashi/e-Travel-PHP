@@ -86,11 +86,11 @@ $lokacionet = $db->get_data("Select * From lokacione Where Reklam = 0");
 
         if ($mjeti == "Bus") {
             kerkimi("udhetimetBus");
-            $linku = "../rezervo_bus.php";
+            $linku = "rezervo_bus.php";
         }
         else {
             kerkimi("udhetimetAeroplan");
-            $linku = "../rezervo_aeroplan.php";
+            $linku = "rezervo_aeroplan.php";
         }
 
         $rez = $db->get_data($sql);

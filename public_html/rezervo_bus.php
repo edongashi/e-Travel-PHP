@@ -2,7 +2,8 @@
 require_once("../resources/config.php");
 require (databaza);
 
-session_start();
+$css_includes = Array("css/form.css", "css/site.css");
+require(templates_header);
 
 if (!isset($_SESSION['Username']) || !isset($_SESSION['Emri']) || !isset($_SESSION['Mbiemri']))
 {
@@ -42,15 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['Konfirmo'])) {
     $Deri = $rez[0]['Deri'];
     $Cmimi = $rez[0]['Cmimi'];
 
-    function RezervoForma() {
-        global $Prej, $Deri, $emriUser, $mbiemriUser, $Cmimi, $Rid, $Uid;
 ?>
-<html>
-<head>
-    <script type="text/javascript" src="js/llogarit.js"></script>
-</head>
-<body onload="pagesa();">
-    <form method="Post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+<form class="form" method="Post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <table>
             <input type="hidden" name="Rid" value="<?php echo $Rid; ?>">
             <input type="hidden" name="Uid" value="<?php echo $Uid; ?>">
@@ -81,29 +75,22 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['Konfirmo'])) {
             </tr>
             <tr>
                 <td>Cmimi: </td>
-                <td>
-                    <input id="cmimi" type="text" name="CmimiRezervuar" value="<?php echo $Cmimi; ?>" readonly>
-                    &#8364;</td>
+                <td> <?php echo $Cmimi; ?> &#8364;</td>
             </tr>
             <tr>
                 <td>Gjithesejt cmimi:</td>
                 <td>
-                    <p id="gjith"></p>
+                    <?php echo $Cmimi; ?> &#8364;
                 </td>
             </tr>
             <tr>
                 <td></td>
                 <td>
-                    <input type="submit" name="Konfirmo" value="Konfirmo Rezervimin"></td>
+                    <input class="button" type="submit" name="Konfirmo" value="Konfirmo Rezervimin"></td>
             </tr>
         </table>
     </form>
-</body>
-</html>
 <?php
-    }
-
-    RezervoForma();
 }
 ?>
 
@@ -167,3 +154,5 @@ class RezervoUdhetim{
 }
 
 ?>
+
+<?php require(templates_footer); ?>

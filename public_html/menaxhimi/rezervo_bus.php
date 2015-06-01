@@ -1,15 +1,17 @@
 <?php
-require_once("../resources/config.php");
+require_once("../../resources/config.php");
 require (databaza);
+$css_includes = Array("../css/form.css", "../css/dashboard.css");
+$header_titulli = "Rezervim i ri";
+require(dashboard_header);
 
-$css_includes = Array("css/form.css", "css/site.css");
-require(templates_header);
-
-if (!isset($_SESSION['Username']) || !isset($_SESSION['Emri']) || !isset($_SESSION['Mbiemri'])) {
+if (!isset($_SESSION['Username']) || !isset($_SESSION['Emri']) || !isset($_SESSION['Mbiemri']))
+{
     header("Location: http://localhost/login.php");
 }
 
 if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['Konfirmo'])) {
+
     $emriRezervuar = $_POST['EmriRezervuar'];
     $mbiemriRezervuar = $_POST['MbiemriRezervuar'];
     $ulese = $_POST['UleseRezervuar'];
@@ -17,9 +19,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['Konfirmo'])) {
     $Uid = $_POST['Uid'];
 
     $db = new repository;
+
     $rezervo = new RezervoUdhetim($db, $Rid, $Uid, $emriRezervuar, $mbiemriRezervuar, $ulese);
+
     $rezervo->rezervo();
 } else {
+
     $username = $_SESSION['Username'];
     $emriUser = $_SESSION['Emri'];
     $mbiemriUser = $_SESSION['Mbiemri'];
@@ -32,12 +37,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['Konfirmo'])) {
     $rez = $db->get_data($sql);
     $Uid = $rez[0]['Uid'];
 
-    $sql = "Select * From udhetimetaeroplan Where Rid = '$Rid'";
+    $sql = "Select * From udhetimetbus Where Rid = '$Rid'";
     $rez = $db->get_data($sql);
     $Prej = $rez[0]['Prej'];
     $Deri = $rez[0]['Deri'];
     $Cmimi = $rez[0]['Cmimi'];
-    
+
 ?>
     <form class="form" method="Post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <table>
@@ -111,8 +116,8 @@ class RezervoUdhetim{
     }
 
     private function kontrollo() {
-      
-        $row = $this->db->get_data("Select * from udhetimetaeroplan where Rid=%d",$this->rid);
+
+        $row = $this->db->get_data("Select * from udhetimetbus where Rid=%d",$this->rid);
 
         if ($row[0]['Ulese'] < $this->ulese) {
             return false;
@@ -123,7 +128,7 @@ class RezervoUdhetim{
 
     private function update() {
 
-        if ($this->db->execute("Update udhetimetaeroplan set Ulese = Ulese - %d Where Rid = %d", $this->ulese, $this->rid)) {
+        if ($this->db->execute("Update udhetimetbus set Ulese = Ulese - %d Where Rid = %d", $this->ulese, $this->rid)) {
             return true;
         } else {
             return false;
@@ -131,8 +136,8 @@ class RezervoUdhetim{
     }
 
     private function inserto() {
-           
-        if ($this->db->execute("Insert into rezervoaeroplan(Rid,Uid,Emri,Mbiemri,Ulese,Data_Rezervimit) values (%d,%d,%s,%s,%d,Now())", $this->rid, $this->uid, $this->emri, $this->mbiemri, $this->ulese)) {
+
+        if ($this->db->execute("Insert into rezervobus(Rid,Uid,Emri,Mbiemri,Ulese,Data_Rezervimit) values (%d,%d,%s,%s,%d,Now())", $this->rid, $this->uid, $this->emri, $this->mbiemri, $this->ulese)) {
             return true;
         } else {
             return false;
@@ -151,4 +156,6 @@ class RezervoUdhetim{
 
 ?>
 
-<?php require(templates_footer); ?>
+<?php
+require(dashboard_footer);
+?>

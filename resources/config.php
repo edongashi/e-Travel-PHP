@@ -45,13 +45,12 @@ $config = array(
     ),
     "dashboard_links_user" => array(
         "Ballina" => "index.php",
-        "Udhetimet" => array(
-            "Autobus" => "udhetimet_bus.php",
-            "Aeroplan" => "udhetimet_aeroplan.php",
+        "Rezervimet" => array(
+          "Rezervim i ri" => "rezervim_iri.php",
+          "Shfaq rezervimet" => "shfaq_rezervimet.php"
         ),
-        "Lokacionet" => "lokacionet.php",
-        "Kontakti" => "kontakti.php",
-		"Logout" => "../logout.php"
+        "Menaxho User" => "menaxho_user.php",
+	"Logout" => "../logout.php"
     )
 );
 

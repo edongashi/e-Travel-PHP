@@ -68,7 +68,12 @@ echo "\r\n";
         <div class="dashboard-sidebar">
             <nav>
                 <ul class="menu"><?php
-foreach ($config["dashboard_links_admin"] as $emri => $linku)
+if($_SESSION['Prioriteti'] == "Admin") {
+    $linqet = "dashboard_links_admin";
+} else {
+    $linqet = "dashboard_links_user";
+}
+foreach ($config[$linqet] as $emri => $linku)
 {
   if (is_string($linku))
   {
