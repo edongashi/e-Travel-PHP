@@ -3,6 +3,7 @@ require_once("../../resources/config.php");
 require (databaza);
 $css_includes = Array("../css/form.css", "../css/dashboard.css");
 $header_titulli = "Rezervim i ri";
+$script_includes = jquery;
 require(dashboard_header);
 
 if (!isset($_SESSION['Username']) || !isset($_SESSION['Emri']) || !isset($_SESSION['Mbiemri']))
@@ -80,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['Konfirmo'])) {
             </tr>
             <tr>
                 <td>Gjithesejt cmimi:</td>
-                <td>
+                <td id="totali">
                     <?php echo $Cmimi; ?> &#8364;
                 </td>
             </tr>
@@ -91,6 +92,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['Konfirmo'])) {
             </tr>
         </table>
     </form>
+    <script>
+    $("#ulese").change(function () {
+    $("#totali").html($(this).val() * <?php echo $Cmimi; ?> + " &#8364;");
+    })
+    </script>
 <?php
 }
 ?>
