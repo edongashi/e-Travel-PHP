@@ -14,8 +14,8 @@ $config = array(
         "templates" => $_DIR . "/templates",
         "library" => $_DIR . "/library",
         "images" => array(
-            "content" => $_DIR . "/images/content",
-            "layout" => $_DIR . "/images/layout"
+            "content" => $_SERVER["DOCUMENT_ROOT"] . "/img/content",
+            "layout" => $_SERVER["DOCUMENT_ROOT"] . "/img/layout"
         )
     ),
     "menu_links" => array(
@@ -26,8 +26,7 @@ $config = array(
         ),
         "Lokacionet" => "lokacionet.php",
         "Kontakti" => "kontakti.php",
-		"Galeria" => "galeria.php",
-		"Login" => "login.php"
+		"Galeria" => "galeria.php"
     ),
     "dashboard_links_admin" => array(
         "Ballina" => "index.php",

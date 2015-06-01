@@ -20,23 +20,11 @@ $header_style = <<< STYLE
         height: 100%;
         width: 100%;
     }
-
-.bgimg {
-    position: absolute;
-    left: 0px;
-    z-index: -1;
-    background-image: url(http://agent.ensembletravel.com/images/CompanyImages/34976.jpg);
-    background-repeat: no-repeat;
-    background-size: 500px 300px;
-    width: 500px;
-    height: 300px;
-}
 STYLE;
 
 require(templates_header);
 ?>
 
-<div class="bgimg"></div>
 <section class="permbajtje">
     <div class="row">
         <div class="col">

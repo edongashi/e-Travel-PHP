@@ -1,4 +1,8 @@
 <?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+
 require_once(__DIR__ . "/../config.php");
 function indent($level)
 {
@@ -56,7 +60,16 @@ echo "\r\n";
 
 <body>
     <div class="page-wrap">
-        <header style="padding-top: 100px;">
+        <div class="permbajtje" style="padding-top: 12px;"><img width="300" height="101" src="/img/layout/TravelLogo.png" /></div>
+        <div style="position: absolute; right: 10px; top: 10px">
+            <?php
+        if (isset($_SESSION['Username'])) {
+            echo 'Miresevini, ' . $_SESSION['Emri'] . ' <a href="logout.php">Log Out</a>';
+        } else {
+            echo '<a href="login.php">Log In</a>';
+        } ?>
+        </div>
+        <header style="padding-top: 10px;">
             <nav>
                 <ul class="menu"><?php
 foreach ($config["menu_links"] as $emri => $linku)

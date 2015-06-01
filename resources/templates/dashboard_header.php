@@ -63,6 +63,7 @@ echo "\r\n";
 <body>
     <div class="page-wrap">
         <div class="dashboard-header">
+            <a href="../index.php" style="margin: 15px 15px 0 15px; color: white">Home</a>
         </div>
         <div class="dashboard-sidebar">
             <nav>
