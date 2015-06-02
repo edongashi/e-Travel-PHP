@@ -16,7 +16,7 @@ function showUser(str) {
             }
         }
 
-        xmlhttp.open("GET", "http://localhost/js/getuser.php?user=" + str, true);
+        xmlhttp.open("GET", "/api/getuser.php?user=" + str, true);
         xmlhttp.send();
     }
 }
@@ -39,7 +39,7 @@ function showPassword(str) {
             }
         }
 
-        xmlhttp.open("GET", "http://localhost/js/check_password.php?pass=" + str, true);
+        xmlhttp.open("GET", "/api/check_password.php?pass=" + str, true);
         xmlhttp.send();
     }
 }

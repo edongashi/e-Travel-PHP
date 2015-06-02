@@ -152,9 +152,9 @@ class RezervoUdhetim{
     public function rezervo() {
 
         if ($this->kontrollo() && $this->update() && $this->inserto()) {
-            echo "U rezervua me sukses";
+            echo '<section class="permbajtje">U rezervua me sukses</section>';
         } else {
-            echo "Nuk u rezervua!";
+            echo '<section class="permbajtje">"Nuk u rezervua!</section>';
         }
     }
 }

@@ -72,7 +72,12 @@ section.permbajtje {
         position: absolute;
         left: 0;
         z-index: -1;
+        -ms-opacity: 0;
         opacity: 0;
+        -webkit-transition: opacity linear 0.15s;
+        -moz-transition: opacity linear 0.15s;
+        -ms-transition: opacity linear 0.15s;
+        -o-transition: opacity linear 0.15s;
         transition: opacity linear 0.15s;
         margin: 0;
         padding: 0;
@@ -81,7 +86,7 @@ section.permbajtje {
         border-top: none;
     }
 
-        .menu ul li {
+.menu ul li {
             display: block;
             border-top: 1px solid #ccc;
         }
@@ -92,13 +97,18 @@ section.permbajtje {
         display: inline-block;
         -webkit-border-radius: 5;
         -moz-border-radius: 5;
+        -ms-border-radius: 5px;
         border-radius: 5px;
+        -webkit-transition: background linear 0.15s;
+        -moz-transition: background linear 0.15s;
+        -ms-transition: background linear 0.15s;
+        -o-transition: background linear 0.15s;
         transition: background linear 0.15s;
         padding: 15px;
         background: white;
     }
 
-        .menu a:hover {
+.menu a:hover {
             background: #f1f1f1;
             text-decoration: none;
         }
@@ -110,10 +120,11 @@ section.permbajtje {
 
     .menu li:hover ul {
         z-index: 1;
+        -ms-opacity: 1;
         opacity: 1;
     }
 
-    .menu ul a {
+.menu ul a {
         white-space: nowrap;
         display: block;
     }
@@ -133,5 +144,9 @@ footer {
         font-size: 15px;
         position: relative;
         top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
         transform: translateY(-50%);
     }

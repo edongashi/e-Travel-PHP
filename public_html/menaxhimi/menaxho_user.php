@@ -106,9 +106,9 @@ function si_admin() {
         <form method='Post' action='<?php echo $_SERVER['PHP_SELF'];?>'>
         <table class="tabela"> 
             <tr>
-                <td style="height:60px; width: 400px;"><a href="new_user.php" ><img src="../img/layout/user_add.png" style='height:40px; width:40px;'>Shto user</a></td>
-                <td ><input type="text" name="kerko_user" placeholder="Username"> </td>
-                <td><input type="submit" value="Kerko" class="button"></td>
+                <td style="height:60px; width: 130px;"><a href="new_user.php" ><img src="../img/layout/user_add.png" style='height:40px; width:40px;'>Shto user</a></td>
+                <td style="text-align: right"><input style="max-width: 300px" type="text" name="kerko_user" placeholder="Username"> </td>
+                <td style="width: 100px; text-align: center"><input type="submit" value="Kerko" class="button"></td>
             </tr>           
         </table>
         </form>
