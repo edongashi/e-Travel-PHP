@@ -16,7 +16,7 @@ require(databaza);
         foreach ($rows as $rreshti) {
             echo "<div class='lokacion-mbajtesi'>";
 			echo "<div class='lokacion-foto'><img src='img/content/	" .  $rreshti['Foto'] .  "' width='300px;'></div>
-			<div class='lokacion-permbajtja'>
+			<div class='lokacion-permbajtja' style='margin-left:320px;'>
 			<h1 class='lokacion-titulli'>" . $rreshti['Vendi'] . "</h1> ";
 			if (strlen($rreshti['Pershkrimi']) > 260) {
 				echo substr($rreshti['Pershkrimi'], 0, 260);
@@ -34,12 +34,21 @@ require(databaza);
 	} else {
 		$rreshti = $db->get_data("SELECT * FROM lokacione WHERE Lid=" . $_GET['id'])[0];
 		echo "<div class='lokacion-mbajtesi'>";
-		echo "<div class='lokacion-foto'><img src='img/content/	" .  $rreshti['Foto'] .  "' width='300px;'></div>
+		echo "<div class='lokacion-foto2'><img src='img/content/	" .  $rreshti['Foto'] .  "' width='280;'></div>
 		<div class='lokacion-permbajtja'>
 		<h1 class='lokacion-titulli'>" . $rreshti['Vendi'] . "</h1> ";
-		echo $rreshti['Pershkrimi'];
-		echo "</div></div>";
-
+		if (strlen($rreshti['Pershkrimi']) > 324)
+		{
+			echo substr($rreshti['Pershkrimi'], 0, 324);
+			echo "</div>";
+			echo "<p style='margin-left:10px;'>" . substr($rreshti['Pershkrimi'], 324, strlen($rreshti['Pershkrimi'])) . "</p>";
+			echo "</div>";
+		}
+		else{
+			echo $rreshti['Pershkrimi'];	
+			echo "</div></div>";
+		}
+		
 		include("menaxhimi/regjistro_komentet.php");
 		$x = $rreshti;
 		$rreshti_forum = $db->get_data("SELECT * FROM forumi WHERE ChatID=" . $_GET["id"]);

@@ -152,13 +152,19 @@ input[type=text]:hover,
     float: left;
 }
 
+.lokacion-foto2 {
+    float: left;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
     .lokacion-foto img {
         display: block;
     }
 
 .lokacion-permbajtja {
-    margin-top: 25px;
-    margin-left: 320px;
+    margin-top: 28px;
+    margin-left: 300px;
 }
 
 .lokacion-titulli {
