@@ -64,7 +64,7 @@ echo "\r\n";
         <div style="position: absolute; right: 10px; top: 10px">
             <?php
         if (isset($_SESSION['Username'])) {
-            echo 'Miresevini, ' . $_SESSION['Emri'] . ' <a href="logout.php">Log Out</a>';
+            echo $_SESSION['Username'] . ' | <a href="/menaxhimi/index.php">Panel</a> | <a href="logout.php">Log Out</a>';
         } else {
             echo '<a href="login.php">Log In</a>';
         } ?>
@@ -81,7 +81,7 @@ foreach ($config["menu_links"] as $emri => $linku)
   else
   {
     echo indent(6) . "<li>";
-    echo indent(8) . "<a>$emri <span class=\"shigjeta\">&#9660;</span></a>";
+    echo indent(8) . "<a href=\"#\">$emri <span class=\"shigjeta\">&#9660;</span></a>";
     echo indent(8) . "<ul>";
     foreach ($linku as $nen_emri => $nen_linku)
     {

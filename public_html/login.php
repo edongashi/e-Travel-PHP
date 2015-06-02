@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['Username']) && isset($_SESSION['Emri']) && isset($_SESSION['Mbiemri'])) {
-    header("Location: http://localhost/menaxhimi/index.php");
+    header("Location: index.php");
 }
 
 require_once("../resources/config.php");
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $_SESSION['Mbiemri'] = $rows[0]['Mbiemri'];
             $_SESSION['Username'] = $rows[0]['Username'];
             $_SESSION['Prioriteti'] = $rows[0]['Prioriteti'];
-            header("Location: http://localhost/menaxhimi/index.php");
+            header("Location: index.php");
         } else {
             $error_msg = htmlentities("Shfrytëzuesi ose fjalëkalimi i gabuar!");
         }

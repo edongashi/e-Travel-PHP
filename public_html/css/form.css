@@ -28,12 +28,15 @@ input, textarea, select {
     color: inherit;
     font-size: 16px;
     letter-spacing: 1px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
 .button {
     -webkit-border-radius: 11;
     -moz-border-radius: 11;
+    -ms-border-radius: 11px;
     border-radius: 11px;
     border: none;
     color: #ffffff;
@@ -44,7 +47,7 @@ input, textarea, select {
     cursor: pointer;
 }
 
-    .button:hover {
+.button:hover {
         background: #e83131;
     }
 
@@ -58,17 +61,30 @@ input, textarea, select {
 }
 
 input[type=text],
+input[type=number],
 input[type=password],
+input[type=date],
+input[type=time],
 textarea,
 select {
     width: 100%;
     padding: 8px;
     border: solid 1px #ccc;
+    -webkit-transition: border-color 0.15s;
+    -moz-transition: border-color 0.15s;
+    -ms-transition: border-color 0.15s;
+    -o-transition: border-color 0.15s;
     transition: border-color 0.15s;
     -webkit-border-radius: 4;
     -moz-border-radius: 4;
+    -ms-border-radius: 4px;
     border-radius: 4px;
     vertical-align: middle;
+}
+
+input[type=date],
+input[type=time] {
+    padding: 4px;
 }
 
 select {
@@ -77,18 +93,27 @@ select {
 
 textarea {
     font-family: 'Open Sans', sans-serif;
+    -moz-resize: none;
+    -ms-resize: none;
+    -o-resize: none;
     resize: none;
 }
 
-    input[type=text]:hover,
+input[type=text]:hover,
+    input[type=number]:hover,
     input[type=password]:hover,
+    input[type=date]:hover,
+    input[type=time]:hover,
     textarea:hover,
     select:hover {
         border-color: #eb7171;
     }
 
     input[type=text]:focus,
+    input[type=number]:focus,
     input[type=password]:focus,
+    input[type=date]:focus,
+    input[type=time]:focus,
     textarea:focus,
     select:hover {
         border-color: #b90000;

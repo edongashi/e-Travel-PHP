@@ -46,15 +46,15 @@ require(templates_header);
 ?>
 
 <section class="permbajtje">
-    <div id="slideshow" class="owl-carousel owl-theme">
+    <div id="slideshow" style="height: 300px">
         <div class="item1">
-            <img src="http://owlgraphic.com/owlcarousel/demos/assets/fullimage1.jpg" alt="The Last of us">
+            <img width="960" height="300" src="http://owlgraphic.com/owlcarousel/demos/assets/fullimage1.jpg" alt="The Last of us">
         </div>
         <div class="item2">
-            <img src="http://owlgraphic.com/owlcarousel/demos/assets/fullimage2.jpg" alt="GTA V">
+            <img width="960" height="300" src="http://owlgraphic.com/owlcarousel/demos/assets/fullimage2.jpg" alt="GTA V">
         </div>
         <div class="item3">
-            <img src="http://owlgraphic.com/owlcarousel/demos/assets/fullimage3.jpg" alt="Mirror Edge">
+            <img width="960" height="300" src="http://owlgraphic.com/owlcarousel/demos/assets/fullimage3.jpg" alt="Mirror Edge">
         </div>
     </div>
 </section>

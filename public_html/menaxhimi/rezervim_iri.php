@@ -50,7 +50,7 @@ $lokacionet = $db->get_data("Select * From lokacione Where Reklam = 0");
                 </select>
                 </td>
                 <td>
-                    <input type="submit" value="KerkoUdhetim" class='button button-small' style="height: 40px; margin-top: 15px;">
+                    <input type="submit" value="Kerko" class='button button-small' style="margin-left: 5px; margin-top: 18px;">
                 </td>
             </tr>
         </table>

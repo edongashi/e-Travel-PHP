@@ -71,26 +71,28 @@ require(dashboard_header);
             <tr>
                 <td>Numri i uleseve</td>
                 <td>
-                    <input type="number" min="1" name="nrulse" value="0" style="width: 50px;"></td>
+                    <input type="number" min="1" name="nrulse" value="0"></td>
             </tr>
             <tr>
                 <td>Data dhe ora e nisjes</td>
                 <td>
-                    <input type="date" name="data"> <input type="time" name="ora"> </td>
+                    <input type="date" name="data" style="width: 63%">
+                    <input type="time" name="ora" style="float: right; width: 35%">
+                </td>
             </tr>
             <tr>
                 <td>Cmimi i biletes</td>
                 <td>
-                    <input type="number" min="1" name="cmimi" value="0" style="width: 50px;">
-                    &#8364;</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td class="button-cell-small">
-                    <input class="button button-small" type="submit" value="Regjistro">
-                    <input class="button button-small" type="reset" value="Anulo">
+                    <input type="number" min="1" name="cmimi" value="0" style="width: -moz-calc(100% - 20px); width: -webkit-calc(100% - 20px); width: calc(100% - 20px);">
+                    &#8364;
                 </td>
-            </tr>
+                <tr>
+                    <td></td>
+                    <td class="button-cell-small">
+                        <input class="button button-small" type="submit" value="Regjistro">
+                        <input class="button button-small" type="reset" value="Anulo">
+                    </td>
+                </tr>
         </table>
     </form>
 </section>
