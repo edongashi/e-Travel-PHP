@@ -78,7 +78,7 @@ class db_manager extends db_connector {
     }
 
     public function create_table_Lokacione() {
-        $sql = "CREATE TABLE lokacione(Lid integer PRIMARY KEY AUTO_INCREMENT, Vendi varchar(50), Pershkrimi varchar(300), Foto varchar(50), Reklam boolean not null, Mjeti varchar(10))";
+        $sql = "CREATE TABLE lokacione(Lid integer PRIMARY KEY AUTO_INCREMENT, Vendi varchar(50), Pershkrimi varchar(10000), Foto varchar(50), Reklam boolean not null, Mjeti varchar(10))";
         return $this->execute_msg($sql,
             "U krijuar tabela Lokacionet",
             "Ka ndodhur gabim ne krijimin e tabeles Lokacionet!");

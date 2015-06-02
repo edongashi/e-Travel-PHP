@@ -81,39 +81,94 @@ if (isset($_POST['dropGaleria']) && ($_SERVER['REQUEST_METHOD'] == "POST")) {
 
 <section class="permbajtje">
     <h1 class="center">Menaxho Databazen</h1>
-    <form class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+	<div style="width: 800px">
+    <form style="float:left" class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
         <input class="button button-small" type="submit" value="Krijo databazen" name="createDB">
     </form>
-    <form class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+    <form style="float:right" class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
         <input class="button button-small" type="submit" value="Fshije databazen" name="dropDB">
     </form>
-    <form class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+
+	<div style="width: 800px">
+	<form style="float:left" class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
         <input class="button button-small" type="submit" value="Krijo tabelen User" name="createUser">
     </form>
-    <form class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+	<form style="float:right" class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+        <input class="button button-small" type="submit" value="Fshije tabelen User" name="createUser">
+    </form>
+	</div>
+	
+	
+	<div style="width: 800px">
+    <form style="float:left" class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
         <input class="button button-small" type="submit" value="Krijo tabelen UdhetimetBus" name="createUdhetimetBus">
     </form>
-    <form class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+	<form style="float:right" class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+        <input class="button button-small" type="submit" value="Fshije tabelen UdhetimetBus" name="createUdhetimetBus">
+    </form>
+	</div>
+	
+	
+	<div style="width: 800px">
+    <form style="float:left" class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
         <input class="button button-small" type="submit" value="Krijo tabelen UdhetimetAeroplan" name="createUdhetimetAeroplan">
     </form>
-    <form class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+	<form style="float:right" class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+        <input class="button button-small" type="submit" value="Fshije tabelen UdhetimetAeroplan" name="createUdhetimetAeroplan">
+    </form>
+	</div>
+	
+	
+	<div style="width: 800px">
+    <form style="float:left" class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
         <input class="button button-small" type="submit" value="Krijo tabelen Lokacionet" name="createLokacionet">
     </form>
-    <form class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+	<form style="float:right" class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+        <input class="button button-small" type="submit" value="Fshije tabelen Lokacionet" name="createLokacionet">
+    </form>
+	</div>
+	
+	
+	<div style="width: 800px">
+    <form style="float:left" class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
         <input class="button button-small" type="submit" value="Krijo tabelen Regjistro Bus" name="regjistroBus">
     </form>
-    <form class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+	<form style="float:right" class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+        <input class="button button-small" type="submit" value="Fshije tabelen Regjistro Bus" name="regjistroBus">
+    </form>
+	</div>
+	
+	
+	<div style="width: 800px">
+    <form style="float:left" class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
         <input class="button button-small" type="submit" value="Krijo tabelen Regjistro Aeroplan" name="regjistroAeroplan">
     </form>
-    <form class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+	<form style="float:right" class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+        <input class="button button-small" type="submit" value="Fshije tabelen Regjistro Aeroplan" name="regjistroAeroplan">
+    </form>
+	</div>
+	
+	
+	<div style="width: 800px">
+    <form style="float:left" class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
         <input class="button button-small" type="submit" value="Krijo tabelen Forumi" name="createForumi">
     </form>
-	<form class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+	<form style="float:right" class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+        <input class="button button-small" type="submit" value="Fshije tabelen Forumi" name="createForumi">
+    </form>
+	</div>
+	
+	
+	<div style="width: 800px">
+	<form style="float:left" class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
         <input class="button button-small" type="submit" value="Krijo tabelen Galeria" name="createGaleria">
     </form>
-	<form class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-        <input class="button button-small" type="submit" value="Drop tabelen Galeria" name="dropGaleria">
+	<form style="float:right" class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+        <input class="button button-small" type="submit" value="Fshije tabelen Galeria" name="dropGaleria">
     </form>
+	</div>
+	
+	
 </section>
 
 <?php require(dashboard_footer) ?>
