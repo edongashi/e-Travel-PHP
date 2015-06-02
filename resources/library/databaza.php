@@ -18,6 +18,8 @@ class repository extends db_connector {
                 return $this->get_data("SELECT * FROM rezervoaeroplan");
             case "forumi":
                 return $this->get_data("SELECT * FROM forumi");
+			case "galeria":
+                return $this->get_data("SELECT * FROM galeria ORDER BY FotoID");
             default:
                 return null;
         }
@@ -88,6 +90,20 @@ class db_manager extends db_connector {
             "U krijuar tabela Forumi",
             "Ka ndodhur gabim ne krijimin e tabeles Forumi!");
     }
+	
+	public function create_table_Galeria() {
+        $sql = "CREATE TABLE galeria(tblID integer PRIMARY KEY AUTO_INCREMENT, FotoPath varchar(100), FotoID integer)";
+        return $this->execute_msg($sql,
+            "U krijuar tabela Galeria",
+            "Ka ndodhur gabim ne krijimin e tabeles Galeria!");
+    }
+	
+	public function drop_table_Galeria() {
+        $sql = "DROP TABLE galeria";
+        return $this->execute_msg($sql,
+            "U drop tabela Galeria",
+            "Ka ndodhur gabim ne drop te tabeles Galeria!");
+    }
 }
 
 class db_connector {
@@ -113,7 +129,7 @@ class db_connector {
 
     protected function execute_msg($sql, $message_ok, $message_error)
     {
-        if (execute($sql)) {
+        if ($this->execute($sql)) {
             return $message_ok;
         } else {
             return $message_error;

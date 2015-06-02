@@ -1,5 +1,6 @@
 <?php
 require_once("../resources/config.php");
+require(databaza);
 
 $header_titulli = "Ballina";
 $css_includes = "css/site.css";
@@ -26,41 +27,24 @@ require(templates_header);
 ?>
 
 <section class="permbajtje">
-    <div class="row">
-        <div class="col">
-            <img src="http://mw2.google.com/mw-panoramio/photos/medium/27177231.jpg" />
-        </div>
-        <div class="col">
-            <img src="http://static.panoramio.com/photos/large/25754660.jpg" />
-        </div>
-        <div class="col">
-            <img src="http://mw2.google.com/mw-panoramio/photos/medium/25754826.jpg" />
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col">
-            <img src="http://farm7.static.flickr.com/6151/6264375600_c0b9aff789_b.jpg" />
-        </div>
-        <div class="col">
-            <img src="http://www.shkendijatravel.com/wp-content/uploads/2014/12/Vlora-WATERFRONT-No.10_COVER-PHOTO.jpg" />
-        </div>
-        <div class="col">
-            <img src="http://upload.wikimedia.org/wikipedia/de/2/2a/Vlora_Stadt.jpg" />
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col">
-            <img src="http://butrint.com/images/howto/02/Saranda_view.jpg" />
-        </div>
-        <div class="col">
-            <img src="http://www.visitsaranda.com/blog/wp-content/uploads/2011/04/another-amazing-lukove-shot.jpg" />
-        </div>
-        <div class="col">
-            <img src="http://www.finikas-lines.com/sites/default/files/img/saranda.jpg" />
-        </div>
-    </div>
+<?php 
+	$db = new repository;
+	$rez = $db->galeria;
+	$numrifotove = count($rez);
+	foreach ($rez as $fotoGal) {
+		if ( $fotoGal['FotoID'] % 3 == 1 || $fotoGal['FotoID'] == 1 )
+		{
+			echo '<div class="row">';
+		}
+		echo '<div class="col">';
+		echo '<img src="../img/content/' . $fotoGal['FotoPath'] . '" />';
+		echo "</div>";
+		if ( $fotoGal['FotoID'] % 3 == 0 || $fotoGal['FotoID'] == $numrifotove )
+			{
+				echo "</div>"; 
+			}
+	}
+ ?>
 </section>
 
 <?php require(templates_footer); ?>
