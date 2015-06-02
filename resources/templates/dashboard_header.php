@@ -8,7 +8,12 @@ if (!isset($_SESSION['Username']) || !isset($_SESSION['Emri']) || !isset($_SESSI
 
 function indent($level)
 {
-  return "\r\n" . str_repeat(" ", "$level");
+    return "\r\n" . str_repeat(" ", "$level");
+}
+
+function setClass(&$parametri)
+{
+    $parametri = 'class="current"';
 }
 ?>
 <!DOCTYPE html>
@@ -18,46 +23,42 @@ function indent($level)
         <?php if (isset($header_titulli)) echo "  " . $header_titulli . "\r\n"; ?>
     </title>
     <?php
-if (isset($script_includes))
-{
-  if (is_array($script_includes))
-  {
-    foreach ($script_includes as $src)
+    if (isset($script_includes))
     {
-      echo "\r\n<script src=\"$src\"></script>";
+        if (is_array($script_includes))
+        {
+            foreach ($script_includes as $src)
+            {
+                echo "\r\n<script src=\"$src\"></script>";
+            }
+        }
+        elseif (is_string($script_includes))
+        {
+            echo "\r\n<script src=\"$script_includes\"></script>";
+        }
     }
-  }
-  elseif (is_string($script_includes))
-  {
-    echo "\r\n<script src=\"$script_includes\"></script>";
-  }
-}
-if (isset($header_script))
-{
-  echo "\r\n<script>\r\n".$header_script."\r\n</script>\r\n";
-}
-// Merr includes nga array ose string $css_includes
-if (isset($css_includes))
-{
-  if (is_array($css_includes))
-  {
-    foreach ($css_includes as $href)
+    if (isset($header_script))
     {
-      echo "\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"$href\">";
+        echo "\r\n<script>\r\n".$header_script."\r\n</script>\r\n";
     }
-  }
-  elseif (is_string($css_includes))
-  {
-    echo "\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"$css_includes\">";
-  }
-}
+    // Merr includes nga array ose string $css_includes
+    if (isset($css_includes))
+    {
+        if (is_array($css_includes))
+        {
+            foreach ($css_includes as $href)
+            {
+                echo "\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"$href\">";
+            }
+        }
+        elseif (is_string($css_includes))
+        {
+            echo "\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"$css_includes\">";
+        }
+    }
 
-echo "\r\n";
-?>
-
-    <style>
-        <?php if (isset($header_style)) echo $header_style; ?>
-    </style>
+    echo "\r\n";
+    if (isset($header_style)) echo "<style>$header_style</style>"; ?>
 </head>
 
 <body>
@@ -66,35 +67,41 @@ echo "\r\n";
             <a href="../index.php" style="position: fixed; left: 35px; top: 16px; color: white">Home</a>
         </div>
         <div class="dashboard-sidebar">
-            <nav>
-                <ul class="menu"><?php
-if($_SESSION['Prioriteti'] == "Admin") {
-    $linqet = "dashboard_links_admin";
-} else {
-    $linqet = "dashboard_links_user";
-}
-foreach ($config[$linqet] as $emri => $linku)
-{
-  if (is_string($linku))
-  {
-    echo indent(6) . "<li><a href=\"$linku\">$emri</a></li>";
-  }
-  else
-  {
-    echo indent(6) . "<li>";
-    echo indent(8) . "<a>$emri <span class=\"shigjeta\">&#9660;</span></a>";
-    echo indent(8) . "<ul>";
-    foreach ($linku as $nen_emri => $nen_linku)
-    {
-      echo indent(10) . "<li><a href=\"$nen_linku\">$nen_emri</a>";
-    }
-    echo indent(8) . "</ul>";
-    echo indent(6) . "</li>";
-  }
-}
+            <nav class="menu">
+                <ul><?php
+                    if($_SESSION['Prioriteti'] == "Admin") {
+                        $linqet = "dashboard_links_admin";
+                    } else {
+                        $linqet = "dashboard_links_user";
+                    }
 
-echo "\r\n";
-?>
+                    $self = substr($_SERVER["PHP_SELF"], strlen("/menaxhimi/"));
+                    foreach ($config[$linqet] as $emri => $linku)
+                    {
+                        $current = "";
+                        if (is_string($linku))
+                        {
+                            if ($linku == $self) setClass($current);
+                            echo indent(6) . "<li><a $current href=\"$linku\">$emri</a></li>";
+                        }
+                        else
+                        {
+                            echo indent(6) . "<li class=\"kategori\">";
+                            echo indent(8) . "<p>$emri</p>";
+                            echo indent(8) . "<ul>";
+                            foreach ($linku as $nen_emri => $nen_linku)
+                            {
+                                $current = "";
+                                if ($nen_linku == $self) setClass($current);
+                                echo indent(10) . "<li><a $current href=\"$nen_linku\">$nen_emri</a>";
+                            }
+                            echo indent(8) . "</ul>";
+                            echo indent(6) . "</li>";
+                        }
+                    }
+
+                    echo "\r\n";
+                    ?>
                 </ul>
             </nav>
         </div>
