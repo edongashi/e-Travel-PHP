@@ -21,6 +21,11 @@ if (isset($_POST['dropDB']) && ($_SERVER['REQUEST_METHOD'] == "POST")) {
 if (isset($_POST['createUser']) && ($_SERVER['REQUEST_METHOD'] == "POST")) {
     $db = new db_manager;
     $rez = $db->create_table_User();
+	$salt1 = "2%a@*/";
+    $salt2 = "&9o?>";
+	$passi = "admin";
+    $pass = sha1("$salt1$passi$salt2");
+    $db->execute("Insert into user(Username,Password,Emri,Mbiemri,Prioriteti) Values (%s,%s,%s,%s,%s)", "admin", $pass, "Admin", "Admin", "Admin");
 	echo $rez;
 }
 
