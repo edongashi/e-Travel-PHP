@@ -141,34 +141,3 @@ input[type=text]:hover,
     .tabela tbody tr:nth-child(odd) {
         background: #fafafa;
     }
-
-.lokacion-mbajtesi {
-    margin: 10px 20px -15px 0;
-    border: 2px solid #e3e3e3;
-    overflow: auto;
-}
-
-.lokacion-foto {
-    float: left;
-}
-
-.lokacion-foto2 {
-    float: left;
-    margin-left: 10px;
-    margin-top: 5px;
-}
-
-    .lokacion-foto img {
-        display: block;
-    }
-
-.lokacion-permbajtja {
-    margin-top: 28px;
-    margin-left: 300px;
-}
-
-.lokacion-titulli {
-    font-weight: bold;
-    font-size: 250%;
-    margin-bottom: 15px;
-}
