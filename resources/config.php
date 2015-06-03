@@ -96,12 +96,13 @@ $config = array(
             "Autobus" => "regjistro_udhetim_bus.php",
             "Aeroplan" => "regjistro_udhetim_aeroplan.php",
         ),
+		"Menaxhimi" => array(
         "Shto lokacion" => "regjistro_lokacione.php",
 		"Shto foto ne galeri" => "regjistro_fotoGaleri.php",
         "Menaxho User" => "menaxho_user.php",
         "Menaxho databazen" => "menaxhoDB.php",
         "Vendos ngjyren" => "ngjyra.php",
-		"Logout" => "../logout.php"
+		)
     ),
     "dashboard_links_user" => array(
         "Ballina" => "index.php",
@@ -109,9 +110,10 @@ $config = array(
           "Rezervim i ri" => "rezervim_iri.php",
           "Shfaq rezervimet" => "shfaq_rezervimet.php"
         ),
+		"Menaxhimi" => array(
         "Menaxho User" => "menaxho_user.php",
         "Vendos ngjyren" => "ngjyra.php",
-        "Logout" => "../logout.php"
+		)
     )
 );
 

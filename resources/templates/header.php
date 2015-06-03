@@ -71,9 +71,9 @@ function indent($level)
         <div style="position: absolute; right: 10px; top: 10px">
             <?php
             if (isset($_SESSION['Username'])) {
-                echo $_SESSION['Username'] . ' | <a href="/menaxhimi/index.php">Panel</a> | <a href="logout.php">Log Out</a>';
+                echo $_SESSION['Username'] . ' | <a href="/menaxhimi/index.php">Panel</a> | <a href="logout.php">Log out</a>';
             } else {
-                echo '<a href="login.php">Log In</a>';
+                echo '<a href="login.php">Log in</a>';
             } ?>
         </div>
         <header style="padding-top: 10px;">

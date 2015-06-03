@@ -64,7 +64,12 @@ function setClass(&$parametri)
 <body>
     <div class="page-wrap">
         <div class="dashboard-header">
-            <a href="../index.php" style="position: fixed; left: 35px; top: 16px; color: white">Home</a>
+            <h3 style="position: fixed; left: 35px; top: 16px; color: white">Menaxhimi</h3>
+			<div style="position: absolute; right: 10px; top: 10px">
+            <?php
+                echo $_SESSION['Username'] . ' | <a href="/index.php">Home</a> | <a href="/logout.php">Log out</a>';
+            ?>
+        </div>
         </div>
         <div class="dashboard-sidebar">
             <nav class="menu">
