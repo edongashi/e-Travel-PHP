@@ -1,6 +1,10 @@
 <?php
 require_once("../resources/config.php");
 
+if (!isset($_SESSION)) {
+    session_start();
+}
+
 require(databaza);
 $db = new repository;
 
@@ -13,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['komenti']))
         $komentuesi = $_SESSION['Username'];
         $db->execute("Insert Into forumi(ChatID, Komentuesi, Komenti, Data) values (%d,%s,%s, Now())", $_GET["id"], $komentuesi, $komenti);
         header('Location: /lokacionet.php?id='. $_GET['id']);
-        exit;
+	    exit;
     }
 }
 
