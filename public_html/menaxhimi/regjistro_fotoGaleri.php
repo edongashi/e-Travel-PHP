@@ -1,16 +1,5 @@
 <?php
 require_once("../../resources/config.php");
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-    if ($_POST['numri_rendor'] == "" || $_POST['foto_path'] == "" ) {
-        $error_msg = htmlentities("Ploteso te gjitha fushat!");
-		die();
-    }
-}
-?>
-
-<?php
 require_once("../../resources/config.php");
 
 $header_titulli = "Regjistro foto";
