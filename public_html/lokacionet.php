@@ -34,30 +34,32 @@ require(templates_header);
 ?>
 
 <section class="permbajtje">
+    <h1>Lokacionet</h1>
     <?php
 	if (!isset($_GET["id"]))
 	{
         $rows = $db->lokacionet;
         foreach ($rows as $rreshti) {
-            echo "<div class='padded'>";
+            echo "<section style='padding: 12px; margin-top: 20px; border: 1px solid #ccc'>";
+            echo "<form method='GET' action='" . $_SERVER["PHP_SELF"] . "'>";
             if (file_exists("img/content/" . $rreshti['Foto'])) {
-            
+                echo "<img src='img/content/" . $rreshti['Foto'] . "' style='float:left; margin: 0 15px 5px 0' width='200px;' />";
             }
-			echo "<div class='lokacion-foto'><img src='img/content/	" .  $rreshti['Foto'] .  "' width='300px;'></div>
-			<div class='lokacion-permbajtja' style='margin-left:320px;'>
-			<h1 class='lokacion-titulli'>" . $rreshti['Vendi'] . "</h1> ";
-			if (strlen($rreshti['Pershkrimi']) > 260) {
-				echo substr($rreshti['Pershkrimi'], 0, 260);
-				echo "...";
-			} else {
+            
+            echo "<h1 style='display: inline-block; margin-top: 5px'>" . $rreshti['Vendi'] . "</h1>";
+            echo "<p class='padded'>";
+            if (strlen($rreshti['Pershkrimi']) > 260) {
+                echo substr($rreshti['Pershkrimi'], 0, 260);
+                echo "...";
+            } else {
                 echo $rreshti['Pershkrimi'];
             }
-
-			echo "</div></div>";
-			echo "
-			<form class='form' method='GET' action=''>
-			<button style='margin-left:580px; width:200px;' class='button' type='submit' name='id' value=" . $rreshti['Lid'] .">Lexo me shume</button>
-			</form>";
+            echo "</p>";
+            
+			echo "<div style='text-align: right'><button class='button button-small' type='submit' name='id' value=" . $rreshti['Lid'] . ">Lexo me shume</button></div>";
+            echo "</form>";
+            echo "<div style='clear: both'></div>";
+            echo "</section>";
 		}
 	} else {
 		$rreshti = $db->get_data("SELECT * FROM lokacione WHERE Lid=%d", $_GET['id']);

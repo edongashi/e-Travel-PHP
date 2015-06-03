@@ -55,54 +55,73 @@ require(templates_header);
 <section class="permbajtje">
     <div id="slideshow" style="height: 300px">
         <div class="item1">
-            <img width="960" height="300" src="/img/content/slide1.jpg">
+            <img style="width: 100%" src="/img/content/slide1.jpg">
         </div>
         <div class="item2">
-            <img width="960" height="300" src="/img/content/slide2.jpg">
+            <img style="width: 100%" src="/img/content/slide2.jpg">
         </div>
         <div class="item3">
-            <img width="960" height="300" src="/img/content/slide3.jpg">
+            <img style="width: 100%" src="/img/content/slide3.jpg">
         </div>
     </div>
-    <div>
-        <h3>5 Udhetimet e ardhshme Autobus</h3>
-        <form method='Post' action='rezervo_bus.php'><input type='hidden' id='udhetimiId' name='udhetimiId'>
-        <table class='tabela'cellspacing='0'> <thead><th align='left'>Prej</th><th align='left'>Deri</th><th align='left'>Data</th><th style='width: auto;'></th></thead>
-            <?php           
+    <section class="padded">
+        <h3 class="padded">5 Udhetimet e ardhshme Autobus</h3>
+        <form method='Post' action='rezervo_bus.php'>
+            <input type='hidden' id='udhetimiId' name='udhetimiId'>
+            <table class='tabela' cellspacing='0'>
+                <thead>
+                    <th align='left'>Prej</th>
+                    <th align='left'>Deri</th>
+                    <th align='left'>Data</th>
+                    <th style='width: auto;'></th>
+                </thead>
+                <?php           
                 $rez = $db->get_data("Select * From udhetimetBus Where Data >= Now() order by Data Limit 5");
                 
                 foreach ($rez as $rreshti) {
                     echo "<tr><td>".$rreshti['Prej']."</td><td>".$rreshti['Deri']."</td><td>".$rreshti['Data']."</td><td style='text-align: center'>"
-                        . "<input type='submit' value='Rezervo' class='button button-small id-submit' id='id_".$rreshti['Rid']."'></td></tr>";
+                    . "<input type='submit' value='Rezervo' class='button button-small id-submit' id='id_".$rreshti['Rid']."'></td></tr>";
                 }
-            ?>
-        </table>
+                ?>
+            </table>
         </form>
-    </div>
-    <div>
-        <h3>5 Udhetimet e ardhshme Aeroplan</h3>
-        <form method='Post' action='rezervo_aeroplan.php'><input type='hidden' id='udhetimiId' name='udhetimiId'>
-        <table class='tabela'cellspacing='0'> <thead><th align='left'>Prej</th><th align='left'>Deri</th><th align='left'>Data</th><th style='width: auto;'></th></thead>
-            <?php 
+    </section>
+    <section class="padded">
+        <h3 class="padded">5 Udhetimet e ardhshme Aeroplan</h3>
+        <form method='Post' action='rezervo_aeroplan.php'>
+            <input type='hidden' id='udhetimiId' name='udhetimiId'>
+            <table class='tabela' cellspacing='0'>
+                <thead>
+                    <th align='left'>Prej</th>
+                    <th align='left'>Deri</th>
+                    <th align='left'>Data</th>
+                    <th style='width: auto;'></th>
+                </thead>
+                <?php 
                 $rez = $db->get_data("Select * From udhetimetAeroplan Where Data >= Now() order by Data Limit 5");
                 
                 foreach ($rez as $rreshti) {
                     echo "<tr><td>".$rreshti['Prej']."</td><td>".$rreshti['Deri']."</td><td>".$rreshti['Data']."</td><td style='text-align: center'>"                       
-                        . "<input type='submit' value='Rezervo' class='button button-small id-submit' id='id_".$rreshti['Rid']."'></td></tr>";
+                    . "<input type='submit' value='Rezervo' class='button button-small id-submit' id='id_".$rreshti['Rid']."'></td></tr>";
                 }
-            ?>
-        </table>
+                ?>
+            </table>
         </form>
-    </div>
-    <div>
-        <h3>3 Lokacione random</h3>
+    </section>
+    <section class="padded">
+        <h3 class="padded">3 Lokacione Random</h3>
         <?php
-            $rez = $db->get_data("Select * From lokacione Where Reklam = 1 Order By rand() Limit 3");
-            foreach ($rez as $rreshti) {
-                echo "<h4>".$rreshti['Vendi']."</h4><br>";
-            }
+        function cmp($a, $b) {
+            return strcmp($a["Vendi"], $b["Vendi"]);
+        }        
+        
+        $rez = $db->get_data("Select * From lokacione Where Reklam = 1 Order By rand() Limit 3");
+        usort($rez, "cmp");
+        foreach ($rez as $rreshti) {
+            echo "<a style='display: block; margin-top: 5px' href='lokacionet.php?id=" . $rreshti["Lid"] . "'>" . $rreshti['Vendi'] . "</a>";
+        }
         ?>
-    </div>
+    </section>
 </section>
 
 <?php require(templates_footer); ?>
