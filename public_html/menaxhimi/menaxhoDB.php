@@ -29,9 +29,21 @@ if (isset($_POST['createUser']) && ($_SERVER['REQUEST_METHOD'] == "POST")) {
 	echo $rez;
 }
 
+if (isset($_POST['dropUser']) && ($_SERVER['REQUEST_METHOD'] == "POST")) {
+    $db = new db_manager;
+    $rez = $db->drop_table_User();
+	echo $rez;
+}
+
 if (isset($_POST['createUdhetimetBus']) && ($_SERVER['REQUEST_METHOD'] == "POST")) {
     $db = new db_manager;
     $rez = $db->create_table_UdhetimetBus();
+	echo $rez;
+}
+
+if (isset($_POST['dropUdhetimetBus']) && ($_SERVER['REQUEST_METHOD'] == "POST")) {
+    $db = new db_manager;
+    $rez = $db->drop_table_UdhetimetBus();
 	echo $rez;
 }
 
@@ -41,27 +53,57 @@ if (isset($_POST['createUdhetimetAeroplan']) && ($_SERVER['REQUEST_METHOD'] == "
 	echo $rez;
 }
 
+if (isset($_POST['dropUdhetimetAeroplan']) && ($_SERVER['REQUEST_METHOD'] == "POST")) {
+    $db = new db_manager;
+    $rez = $db->drop_table_UdhetimetAeroplan();
+	echo $rez;
+}
+
 if (isset($_POST['createLokacionet']) && ($_SERVER['REQUEST_METHOD'] == "POST")) {
     $db = new db_manager;
     $rez = $db->create_table_Lokacione();
 	echo $rez;
 }
 
-if (isset($_POST['regjistroBus']) && ($_SERVER['REQUEST_METHOD'] == "POST")) {
+if (isset($_POST['dropLokacionet']) && ($_SERVER['REQUEST_METHOD'] == "POST")) {
+    $db = new db_manager;
+    $rez = $db->drop_table_Lokacione();
+	echo $rez;
+}
+
+if (isset($_POST['createRezervoBus']) && ($_SERVER['REQUEST_METHOD'] == "POST")) {
     $db = new db_manager;
     $rez = $db->create_table_RezervoBus();
 	echo $rez;
 }
 
-if (isset($_POST['regjistroAeroplan']) && ($_SERVER['REQUEST_METHOD'] == "POST")) {
+if (isset($_POST['dropRezervoBus']) && ($_SERVER['REQUEST_METHOD'] == "POST")) {
+    $db = new db_manager;
+    $rez = $db->drop_table_RezervoBus();
+	echo $rez;
+}
+
+if (isset($_POST['createRezervoAeroplan']) && ($_SERVER['REQUEST_METHOD'] == "POST")) {
     $db = new db_manager;
     $rez = $db->create_table_RezervoAeroplan();
+	echo $rez;
+}
+
+if (isset($_POST['dropRezervoAeroplan']) && ($_SERVER['REQUEST_METHOD'] == "POST")) {
+    $db = new db_manager;
+    $rez = $db->drop_table_RezervoAeroplan();
 	echo $rez;
 }
 
 if (isset($_POST['createForumi']) && ($_SERVER['REQUEST_METHOD'] == "POST")) {
     $db = new db_manager;
     $rez = $db->create_table_Forumi();
+	echo $rez;
+}
+
+if (isset($_POST['dropForumi']) && ($_SERVER['REQUEST_METHOD'] == "POST")) {
+    $db = new db_manager;
+    $rez = $db->drop_table_Forumi();
 	echo $rez;
 }
 
@@ -94,7 +136,7 @@ if (isset($_POST['dropGaleria']) && ($_SERVER['REQUEST_METHOD'] == "POST")) {
         <input class="button button-small" type="submit" value="Krijo tabelen User" name="createUser">
     </form>
 	<form style="float:right" class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-        <input class="button button-small" type="submit" value="Fshije tabelen User" name="createUser">
+        <input class="button button-small" type="submit" value="Fshije tabelen User" name="dropUser">
     </form>
 	</div>
 	
@@ -104,7 +146,7 @@ if (isset($_POST['dropGaleria']) && ($_SERVER['REQUEST_METHOD'] == "POST")) {
         <input class="button button-small" type="submit" value="Krijo tabelen UdhetimetBus" name="createUdhetimetBus">
     </form>
 	<form style="float:right" class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-        <input class="button button-small" type="submit" value="Fshije tabelen UdhetimetBus" name="createUdhetimetBus">
+        <input class="button button-small" type="submit" value="Fshije tabelen UdhetimetBus" name="dropUdhetimetBus">
     </form>
 	</div>
 	
@@ -114,7 +156,7 @@ if (isset($_POST['dropGaleria']) && ($_SERVER['REQUEST_METHOD'] == "POST")) {
         <input class="button button-small" type="submit" value="Krijo tabelen UdhetimetAeroplan" name="createUdhetimetAeroplan">
     </form>
 	<form style="float:right" class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-        <input class="button button-small" type="submit" value="Fshije tabelen UdhetimetAeroplan" name="createUdhetimetAeroplan">
+        <input class="button button-small" type="submit" value="Fshije tabelen UdhetimetAeroplan" name="dropUdhetimetAeroplan">
     </form>
 	</div>
 	
@@ -124,27 +166,27 @@ if (isset($_POST['dropGaleria']) && ($_SERVER['REQUEST_METHOD'] == "POST")) {
         <input class="button button-small" type="submit" value="Krijo tabelen Lokacionet" name="createLokacionet">
     </form>
 	<form style="float:right" class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-        <input class="button button-small" type="submit" value="Fshije tabelen Lokacionet" name="createLokacionet">
+        <input class="button button-small" type="submit" value="Fshije tabelen Lokacionet" name="dropLokacionet">
     </form>
 	</div>
 	
 	
 	<div style="width: 800px">
     <form style="float:left" class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-        <input class="button button-small" type="submit" value="Krijo tabelen Regjistro Bus" name="regjistroBus">
+        <input class="button button-small" type="submit" value="Krijo tabelen RezervoBus" name="createRezervoBus">
     </form>
 	<form style="float:right" class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-        <input class="button button-small" type="submit" value="Fshije tabelen Regjistro Bus" name="regjistroBus">
+        <input class="button button-small" type="submit" value="Fshije tabelen RezervoBus" name="dropRezervoBus">
     </form>
 	</div>
 	
 	
 	<div style="width: 800px">
     <form style="float:left" class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-        <input class="button button-small" type="submit" value="Krijo tabelen Regjistro Aeroplan" name="regjistroAeroplan">
+        <input class="button button-small" type="submit" value="Krijo tabelen RezervoAeroplan" name="createRezervoAeroplan">
     </form>
 	<form style="float:right" class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-        <input class="button button-small" type="submit" value="Fshije tabelen Regjistro Aeroplan" name="regjistroAeroplan">
+        <input class="button button-small" type="submit" value="Fshije tabelen RezervoAeroplan" name="dropRezervoAeroplan">
     </form>
 	</div>
 	
@@ -154,7 +196,7 @@ if (isset($_POST['dropGaleria']) && ($_SERVER['REQUEST_METHOD'] == "POST")) {
         <input class="button button-small" type="submit" value="Krijo tabelen Forumi" name="createForumi">
     </form>
 	<form style="float:right" class="center form-small" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-        <input class="button button-small" type="submit" value="Fshije tabelen Forumi" name="createForumi">
+        <input class="button button-small" type="submit" value="Fshije tabelen Forumi" name="dropForumi">
     </form>
 	</div>
 	

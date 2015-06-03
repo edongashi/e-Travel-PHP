@@ -48,12 +48,26 @@ class db_manager extends db_connector {
             "U krijuar tabela User",
             "Ka ndodhur gabim ne krijimin e tabeles User!");
     }
+    
+    public function drop_table_User() {
+        $sql = "DROP TABLE user";
+        return $this->execute_msg($sql,
+            "Tabela User eshte fshire me sukses",
+            "Ka ndodhur gabim ne fshirjen e tabeles User!");
+    }
 
     public function create_table_UdhetimetBus() {
         $sql = "CREATE TABLE udhetimetBus(Rid integer PRIMARY KEY AUTO_INCREMENT, Prej varchar(50), Deri varchar(50), Ulese integer, Data datetime, Cmimi integer)";
         return $this->execute_msg($sql,
             "U krijuar tabela UdhetimetBus",
             "Ka ndodhur gabim ne krijimin e tabeles UdhetimetBus!");
+    }
+    
+    public function drop_table_UdhetimetBus() {
+        $sql = "DROP TABLE udhetimetBus";
+        return $this->execute_msg($sql,
+            "Tabela UdhetimetBus eshte fshire me sukses",
+            "Ka ndodhur gabim ne fshirjen e tabeles UdhetimetBus!");
     }
 
     public function create_table_RezervoBus() {
@@ -62,12 +76,26 @@ class db_manager extends db_connector {
             "U krijuar tabela Rezervo Bus",
             "Ka ndodhur gabim ne krijimin e tabeles Rezervo Bus!");
     }
+    
+    public function drop_table_RezervoBus() {
+        $sql = "DROP TABLE rezervoBus";
+        return $this->execute_msg($sql,
+            "Tabela RezervoBus eshte fshire me sukses",
+            "Ka ndodhur gabim ne fshirjen e tabeles RezervoBus!");
+    }
 
     public function create_table_UdhetimetAeroplan() {
         $sql = "CREATE TABLE udhetimetAeroplan(Rid integer PRIMARY KEY AUTO_INCREMENT, Prej varchar(50), Deri varchar(50), Ulese integer, Data datetime, Cmimi integer)";
         return $this->execute_msg($sql,
             "U krijuar tabela UdhetimetAeroplan",
             "Ka ndodhur gabim ne krijimin e tabeles UdhetimetAeroplan!");
+    }
+    
+    public function drop_table_UdhetimetAeroplan() {
+        $sql = "DROP TABLE udhetimetAeroplan";
+        return $this->execute_msg($sql,
+            "Tabela UdhetimetAeroplan eshte fshire me sukses",
+            "Ka ndodhur gabim ne fshirjen e tabeles UdhetimetAeroplan!");
     }
 
     public function create_table_RezervoAeroplan() {
@@ -76,6 +104,13 @@ class db_manager extends db_connector {
             "U krijuar tabela Rezervo Aeroplan",
             "Ka ndodhur gabim ne krijimin e tabeles Rezervo Aeroplan!");
     }
+    
+    public function drop_table_RezervoAeroplan() {
+        $sql = "DROP TABLE rezervoAeroplan";
+        return $this->execute_msg($sql,
+            "Tabela RezervoAeroplan eshte fshire me sukses",
+            "Ka ndodhur gabim ne fshirjen e tabeles RezervoAeroplan!");
+    }
 
     public function create_table_Lokacione() {
         $sql = "CREATE TABLE lokacione(Lid integer PRIMARY KEY AUTO_INCREMENT, Vendi varchar(50), Pershkrimi varchar(10000), Foto varchar(50), Reklam boolean not null, Mjeti varchar(10))";
@@ -83,26 +118,40 @@ class db_manager extends db_connector {
             "U krijuar tabela Lokacionet",
             "Ka ndodhur gabim ne krijimin e tabeles Lokacionet!");
     }
+    
+    public function drop_table_Lokacione() {
+        $sql = "DROP TABLE lokacione";
+        return $this->execute_msg($sql,
+            "Tabela Lokacione eshte fshire me sukses",
+            "Ka ndodhur gabim ne fshirjen e tabeles Lokacione!");
+    }
 
     public function create_table_Forumi() {
-        $sql = "CREATE TABLE forumi(tblID integer PRIMARY KEY AUTO_INCREMENT, ChatID integer, Komentuesi varchar(50), Komenti varchar(300))";
+        $sql = "CREATE TABLE forumi(tblID integer PRIMARY KEY AUTO_INCREMENT, ChatID integer, Komentuesi varchar(50), Komenti varchar(300), Data Datetime)";
         return $this->execute_msg($sql,
             "U krijuar tabela Forumi",
             "Ka ndodhur gabim ne krijimin e tabeles Forumi!");
     }
+    
+    public function drop_table_Forumi() {
+        $sql = "DROP TABLE forumi";
+        return $this->execute_msg($sql,
+            "Tabela Forumi eshte fshire me sukses",
+            "Ka ndodhur gabim ne fshirjen e tabeles Forumi!");
+    }
 	
-	public function create_table_Galeria() {
+    public function create_table_Galeria() {
         $sql = "CREATE TABLE galeria(tblID integer PRIMARY KEY AUTO_INCREMENT, FotoPath varchar(100), FotoID integer)";
         return $this->execute_msg($sql,
             "U krijuar tabela Galeria",
             "Ka ndodhur gabim ne krijimin e tabeles Galeria!");
     }
 	
-	public function drop_table_Galeria() {
+    public function drop_table_Galeria() {
         $sql = "DROP TABLE galeria";
         return $this->execute_msg($sql,
-            "U drop tabela Galeria",
-            "Ka ndodhur gabim ne drop te tabeles Galeria!");
+            "Tabela Galeria eshte fshire me sukses",
+            "Ka ndodhur gabim ne fshirjen e tabeles Galeria!");
     }
 }
 
