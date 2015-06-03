@@ -52,11 +52,19 @@ function indent($level)
 
     echo "\r\n";
     if (isset($_COOKIE["ngjyra"])) {
+        $ngjyra = $_COOKIE["ngjyra"];
+        $stili = "
+                a { color: $ngjyra; }
+                .button { background: $ngjyra }
+                .button:hover { background: $ngjyra }
+                .button:active { background : $ngjyra }
+            ";
+        
         if (isset($header_style)) {
-            $header_style .= "\r\na { color: " . $_COOKIE["ngjyra"] . "; }";
+            $header_style .= "\r\n$stili";
         }
         else {
-            $header_style = "a { color: " . $_COOKIE["ngjyra"] . "; }";
+            $header_style = "$stili";
         }
     }
     
