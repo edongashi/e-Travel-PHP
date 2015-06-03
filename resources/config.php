@@ -1,5 +1,5 @@
 <?php
-$_DIR = str_replace('\\', '/', __DIR__);
+$_DIR = str_replace('\\', '/', dirname(__FILE__));
 
 function errorLogger($errno, $errstr, $errfile, $errline)
 {
