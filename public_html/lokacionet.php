@@ -34,10 +34,10 @@ require(templates_header);
 ?>
 
 <section class="permbajtje">
-    <h1>Lokacionet</h1>
     <?php
 	if (!isset($_GET["id"]))
 	{
+        echo "<h1>Lokacionet</h1>";
         $rows = $db->lokacionet;
         foreach ($rows as $rreshti) {
             echo "<section style='padding: 12px; margin-top: 20px; border: 1px solid #ccc'>";
@@ -140,7 +140,7 @@ require(templates_header);
 		$rreshti_forum = $db->get_data("SELECT * FROM forumi WHERE ChatID=%d Order By Data desc", $_GET["id"]);
 		foreach ($rreshti_forum as $rreshti) {
             echo "<div class='padded'>";
-			echo "<h3>" . $rreshti['Komentuesi'] . " (". $rreshti['Data'] ."):</h1>";
+			echo "<h3>" . $rreshti['Komentuesi'] . " (". $rreshti['Data'] .")</h1>";
 			echo "<p style='padding-top: 10px'>" . $rreshti['Komenti'] . "</p>";
             echo "</div><hr />";
 		}
