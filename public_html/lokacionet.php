@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['komenti']))
     } else {
         $komenti = $_POST['komenti'];
         $komentuesi = $_SESSION['Username'];
-        $db->execute("Insert Into forumi(ChatID, Komentuesi, Komenti) values (%d,%s,%s)", $_GET["id"], $komentuesi, $komenti);
+        $db->execute("Insert Into forumi(ChatID, Komentuesi, Komenti, Data) values (%d,%s,%s, Now())", $_GET["id"], $komentuesi, $komenti);
         header('Location: /lokacionet.php?id='. $_GET['id']);
         exit;
     }
@@ -135,10 +135,10 @@ require(templates_header);
     <hr />
     <?php       
 		$x = $rreshti;
-		$rreshti_forum = $db->get_data("SELECT * FROM forumi WHERE ChatID=%d", $_GET["id"]);
+		$rreshti_forum = $db->get_data("SELECT * FROM forumi WHERE ChatID=%d Order By Data desc", $_GET["id"]);
 		foreach ($rreshti_forum as $rreshti) {
             echo "<div class='padded'>";
-			echo "<h3>" . $rreshti['Komentuesi'] . " (data):</h1>";
+			echo "<h3>" . $rreshti['Komentuesi'] . " (". $rreshti['Data'] ."):</h1>";
 			echo "<p style='padding-top: 10px'>" . $rreshti['Komenti'] . "</p>";
             echo "</div><hr />";
 		}
