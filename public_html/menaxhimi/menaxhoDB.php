@@ -186,7 +186,7 @@ END;
 END;
     
     $prishtina_pershkrimi = <<<END
-        Prishtina (gjithashtu në shqip: Prishtinë; serbisht: Приштина ose Priština) është kryeqyteti dhe qyteti më i madh i Republikës së Kosovës. 
+        Prishtina (gjithashtu në shqip: Prishtinë) është kryeqyteti dhe qyteti më i madh i Republikës së Kosovës. 
         Qyteti është bashkësi dhe kryeqendra e Qarkut të Prishtinës. Bashkia e Prishtinës ka një popullsi prej 198.214 banorësh sipas regjistrimit 
         të popullsisë së vitit 2011. Aeroporti i Prishtinës pas luftës është përdorur si vendkalimi kufitar më i dendur në Kosovë. Më 15 qershor, 
         Aeroporti ndërkombëtar i Prishtinës është dekorua me ‘Çmimin aeroporti më i mirë 2010’ për aeroportet me mbi një milion udhëtarë për vit. 
@@ -196,7 +196,7 @@ END;
 END;
     
     $ulqin_pershkrim = <<<END
-        Ulqini (mal. Ulcinj dhe Улцињ) është qytet bregdetar në jugun e Malit të Zi, i cili laget nga Deti Adriatik. Është një pikë turistike
+        Ulqini është qytet bregdetar në jugun e Malit të Zi, i cili laget nga Deti Adriatik. Është një pikë turistike
         e rëndësishme dhe qyteti me rrethinën e tij posedon një pasuri të madhe kulturoro-historike dhe natyrore.
         Ulqini është themeluar rreth shekullit V p.e.s. nga Ilirët. Në vitin 163 p.e.s. u pushtua nga Romakët dhe pas ndarjes së perandorisë i takon Bizantit. 
         Gjatë mesjetës ishte nën udhëheqjen sllave dhe pastaj në atë të Balshajve. Në këtë kohë ishte qendër e rëndësishme e pushtuesve të rinjë. 
@@ -220,7 +220,7 @@ END;
     //lokacione reklam
     $db->execute("Insert Into lokacione(Vendi, Pershkrimi, Foto, Reklam, Mjeti) values ('Prishtine','$prishtina_pershkrimi', 'prishtina.jpg', 1, 'Bus')");
     $db->execute("Insert Into lokacione(Vendi, Pershkrimi, Foto, Reklam, Mjeti) values ('Dhermi','$dhermi_pershkrim', 'dhermi.jpg', 1, 'Bus')");
-    $db->execute("Insert Into lokacione(Vendi, Pershkrimi, Foto, Reklam, Mjeti) values ('Sanint Tropez','$santropez_pershkrim', 'santropez.jpg', 1, 'Aeroplan')");
+    $db->execute("Insert Into lokacione(Vendi, Pershkrimi, Foto, Reklam, Mjeti) values ('Saint Tropez','$santropez_pershkrim', 'santropez.jpg', 1, 'Aeroplan')");
     $db->execute("Insert Into lokacione(Vendi, Pershkrimi, Foto, Reklam, Mjeti) values ('Ulqin','$ulqin_pershkrim', 'ulqin.jpg', 1, 'Bus')");
     $db->execute("Insert Into lokacione(Vendi, Pershkrimi, Foto, Reklam, Mjeti) values ('Londer','$londra_pershkrim', 'londer.jpg', 1, 'Aeroplan')");
    

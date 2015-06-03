@@ -65,7 +65,7 @@ function setClass(&$parametri)
     <div class="page-wrap">
         <div class="dashboard-header">
             <h3 style="position: fixed; left: 35px; top: 16px; color: white">Menaxhimi</h3>
-            <div style="position: fixed; right: 10px; top: 16px">
+            <div style="position: fixed; right: 16px; top: 16px">
                 <?php
                 echo "<span style='color: white'>" . $_SESSION['Username'] . " | </span> <a href='/index.php'>Home</a> 
                 <span style='color:white'> | </span> <a href='/logout.php'>Log out</a>";
