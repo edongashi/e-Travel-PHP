@@ -9,7 +9,7 @@ require(templates_header);
 
 if (!isset($_SESSION['Username']) || !isset($_SESSION['Emri']) || !isset($_SESSION['Mbiemri']))
 {
-    header("Location: http://localhost/login.php");
+    header("Location: /login.php");
 }
 
 if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['Konfirmo'])) {

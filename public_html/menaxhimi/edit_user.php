@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['Modifiko'])) {
         $prioriteti = trim($_POST['Prioriteti']);
         
         if($db->execute("Update user set Emri=%s, Mbiemri=%s, Prioriteti=%s Where Username=%s",$emri,$mbiemri,$prioriteti,$username)) {
-            header("Location: http://localhost/menaxhimi/menaxho_user.php");
+            header("Location: /menaxhimi/menaxho_user.php");
         } else {
             $error_msg = htmlentities("Ka ndodhur gabim ne modifikim!");
         }

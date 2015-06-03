@@ -22,12 +22,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['userId'])){
     if(preg_match("/^edit_/", $_POST['userId'])) {
         $Uid = $_POST['userId'];
         $Uid = substr($Uid, 5);
-        header("Location: http://localhost/menaxhimi/edit_user.php?uid=$Uid");
+        header("Location: /menaxhimi/edit_user.php?uid=$Uid");
     } else {
         $Uid = $_POST['userId'];
         $Uid = substr($Uid, 5);
         $db->execute("Delete from user where Uid = %d",$Uid);
-        header("Location: http://localhost/menaxhimi/menaxho_user.php");
+        header("Location: /menaxhimi/menaxho_user.php");
     }
 }
 
