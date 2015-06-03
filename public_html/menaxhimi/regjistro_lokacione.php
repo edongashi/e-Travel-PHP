@@ -60,12 +60,17 @@ require(dashboard_header);
                     <input type="text" name="emri_lokacionit"></td>
             </tr>
             <tr>
-                <td></td><td><input type="radio" name="mjeti" value="Bus" checked>Autobus   <input type="radio" name="mjeti" value="Aeroplan">Aeroplan</td>
-            </tr>
-            <tr>
                 <td></td>
                 <td>
-                    <input type="checkbox" name="reklam" value="1">Reklam</td>
+                    <div style="margin-top: 5px">
+                        <input type="radio" name="mjeti" id="radio_bus" value="Bus" checked>
+                        <label for="radio_bus">Autobus</label>
+                    </div>
+                    <div style="margin-top: 5px">
+                        <input type="radio" name="mjeti" id="radio_aeroplan" value="Aeroplan">
+                        <label for="radio_aeroplan">Aeroplan</label>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td>Foto e Lokacionit:</td>
@@ -76,6 +81,13 @@ require(dashboard_header);
                 <td>Pershkrimi i Lokacionit:</td>
                 <td>
                     <textarea cols="30" rows="8" name="pershkrimi_lokacionit"></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="checkbox" name="reklam" id="chk_reklam" checked>
+                    <label for="chk_reklam">Reklam</label>
+                </td>
             </tr>
             <tr>
                 <td></td>

@@ -51,6 +51,15 @@ function indent($level)
     }
 
     echo "\r\n";
+    if (isset($_COOKIE["ngjyra"])) {
+        if (isset($header_style)) {
+            $header_style .= "\r\na { color: " . $_COOKIE["ngjyra"] . "; }";
+        }
+        else {
+            $header_style = "a { color: " . $_COOKIE["ngjyra"] . "; }";
+        }
+    }
+    
     if (isset($header_style)) echo "<style>$header_style</style>"; ?>
 </head>
 
@@ -69,29 +78,30 @@ function indent($level)
         </div>
         <header style="padding-top: 10px;">
             <nav>
-                <ul class="menu"><?php
-                                 foreach ($config["menu_links"] as $emri => $linku)
-                                 {
-                                     if (is_string($linku))
-                                     {
-                                         echo indent(6) . "<li><a href=\"$linku\">$emri</a></li>";
-                                     }
-                                     else
-                                     {
-                                         echo indent(6) . "<li>";
-                                         echo indent(8) . "<a href=\"#\">$emri <span class=\"shigjeta\">&#9660;</span></a>";
-                                         echo indent(8) . "<ul>";
-                                         foreach ($linku as $nen_emri => $nen_linku)
-                                         {
-                                             echo indent(10) . "<li><a href=\"$nen_linku\">$nen_emri</a>";
-                                         }
-                                         echo indent(8) . "</ul>";
-                                         echo indent(6) . "</li>";
-                                     }
-                                 }
+                <ul class="menu">
+                    <?php
+                    foreach ($config["menu_links"] as $emri => $linku)
+                    {
+                        if (is_string($linku))
+                        {
+                            echo indent(6) . "<li><a href=\"$linku\">$emri</a></li>";
+                        }
+                        else
+                        {
+                            echo indent(6) . "<li>";
+                            echo indent(8) . "<a href=\"#\">$emri <span class=\"shigjeta\">&#9660;</span></a>";
+                            echo indent(8) . "<ul>";
+                            foreach ($linku as $nen_emri => $nen_linku)
+                            {
+                                echo indent(10) . "<li><a href=\"$nen_linku\">$nen_emri</a>";
+                            }
+                            echo indent(8) . "</ul>";
+                            echo indent(6) . "</li>";
+                        }
+                    }
 
-                                 echo "\r\n";
-                                 ?>
+                    echo "\r\n";
+                    ?>
                 </ul>
             </nav>
         </header>

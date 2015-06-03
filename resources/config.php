@@ -100,6 +100,7 @@ $config = array(
 		"Shto foto ne galeri" => "regjistro_fotoGaleri.php",
         "Menaxho User" => "menaxho_user.php",
         "Menaxho databazen" => "menaxhoDB.php",
+        "Vendos ngjyren" => "ngjyra.php",
 		"Logout" => "../logout.php"
     ),
     "dashboard_links_user" => array(
@@ -109,7 +110,8 @@ $config = array(
           "Shfaq rezervimet" => "shfaq_rezervimet.php"
         ),
         "Menaxho User" => "menaxho_user.php",
-	"Logout" => "../logout.php"
+        "Vendos ngjyren" => "ngjyra.php",
+        "Logout" => "../logout.php"
     )
 );
 
