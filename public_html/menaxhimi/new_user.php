@@ -1,7 +1,7 @@
 <?php
 require_once("../../resources/config.php");
 
-$header_titulli = "Menaxho User";
+$header_titulli = "Krijo llogari";
 $css_includes = Array("../css/form.css", "../css/dashboard.css");
 $script_includes = "/js/krijo_llogari.js";
 

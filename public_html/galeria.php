@@ -2,7 +2,7 @@
 require_once("../resources/config.php");
 require(databaza);
 
-$header_titulli = "Ballina";
+$header_titulli = "Galeria";
 $css_includes = "css/site.css";
 $header_style = <<< STYLE
 .row {

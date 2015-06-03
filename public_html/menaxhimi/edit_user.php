@@ -1,7 +1,7 @@
 <?php
 require_once("../../resources/config.php");
 
-$header_titulli = "Menaxho User";
+$header_titulli = "Menaxho user";
 $css_includes = Array("../css/form.css", "../css/dashboard.css");
 
 require(dashboard_header);

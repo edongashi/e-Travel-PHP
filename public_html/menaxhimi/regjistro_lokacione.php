@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <?php
 require_once("../../resources/config.php");
 
-$header_titulli = "Ballina";
+$header_titulli = "Regjistro lokacione";
 $css_includes = Array("../css/form.css", "../css/dashboard.css");
 require(dashboard_header);
 ?>

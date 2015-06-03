@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
     } 
 }
 
-$header_titulli = "Ballina";
+$header_titulli = "Krijo llogari";
 $css_includes = Array("css/form.css", "css/site.css");
 $script_includes = "/js/krijo_llogari.js";
 require(templates_header);

@@ -2,7 +2,7 @@
 require_once("../../resources/config.php");
 
 require library."/databaza.php";
-$header_titulli = "Ballina";
+$header_titulli = "Menaxho databazen";
 $css_includes = Array("../css/dashboard.css", "../css/form.css");
 require(dashboard_header);
 

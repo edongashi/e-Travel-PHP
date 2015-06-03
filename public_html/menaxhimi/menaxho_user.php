@@ -1,7 +1,7 @@
 <?php
 require_once("../../resources/config.php");
 
-$header_titulli = "Menaxho User";
+$header_titulli = "Menaxho llogarin";
 $css_includes = Array("../css/form.css", "../css/dashboard.css");
 $script_includes = jquery;
 $header_script = <<< SCRIPT

@@ -28,7 +28,7 @@ if (isset($_POST['numri_rendor'])) {
 <?php
 require_once("../../resources/config.php");
 
-$header_titulli = "Ballina";
+$header_titulli = "Regjistro foto";
 $css_includes = Array("../css/form.css", "../css/dashboard.css");
 require(dashboard_header);
 ?>

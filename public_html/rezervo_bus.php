@@ -4,6 +4,7 @@ require (databaza);
 
 $css_includes = Array("css/form.css", "css/site.css");
 $script_includes = jquery;
+$header_titulli = "Rezervo bus";
 require(templates_header);
 
 if (!isset($_SESSION['Username']) || !isset($_SESSION['Emri']) || !isset($_SESSION['Mbiemri']))

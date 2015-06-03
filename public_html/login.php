@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 }
 
-$header_titulli = "Ballina";
+$header_titulli = "Login";
 $css_includes = Array("css/form.css", "css/site.css");
 require(templates_header);
 ?>

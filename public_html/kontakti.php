@@ -1,6 +1,6 @@
 <?php
 require_once("../resources/config.php");
-$header_titulli = "Ballina";
+$header_titulli = "Kontakti";
 $css_includes = Array("css/form.css", "css/site.css");
 require(templates_header);
 ?>

@@ -32,7 +32,7 @@ $lokacionet = $db->get_data("Select * From lokacione Where Reklam = 0 and Mjeti 
 <?php
 require_once("../../resources/config.php");
 
-$header_titulli = "Ballina";
+$header_titulli = "Regjistro udhetime-Aeroplan";
 $css_includes = Array("../css/form.css", "../css/dashboard.css");
 require(dashboard_header);
 ?>

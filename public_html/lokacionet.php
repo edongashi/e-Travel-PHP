@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['komenti']))
     }
 }
 
-$header_titulli = "Ballina";
+$header_titulli = "Lokacionet";
 $css_includes = Array("../css/form.css", "../css/site.css");
 $header_style = <<< STYLE
 #googleMap {
