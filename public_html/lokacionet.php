@@ -46,13 +46,13 @@ require(templates_header);
                 echo "<img src='img/content/" . $rreshti['Foto'] . "' style='float:left; margin: 0 15px 5px 0' width='200px;' />";
             }
             
-            echo "<h1 style='display: inline-block; margin-top: 5px'>" . $rreshti['Vendi'] . "</h1>";
+            echo "<h1 style='display: inline-block; margin-top: 5px'>" . htmlentities($rreshti['Vendi']) . "</h1>";
             echo "<p class='padded'>";
             if (strlen($rreshti['Pershkrimi']) > 260) {
-                echo substr($rreshti['Pershkrimi'], 0, 260);
+                echo htmlentities(substr($rreshti['Pershkrimi'], 0, 260));
                 echo "...";
             } else {
-                echo $rreshti['Pershkrimi'];
+                echo htmlentities($rreshti['Pershkrimi']);
             }
             echo "</p>";
             
@@ -72,13 +72,13 @@ require(templates_header);
         
         $rreshti = $rreshti[0];
 		echo "<div class='padded'>
-		        <h1 style='margin-bottom: 15px; font-size: 30px'>" . $rreshti['Vendi'] . "</h1>";
+		        <h1 style='margin-bottom: 15px; font-size: 30px'>" . htmlentities($rreshti['Vendi']) . "</h1>";
         
         if (file_exists("img/content/" . $rreshti['Foto'])) {
             echo "<img src='img/content/" . $rreshti['Foto'] . "' style='margin: 5px 0 10px 15px; float: right; width='280;' />";
         }
         
-        echo "<p style='text-align: justify; line-height: 1.4'> " . $rreshti["Pershkrimi"] . "</p>
+        echo "<p style='text-align: justify; line-height: 1.4'> " . htmlentities($rreshti["Pershkrimi"]) . "</p>
               </div><div style='clear: both'></div>";
     ?>
 
@@ -141,7 +141,7 @@ require(templates_header);
 		foreach ($rreshti_forum as $rreshti) {
             echo "<div class='padded'>";
 			echo "<h3>" . $rreshti['Komentuesi'] . " (". $rreshti['Data'] .")</h1>";
-			echo "<p style='padding-top: 10px'>" . $rreshti['Komenti'] . "</p>";
+			echo "<p style='padding-top: 10px'>" . htmlentities($rreshti['Komenti']) . "</p>";
             echo "</div><hr />";
 		}
 	}
