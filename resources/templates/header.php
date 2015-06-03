@@ -3,7 +3,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
-require_once(__DIR__ . "/../config.php");
+require_once(dirname(__FILE__) . "/../config.php");
 function indent($level)
 {
     return "\r\n" . str_repeat(" ", "$level");

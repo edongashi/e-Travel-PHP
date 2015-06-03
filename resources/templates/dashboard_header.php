@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ . "/../config.php");
+require_once(dirname(__FILE__) . "/../config.php");
 
 session_start();
 if (!isset($_SESSION['Username']) || !isset($_SESSION['Emri']) || !isset($_SESSION['Mbiemri'])) {
