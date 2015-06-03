@@ -37,7 +37,7 @@ require(templates_header);
 			echo '<div class="row">';
 		}
 		echo '<div class="col">';
-		echo '<img src="../img/content/' . $fotoGal['FotoPath'] . '" />';
+		echo '<img src="' . $fotoGal['FotoPath'] . '" />';
 		echo "</div>";
 		if ( $fotoGal['FotoID'] % 3 == 0 || $fotoGal['FotoID'] == $numrifotove )
 			{
