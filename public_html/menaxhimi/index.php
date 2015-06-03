@@ -71,18 +71,6 @@ $db = new repository;
 					$rows = $db->users;
 					echo count($rows);
 				?>
-				<h1>Nr userave online:</h1>
-				<?php
-					echo "1"; #me bo?
-				?>
-				<h1>Nr i guest:</h1>
-				<?php
-					echo "1"; #me bo?
-				?>
-				<h1>Nr i vizitimeve:</h1>
-				<?php
-					echo "1"; #me bo?
-				?>
 			</div>
 		</div>
 </section>
