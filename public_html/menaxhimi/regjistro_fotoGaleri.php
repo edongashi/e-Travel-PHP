@@ -10,7 +10,7 @@ require(dashboard_header);
 <section class="permbajtje">
 
  <h1 class="center">Shto foto ne galeri:</h1>
- <form action="file_upload.php" method="post" enctype="multipart/form-data">
+ <form class="form" action="file_upload.php" method="post" enctype="multipart/form-data">
     <table>
         <?php if (isset($error_msg)) echo "<tr><td colspan='2'><h4 class='error-msg'>$error_msg</h4></td></tr>"; ?>
         <tr>
@@ -22,7 +22,7 @@ require(dashboard_header);
 	    <tr>
             <td>Numri rendor:</td>
 			<td>
-                <input type="text" name="numri_rendor">
+                <input type="number" name="numri_rendor">
 			</td>
         </tr>
 		<tr>
